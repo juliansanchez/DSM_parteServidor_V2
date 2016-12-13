@@ -103,7 +103,7 @@ public static void InitializeData ()
                 usuario1EN.Nombre = "Cliente1Nombre";
                 usuario1EN.Edad = 18;
                 usuario1EN.Fecha_alta = DateTime.Today;
-                usuario1EN.Foto = "esta es la foto";
+                usuario1EN.Foto = @"http://www.webconsultas.com/sites/default/files/styles/encabezado_articulo/public/articulos/perfil-resilencia.jpg?itok=iQzjOtzd";
                 usuario1EN.Bibliografia = "Soy el primer usuario de esta web y parece que puede molar";
                 usuario1EN.Baneado = false;
                 usuario1EN.Contrasenya = "12345";
@@ -114,7 +114,7 @@ public static void InitializeData ()
                 usuario2adminEN.Nombre = "Cliente2Nombre";
                 usuario2adminEN.Edad = 18;
                 usuario2adminEN.Fecha_alta = DateTime.Today;
-                usuario2adminEN.Foto = "esta es la foto";
+                usuario2adminEN.Foto = @"http://www.sintetia.com/wp-content/uploads/2012/05/Foto-perfil.jpg";
                 usuario2adminEN.Bibliografia = "Soy el Admin de esta web y parece que puede molar";
                 usuario2adminEN.Baneado = false;
                 usuario2adminEN.Contrasenya = "1234";
@@ -181,7 +181,7 @@ public static void InitializeData ()
                 //Libro 1 ----PUBLICADO
                 // libro1EN = new LibroEN();
                 libro1EN.Titulo = "El Quijote";
-                libro1EN.Portada = @"http://imagenesdeamorlindas.com/wp-content/uploads/2013/10/imagenes-lindas-de-amor.jpg";
+                libro1EN.Portada = @"http://listas.eleconomista.es/system/lists/000/003/990/medium/quijopor.jpg?1447029044";
                 libro1EN.Descripcion = "Novela de Cervantes";
                 libro1EN.Fecha = DateTime.Today;
                 libro1EN.Publicado = true;
@@ -191,7 +191,7 @@ public static void InitializeData ()
                 /*Libro 2*/
                 // libro2EN = new LibroEN();
                 libro2EN.Titulo = "El Castigo";
-                libro2EN.Portada = @"http://imagenesdeamorlindas.com/wp-content/uploads/2013/10/imagenes-lindas-de-amor.jpg";
+                libro2EN.Portada = @"http://3.bp.blogspot.com/-sTfJtm6oT6g/UXHJg8st8kI/AAAAAAAABEQ/DUBdoSQ9Urw/s1600/castigo_divino_med.jpg";
                 libro2EN.Descripcion = "Novela de Pedrito";
                 libro2EN.Fecha = DateTime.Today;
                 libro2EN.Publicado = true;
@@ -201,7 +201,7 @@ public static void InitializeData ()
                 //Libro 3 ---- De Pago
                 // libro3EN = new PagoEN();
                 libro3EN.Titulo = "Libro de Pago";
-                libro3EN.Portada = @"http://imagenesdeamorlindas.com/wp-content/uploads/2013/10/imagenes-lindas-de-amor.jpg";
+                libro3EN.Portada = @"http://1.bp.blogspot.com/-DjtcEjvGgiU/URhRiN8ae4I/AAAAAAAAB0Y/dgMU3SOCxOk/s1600/Libro-que-sonr%C3%ADe.jpg";
                 libro3EN.Descripcion = "Novela de Cervantes de Pago";
                 libro3EN.Fecha = DateTime.Today;
                 libro3EN.Publicado = true;
@@ -213,7 +213,7 @@ public static void InitializeData ()
 
                 //Libro 4 ----PUBLICADO
                 libro4EN.Titulo = "El Don apacible";
-                libro4EN.Portada = @"http://imagenesdeamorlindas.com/wp-content/uploads/2013/10/imagenes-lindas-de-amor.jpg";
+                libro4EN.Portada = @"https://clubdecatadores.files.wordpress.com/2012/10/el-don-apacible-libro-3-mijac3adl-shc3b3lojov.jpg";
                 libro4EN.Descripcion = "Novela Rusa de Mihayl Sholoyov";
                 libro4EN.Fecha = DateTime.Today;
                 libro4EN.Publicado = true;
