@@ -1,0 +1,72 @@
+﻿@model Entrega1GenNHibernate.EN.GrayLine.UsuarioEN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UsuarioEN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contrasenya)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contrasenya)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Edad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Edad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha_alta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha_alta)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Foto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Foto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bibliografia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bibliografia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Baneado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Baneado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

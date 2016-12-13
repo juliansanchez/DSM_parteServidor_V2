@@ -349,6 +349,7 @@
     <Content Include="Views\Home\_sliderHomePartial.cshtml" />
     <Content Include="Views\Capitulos\_listadoCapituloPartial.cshtml" />
     <Content Include="Views\Libreria\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

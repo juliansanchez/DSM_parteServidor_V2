@@ -25,10 +25,15 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Usuarios/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-      
-            return View();
+            UsuarioCEN cen = new UsuarioCEN();
+            UsuarioEN usuarioEN = new UsuarioEN();
+            //string idString = id.ToString();
+            usuarioEN = cen.VerUsuario(id);
+
+            return View(usuarioEN);
+
         }
 
         //
