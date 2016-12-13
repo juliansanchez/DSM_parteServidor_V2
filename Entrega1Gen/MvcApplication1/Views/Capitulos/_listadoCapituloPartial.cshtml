@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Entrega1GenNHibernate.EN.GrayLine.CapituloEN>
+
+<h3>Capitulos</h3>
+@foreach (var item in Model) {
+<section>
+    <article>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </article>
+    <article>@Html.ActionLink("Details", "Details", new { id = item.Id_capitulo /* id=item.PrimaryKey */ }) </article>
+</section>
+}

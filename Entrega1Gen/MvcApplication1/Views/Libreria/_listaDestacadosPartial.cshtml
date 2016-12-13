@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Entrega1GenNHibernate.EN.GrayLine.LibroEN>
+
+
+<section class="container-fluid" >
+    <section class="row">
+        @foreach (var item in Model)
+        {
+
+
+            <section class="col-sm-12 col-md-6  col-lg-3" style="margin-top:10px;">
+                <a href="@Url.Action("Details","Libreria", new{id = item.Id_libro})" class="thumbnail">
+                    <img src="@Html.DisplayFor(modelItem => item.Portada)">
+                    <div class="caption">
+                        <h3>@Html.DisplayFor(modelItem => item.Titulo)</h3>
+                        <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                      
+                    </div>
+                </a>
+            </section>
+
+
+        }
+    </section>
+</section>
+
+
+  

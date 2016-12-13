@@ -1,5 +1,6 @@
 ﻿using Entrega1GenNHibernate.CEN.GrayLine;
 using Entrega1GenNHibernate.EN.GrayLine;
+using Entrega1GenNHibernate.CP.GrayLine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,23 @@ namespace MvcApplication1.Controllers
         // GET: /Capitulos/
 
         public ActionResult Index(string idLibro)
-        {
-
+        {           
             int id = Int32.Parse(idLibro);
             CapituloCEN cen = new CapituloCEN();
             IEnumerable<CapituloEN> list = cen.BuscarCapitulo(id).ToList();
 
             return View(list);
+
+               /*   int id = Int32.Parse(idLibro);
+               CapituloCP cp = new CapituloCP();
+               //CapituloCEN cen = new CapituloCEN();
+               CapituloEN capituloEN = new CapituloEN();
+               IList<CapituloEN> capitulos = cp.LeerCapitulo(id);
+               //string idString = id.ToString();
+
+               //    capituloEN = cp.LeerCapitulo(id);
+               return View(capitulos);
+               */
 
         }
 
@@ -33,7 +44,17 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            CapituloCEN cen = new CapituloCEN();
+            //CapituloCEN cen = new CapituloCEN();
+            CapituloEN capituloEN = new CapituloEN();
+            capituloEN = cen.VerCapitulo(id);
+            //string idString = id.ToString();
+          
+        //    capituloEN = cp.LeerCapitulo(id);
+            return View(capituloEN);
+
+
+           
         }
 
         //
@@ -52,9 +73,28 @@ namespace MvcApplication1.Controllers
             CapituloCEN cen = new CapituloCEN();
             IEnumerable<CapituloEN> list = cen.BuscarCapitulo(id).ToList();
 
+
+     
             return View(list);
 
         }
+
+
+        // GET: /Capitulos/listadoCapituloPartial/5
+
+        public ActionResult listadoCapituloPartial(string idLibro)
+        {
+            int id = Int32.Parse(idLibro);
+            CapituloCEN cen = new CapituloCEN();
+            IEnumerable<CapituloEN> list = cen.BuscarCapitulo(id).ToList();
+
+
+
+            return PartialView("_listadoCapituloPartial",list);
+
+        }
+
+        //
 
         //
         // POST: /Capitulos/Create

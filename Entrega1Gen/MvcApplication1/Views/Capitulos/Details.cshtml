@@ -1,0 +1,54 @@
+﻿@model Entrega1GenNHibernate.EN.GrayLine.CapituloEN
+
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Nombre);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <fieldset>
+   
+
+        <div class="page-header text-center" style="background-color:red">
+            <h1>Capitulo @Html.DisplayFor(model => model.Numero) - "@Html.DisplayFor(model => model.Nombre)"</h1>
+        </div>
+   
+        <div class="jumbotron">
+            <div class="container">
+                <span>Contenido de la BD|</span>  @Html.DisplayFor(model => model.Contenido) <span>|Contenido de la BD</span>
+
+              <p>  /********TEXTO METIDO EN EL CODIGO PARA HACER BULTO**********/</p>
+
+                <h1>Lorem ipsum</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+
+                /***********************************************************/
+            </div>
+        </div>
+
+
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+     @Html.ActionLink("Volver al libro", "../Libreria/Details", new { id = Model.Libro.Id_libro })
+    </p>

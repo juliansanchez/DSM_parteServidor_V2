@@ -1,0 +1,23 @@
+img{
+    width:100%;
+}
+  /* background-image: url('../img/close.png');
+      background-position: center;
+      background-repeat: no-repeat;*/
+
+.imagenFondo{
+        background-position: center;
+      background-repeat: no-repeat;
+      height:200px;
+      background-size:cover;
+      
+}
+
+.imagen-Encabezado{
+    width:100vw;
+   height:100vh;
+     background-position: center;
+      background-repeat: no-repeat;
+        background-size:cover;
+        position:relative;
+}

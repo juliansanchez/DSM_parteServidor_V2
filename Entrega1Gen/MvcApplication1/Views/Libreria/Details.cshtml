@@ -1,68 +1,54 @@
 ﻿@model Entrega1GenNHibernate.EN.GrayLine.LibroEN
 
 
+@{
+    ViewBag.Title = @Html.DisplayFor(model => model.Titulo);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <fieldset>
-        <legend>LibroEN</legend>
-    
-        <div class="display-label">
-             @Html.DisplayNameFor(model => model.Id_libro)
-        </div>
-        <div class="display-field">
-            @Html.DisplayFor(model => model.Id_libro) 
 
-        </div>
-    
-        <div class="display-label">
-             @Html.DisplayNameFor(model => model.Titulo)
-        </div>
-        <div class="display-field">
-            @Html.DisplayFor(model => model.Titulo)
-        </div>
-    
-        <div class="display-label">
-             @Html.DisplayNameFor(model => model.Portada)
-        </div>
 
-        <img src=@Html.DisplayFor(model => model.Portada) alt="Portada libro @Html.DisplayFor(model => model.Titulo) " > 
-
-    
-        <div class="display-label">
-             @Html.DisplayNameFor(model => model.Descripcion)
-        </div>
-        <div class="display-field">
-            @Html.DisplayFor(model => model.Descripcion)
-        </div>
-    
-        <div class="display-label">
-             @Html.DisplayNameFor(model => model.Fecha)
-        </div>
-        <div class="display-field">
-            @Html.DisplayFor(model => model.Fecha)
-        </div>
-      
-        @Html.ActionLink("Ver Capirulos", "../Capitulos/listadoCapitulo", new { idLibro = Model.Id_libro })
-    
+    <div class="page-header text-center" style="background-color:red">
+        <h1>  @Html.DisplayFor(model => model.Titulo)</h1>
+    </div>
+    <section class="container-fluid">
+        <section class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <img style="height:auto" src=@Html.DisplayFor(model => model.Portada) alt="Portada libro @Html.DisplayFor(model => model.Titulo) ">
+            </div>
 
         
-        
+            <div class="col-sm-12 col-md-6 col-lg-5" style="background-color:yellow">
+                <h2>@Html.DisplayNameFor(model => model.Descripcion)</h2>
+                @Html.DisplayFor(model => model.Descripcion)
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4" style="background-color:pink">
+              @Html.Action("listadoCapituloPartial","Capitulos", new { idLibro = Model.Id_libro })
+            </div>
+        </section>
 
-    </fieldset>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Fecha)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Fecha)
+            </div>
+        <div class="display-field">
+          
+        
+        </div>
+    </section>
+            @Html.ActionLink("Ver Capitulos", "../Capitulos/listadoCapitulo", new { idLibro = Model.Id_libro })
+
+            @Html.ActionLink("Ver Comentarios", "../Comentarios/listaComentario", new { idLibro = Model.Id_libro })
+
+            @Html.Action("listaComentario", "Comentarios", new { idLibro = Model.Id_libro })
     <p>
 
       
         @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id_libro /* id=Model.PrimaryKey */ }) |
         @Html.ActionLink("Back to List", "Index")
   
     </p>
-</body>
-</html>

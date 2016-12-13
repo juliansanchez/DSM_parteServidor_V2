@@ -75,6 +75,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -211,16 +213,22 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CapitulosController.cs" />
+    <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibreriaController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AssemblerLibro.cs" />
+    <Compile Include="Models\AssemblerUsuario.cs" />
+    <Compile Include="Models\Libro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\StylePropio.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -334,6 +342,13 @@
     <Content Include="Views\Libreria\Index.cshtml" />
     <Content Include="Views\Libreria\Details.cshtml" />
     <Content Include="Views\Capitulos\listadoCapitulo.cshtml" />
+    <Content Include="Views\Capitulos\Details.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Comentarios\_listaComentarioPartial.cshtml" />
+    <Content Include="Views\Libreria\_listaDestacadosPartial.cshtml" />
+    <Content Include="Views\Home\_sliderHomePartial.cshtml" />
+    <Content Include="Views\Capitulos\_listadoCapituloPartial.cshtml" />
+    <Content Include="Views\Libreria\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,6 +361,9 @@
       <Project>{66c66636-fd6a-4a3f-a7c5-fe88bba117af}</Project>
       <Name>Entrega1GenNHibernate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

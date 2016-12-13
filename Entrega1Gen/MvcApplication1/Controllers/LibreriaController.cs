@@ -44,16 +44,35 @@ namespace MvcApplication1.Controllers
         {
             return View();
         }
+        //
+
+        // GET: /Libreria/listaDestacados
+
+        public ActionResult listaDestacados()
+        {
+            LibroCEN cen = new LibroCEN();
+            IEnumerable<LibroEN> list = cen.VerLibreria(0, -1).ToList();
+            return PartialView("_ListaDestacadosPartial", list);
+        }
+
 
         //
+
+
         // POST: /Libreria/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateGratis(Libro libr)
         {
             try
             {
-                // TODO: Add insert logic here
+              // TODO: Add insert logic here
+
+      /*          GratuitoCEN cen = new GratuitoCEN();
+                cen.New_(libr.titulo, libr.portada,libr.descripcion,libr.fecha,libr.publicado,)
+
+                    gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, listaUsuarios, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
+                */
 
                 return RedirectToAction("Index");
             }
@@ -68,26 +87,73 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            /*
+            Articulo art = null;
+            SessionInitialize();
+            ArticuloEN artEN = new ArticuloCAD(session).ReadOIDDefault(id);
+            art = new AssemblerArticulo().ConvertENToModelUI(artEN);
+            SessionClose();
+            return View(art);
+            */
+
+            Libro libr = null;
+            SessionInitialize();
+            LibroEN libroEN = new LibroCAD(session).ReadOIDDefault(id);
+            libr = new AssemblerLibro().ConvertENToModelUI(libroEN);
+            SessionClose();
+            return View(libr);
+
+
+        /*   LibroCEN cen = new LibroCEN();
+            LibroEN libroEN = new LibroEN();
+            //string idString = id.ToString();
+            libroEN = cen.VerLibro(id);
+
+            return View(libroEN);*/
         }
 
         //
         // POST: /Libreria/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Libro libr)
         {
             try
             {
-                // TODO: Add update logic here
-
+                LibroCEN cen = new LibroCEN();
+               // cen.CambiarTitulo(libr.titulo);
                 return RedirectToAction("Index");
+               
             }
             catch
             {
                 return View();
             }
         }
+
+
+
+      /*  public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+                /*Falta que cambiar furule bien*/
+         /*       LibroCEN cen = new LibroCEN();
+                cen.CambiarTitulo(collection.Get(1));
+                cen.CambiarPortada(collection.Get(2));
+                cen.CambiarDescripcion(collection.Get(3));
+
+                var valorGetC = (collection.Get(1));
+                var valorGetU = (collection.Get(2));
+                var valorGetD = (collection.Get(3));
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }*/
 
         //
         // GET: /Libreria/Delete/5

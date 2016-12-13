@@ -1,17 +1,9 @@
 ﻿@model IEnumerable<Entrega1GenNHibernate.EN.GrayLine.CapituloEN>
 
 @{
-    //Layout = null;
+    ViewBag.Title = "Listado Capitulos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>listadoCapitulo</title>
-</head>
-<body>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -53,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.Editando)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id_capitulo/* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
@@ -62,7 +54,10 @@
  
     </table>
     <section>
-        @Html.ActionLink("Volver al libro", "../Libreria") |
+       
+        @{
+            string var1 = Request.QueryString["idLibro"].ToString();
+            int id = Int32.Parse(var1);
+        }
+        @Html.ActionLink("Volver al libro", "../Libreria/Details", new{ id = id}) |
     </section>
-</body>
-</html>

@@ -3,28 +3,56 @@
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>@ViewBag.Title - Mi aplicación ASP.NET MVC</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
+        <meta name="viewport" content="width=device-width, initial-scaled=1" />
+        @Styles.Render("~/Content/css/bootstrap.min.css")
+        @Styles.Render("~/Content/owl.carousel/owl-carousel/owl.carousel.css")
+        @Styles.Render("~/Content/owl.carousel/owl-carousel/owl.theme.css")
+        @Styles.Render("~/Content/owl.carousel/owl-carousel/owl.transitions.css")
+        @Scripts.Render("~/Content/owl.carousel/owl-carousel/owl.carousel.js")
+    
+        @{/*   
+       @Styles.Render("~/Content/css") @{/*Hay que cambiar totalmente este css*//*}
+       */ }
+        @Styles.Render("~/Content/StylePropio.css")
         @Scripts.Render("~/bundles/modernizr")
+
+        <script>
+            $(document).ready(function () {
+
+                $("#owl-example").owlCarousel();
+
+            });
+        </script>
+
+
+
     </head>
     <body>
+
+
+
         <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("su logotipo aquí", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        </ul>
+            <div class="content-wrapper" >
+                <div class="float-right">             
+                    <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <div class=" navbar-header">
+           
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">Gray Lane</a>
+                                </div>
+
+
+                                <ul id="menu" class="nav navbar-nav">
+                                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                                    @Html.Partial("_LoginPartial")
+                                </ul>
+                           
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -38,11 +66,13 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
+                    <p>&copy; @DateTime.Now.Year - GRAY LINE</p>
                 </div>
             </div>
         </footer>
 
+        @Scripts.Render("http://code.jquery.com/jquery.js")
+        @Scripts.Render("~/Content/js/bootstrap.min.js")
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
     </body>
