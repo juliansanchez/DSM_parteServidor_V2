@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Entrega1GenNHibernate"
+		                   namespace="Entrega1GenNHibernate.EN.GrayLine">
+		    
+		    
+			
+				<class name="ValoracionEN" table="Valoracion"> 
+				  	
+						<id name="Id" column="idValoracion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Puntuacion" > 
+						<column name="puntuacion"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Libro" class="Entrega1GenNHibernate.EN.GrayLine.LibroEN" >	
+								<column name="FK_id_libroLibro_idLibro"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
+		</hibernate-mapping>
+	

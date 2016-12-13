@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+		<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		  <PropertyGroup>
+		    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		    <ProductVersion>8.0.30703</ProductVersion>
+		    <SchemaVersion>2.0</SchemaVersion>
+		    <ProjectGuid>{66C66636-FD6A-4A3F-A7C5-FE88BBA117AF}</ProjectGuid>
+		    <OutputType>Library</OutputType>
+		    <AppDesignerFolder>Properties</AppDesignerFolder>
+		    <RootNamespace>Entrega1GenNHibernate</RootNamespace>
+		    <AssemblyName>Entrega1GenNHibernate</AssemblyName>
+		    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+		    <FileAlignment>512</FileAlignment>
+		    <PublishUrl>publish\</PublishUrl>
+		    <Install>true</Install>
+		    <InstallFrom>Disk</InstallFrom>
+		    <UpdateEnabled>false</UpdateEnabled>
+		    <UpdateMode>Foreground</UpdateMode>
+		    <UpdateInterval>7</UpdateInterval>
+		    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+		    <UpdatePeriodically>false</UpdatePeriodically>
+		    <UpdateRequired>false</UpdateRequired>
+		    <MapFileExtensions>true</MapFileExtensions>
+		    <ApplicationRevision>0</ApplicationRevision>
+		    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+		    <IsWebBootstrapper>false</IsWebBootstrapper>
+		    <UseApplicationTrust>false</UseApplicationTrust>
+		    <BootstrapperEnabled>true</BootstrapperEnabled>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		    <DebugSymbols>true</DebugSymbols>
+		    <DebugType>full</DebugType>
+		    <Optimize>false</Optimize>
+		    <OutputPath>bin\Debug\</OutputPath>
+		    <DefineConstants>DEBUG;TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		    <DebugType>pdbonly</DebugType>
+		    <Optimize>true</Optimize>
+		    <OutputPath>bin\Release\</OutputPath>
+		    <DefineConstants>TRACE</DefineConstants>
+		    <ErrorReport>prompt</ErrorReport>
+		    <WarningLevel>4</WarningLevel>
+		  </PropertyGroup>
+		<ItemGroup>
+		    <Reference Include="Castle.DynamicProxy2, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\Entrega1GenNHibernate\AppLib\Castle.DynamicProxy2.dll</HintPath>
+		    </Reference>
+		    <Reference Include="LinFu.DynamicProxy, Version=1.0.3.14911, Culture=neutral, PublicKeyToken=62a6874124340d6e, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\Entrega1GenNHibernate\AppLib\LinFu.DynamicProxy.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\Entrega1GenNHibernate\AppLib\NHibernate.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\Entrega1GenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll</HintPath>
+		    </Reference>
+		    <Reference Include="NHibernate.ByteCode.LinFu, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+		      <SpecificVersion>False</SpecificVersion>
+		      <HintPath>..\Entrega1GenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll</HintPath>
+		    </Reference>
+		    <Reference Include="System" />
+		    <Reference Include="System.Core">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+		    <Reference Include="System.Transactions" />
+		    <Reference Include="System.Xml.Linq">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data.DataSetExtensions">
+		      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+		    </Reference>
+		    <Reference Include="System.Data" />
+		    <Reference Include="System.Xml" />
+		</ItemGroup>
+		
+		<ItemGroup>
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\Antlr3.Runtime.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\Castle.DynamicProxy2.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\Iesi.Collections.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\LinFu.DynamicProxy.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\log4net.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\NHibernate.ByteCode.Castle.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\NHibernate.ByteCode.LinFu.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\NHibernate.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\nunit.core.dll" />
+		    <Content Include="..\Entrega1GenNHibernate\AppLib\nunit.framework.dll" />
+  		</ItemGroup>
+  		
+		<ItemGroup>
+			<Compile Include="NHibernateHelper.cs" />
+		    <Compile Include="Utils\Util.cs" />
+		    <Compile Include="Exceptions\ModelException.cs"/>
+		    <Compile Include="Exceptions\DataLayerException.cs"/>
+		    
+	<Compile Include="CAD\BasicCAD.cs"/>
+	<Compile Include="CP\BasicCP.cs"/>
+	<Compile Include="EN\GrayLine\UsuarioEN.cs" />
+	<Compile Include="CEN\GrayLine\UsuarioCEN.cs" />
+	<Compile Include="CAD\GrayLine\IUsuarioCAD.cs" />
+	<Compile Include="CAD\GrayLine\UsuarioCAD.cs" />
+	<Compile Include="CP\GrayLine\UsuarioCP.cs" />
+			
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_CambiarNombre.cs" />
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_CambiarContrasenya.cs" />
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_CambiarFoto.cs" />
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_CambiarBibliografia.cs" />
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_IniciarSesion.cs" />
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_CerrarSesion.cs" />
+			
+			
+			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_BanearUsuario.cs" />
+			
+			
+	<Compile Include="EN\GrayLine\LibroEN.cs" />
+	<Compile Include="CEN\GrayLine\LibroCEN.cs" />
+	<Compile Include="CAD\GrayLine\ILibroCAD.cs" />
+	<Compile Include="CAD\GrayLine\LibroCAD.cs" />
+	<Compile Include="CP\GrayLine\LibroCP.cs" />
+			
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_CambiarTitulo.cs" />
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_CambiarPortada.cs" />
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_CambiarDescripcion.cs" />
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_VerLibreria.cs" />
+			
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_Publicar.cs" />
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_SubirLibro.cs" />
+			
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_Denunciar.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\GrayLine\AdministradorEN.cs" />
+	<Compile Include="CEN\GrayLine\AdministradorCEN.cs" />
+	<Compile Include="CAD\GrayLine\IAdministradorCAD.cs" />
+	<Compile Include="CAD\GrayLine\AdministradorCAD.cs" />
+	<Compile Include="CP\GrayLine\AdministradorCP.cs" />
+			
+			
+			<Compile Include="CP\GrayLine\AdministradorCP_EliminarComentario.cs" />
+			
+			<Compile Include="CP\GrayLine\AdministradorCP_EliminarLibro.cs" />
+			
+			
+	<Compile Include="EN\GrayLine\CapituloEN.cs" />
+	<Compile Include="CEN\GrayLine\CapituloCEN.cs" />
+	<Compile Include="CAD\GrayLine\ICapituloCAD.cs" />
+	<Compile Include="CAD\GrayLine\CapituloCAD.cs" />
+	<Compile Include="CP\GrayLine\CapituloCP.cs" />
+			
+			<Compile Include="CEN\GrayLine\CapituloCEN_CambiarNombre.cs" />
+			
+			
+			<Compile Include="CEN\GrayLine\CapituloCEN_Redactar.cs" />
+			
+			
+			
+			<Compile Include="CP\GrayLine\CapituloCP_LeerCapitulo.cs" />
+			
+			
+			
+	<Compile Include="EN\GrayLine\PagoEN.cs" />
+	<Compile Include="CEN\GrayLine\PagoCEN.cs" />
+	<Compile Include="CAD\GrayLine\IPagoCAD.cs" />
+	<Compile Include="CAD\GrayLine\PagoCAD.cs" />
+	<Compile Include="CP\GrayLine\PagoCP.cs" />
+			<Compile Include="CEN\GrayLine\PagoCEN_Pagar.cs" />
+			
+			<Compile Include="CEN\GrayLine\PagoCEN_Descargar.cs" />
+			
+			
+			
+	<Compile Include="EN\GrayLine\GratuitoEN.cs" />
+	<Compile Include="CEN\GrayLine\GratuitoCEN.cs" />
+	<Compile Include="CAD\GrayLine\IGratuitoCAD.cs" />
+	<Compile Include="CAD\GrayLine\GratuitoCAD.cs" />
+	<Compile Include="CP\GrayLine\GratuitoCP.cs" />
+			<Compile Include="CEN\GrayLine\GratuitoCEN_Descargar.cs" />
+			
+			
+			
+	<Compile Include="EN\GrayLine\CategoriaEN.cs" />
+	<Compile Include="CEN\GrayLine\CategoriaCEN.cs" />
+	<Compile Include="CAD\GrayLine\ICategoriaCAD.cs" />
+	<Compile Include="CAD\GrayLine\CategoriaCAD.cs" />
+	<Compile Include="CP\GrayLine\CategoriaCP.cs" />
+			
+			<Compile Include="CEN\GrayLine\CategoriaCEN_Cambiar_categoria.cs" />
+			
+			
+			
+	<Compile Include="EN\GrayLine\ComentarioEN.cs" />
+	<Compile Include="CEN\GrayLine\ComentarioCEN.cs" />
+	<Compile Include="CAD\GrayLine\IComentarioCAD.cs" />
+	<Compile Include="CAD\GrayLine\ComentarioCAD.cs" />
+	<Compile Include="CP\GrayLine\ComentarioCP.cs" />
+			
+			<Compile Include="CEN\GrayLine\ComentarioCEN_EditarComentario.cs" />
+			
+			
+			
+	<Compile Include="EN\GrayLine\ValoracionEN.cs" />
+	<Compile Include="CEN\GrayLine\ValoracionCEN.cs" />
+	<Compile Include="CAD\GrayLine\IValoracionCAD.cs" />
+	<Compile Include="CAD\GrayLine\ValoracionCAD.cs" />
+	<Compile Include="CP\GrayLine\ValoracionCP.cs" />
+			
+			
+			
+	<Compile Include="Enumerated\GrayLine\Tipo_categoriaEnum.cs" />
+	<Compile Include="Enumerated\GrayLine\Puntuacion1Enum.cs" />
+	
+	
+
+		    
+	
+
+		    <Compile Include="Properties\AssemblyInfo.cs" />
+		    <Compile Include="Properties\Settings.Designer.cs">
+		      <AutoGen>True</AutoGen>
+		      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+		      <DependentUpon>Settings.settings</DependentUpon>
+		    </Compile>
+		  </ItemGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\GrayLine\usuario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\libro.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\administrador.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\capitulo.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\pago.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\gratuito.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\categoria.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\comentario.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\valoracion.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+		    <None Include="app.config" />
+		    <None Include="Properties\Settings.settings">
+		      <Generator>SettingsSingleFileGenerator</Generator>
+		      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		    </None>
+		        <None Include="Resources\xsd\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\xsd\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+		  </ItemGroup>
+	 	
+		
+	
+		  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+		  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+		       Other similar extension points exist, see Microsoft.Common.targets.
+		  <Target Name="BeforeBuild">
+		  </Target>
+		  <Target Name="AfterBuild">
+		  </Target>
+		  -->
+		</Project>

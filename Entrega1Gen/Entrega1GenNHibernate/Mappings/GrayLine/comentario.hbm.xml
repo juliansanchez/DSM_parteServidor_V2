@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Entrega1GenNHibernate"
+		                   namespace="Entrega1GenNHibernate.EN.GrayLine">
+		    
+		    
+			
+				<class name="ComentarioEN" table="Comentario"> 
+				  	
+						<id name="Id" column="idComentario" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Texto_comentario" type="string"> 
+						<column name="texto_comentario"  not-null="true"/>
+					</property>
+					<property name="Baneado" type="boolean"> 
+						<column name="baneado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Libro" class="Entrega1GenNHibernate.EN.GrayLine.LibroEN" >	
+								<column name="FK_id_libroLibro_idLibro"/> 
+						</many-to-one>
+											 					
+			
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
+		  <query name="ComentarioENverComentariosHQL"><![CDATA[FROM ComentarioEN com WHERE com.Baneado=false AND com.Libro=:idlibro]]></query>
+		</hibernate-mapping>
+	

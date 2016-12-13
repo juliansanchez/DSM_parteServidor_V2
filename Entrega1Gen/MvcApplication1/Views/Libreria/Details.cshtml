@@ -1,0 +1,68 @@
+﻿@model Entrega1GenNHibernate.EN.GrayLine.LibroEN
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>LibroEN</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Id_libro)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Id_libro) 
+
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Titulo)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Titulo)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Portada)
+        </div>
+
+        <img src=@Html.DisplayFor(model => model.Portada) alt="Portada libro @Html.DisplayFor(model => model.Titulo) " > 
+
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Descripcion)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Descripcion)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Fecha)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Fecha)
+        </div>
+      
+        @Html.ActionLink("Ver Capirulos", "../Capitulos/listadoCapitulo", new { idLibro = Model.Id_libro })
+    
+
+        
+        
+
+    </fieldset>
+    <p>
+
+      
+        @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+  
+    </p>
+</body>
+</html>

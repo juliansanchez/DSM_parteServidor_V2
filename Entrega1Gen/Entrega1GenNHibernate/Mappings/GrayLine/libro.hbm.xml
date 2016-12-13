@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Entrega1GenNHibernate"
+		                   namespace="Entrega1GenNHibernate.EN.GrayLine">
+		    
+		    
+			
+				<class name="LibroEN" table="Libro"> 
+				  	
+						<id name="Id_libro" column="id_libroLibro" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+					<property name="Portada" type="string"> 
+						<column name="portada"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Publicado" type="boolean"> 
+						<column name="publicado"  not-null="true"/>
+					</property>
+					<property name="Baneado" type="boolean"> 
+						<column name="baneado"  not-null="true"/>
+					</property>
+					<property name="Num_denuncias" type="integer"> 
+						<column name="num_denuncias"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Capitulo" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_libroLibro_idLibro"/>
+					      	</key>
+							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.CapituloEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario" table="[usuario_libro]" inverse="true" >
+							<key>
+								
+									<column name="FK_id_libroLibro_idLibro"/> 
+							</key>
+      						<many-to-many class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN">
+									<column name="FK_email_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Categoria" table="[libro_categoria]"  >
+							<key>
+								
+									<column name="FK_id_libroLibro_idLibro"/> 
+							</key>
+      						<many-to-many class="Entrega1GenNHibernate.EN.GrayLine.CategoriaEN">
+									<column name="FK_id_categoriaCategoria_idCategoria"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Comentario" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_libroLibro_idLibro"/>
+					      	</key>
+							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.ComentarioEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Valoracion" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_libroLibro_idLibro"/>
+					      	</key>
+							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.ValoracionEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LibroENReadAllHQL">from LibroEN</query>
+		  <query name="LibroENbuscarLibroHQL"><![CDATA[FROM LibroEN li WHERE  (li.Titulo= :nombre)]]></query>
+		  <query name="LibroENbuscarLibroPorCategoriaHQL"><![CDATA[select lib FROM LibroEN lib INNER JOIN lib.Categoria cat WHERE cat.Id_categoria=:id_categoria]]></query>
+		</hibernate-mapping>
+	

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Entrega1GenNHibernate"
+		                   namespace="Entrega1GenNHibernate.EN.GrayLine">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Contrasenya" type="string"> 
+						<column name="contrasenya"  unique="true" not-null="true"/>
+					</property>
+					<property name="Edad" type="integer"> 
+						<column name="edad"  not-null="true"/>
+					</property>
+					<property name="Fecha_alta" type="date"> 
+						<column name="fecha_alta"  not-null="true"/>
+					</property>
+					<property name="Foto" type="string"> 
+						<column name="foto"  not-null="true"/>
+					</property>
+					<property name="Bibliografia" type="string"> 
+						<column name="bibliografia"  not-null="true"/>
+					</property>
+					<property name="Baneado" type="boolean"> 
+						<column name="baneado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Libro" table="[usuario_libro]"  >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="Entrega1GenNHibernate.EN.GrayLine.LibroEN">
+									<column name="FK_id_libroLibro_idLibro"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Capitulo" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.CapituloEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENbuscarUsuarioHQL"><![CDATA[FROM UsuarioEN us WHERE  (us.Nombre= :mote)]]></query>
+		</hibernate-mapping>
+	
