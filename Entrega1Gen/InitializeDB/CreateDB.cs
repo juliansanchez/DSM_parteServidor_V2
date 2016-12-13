@@ -448,6 +448,9 @@ public static void InitializeData ()
                 var usuarioDevuelto = usuarioCEN.VerUsuario(admin1);
                System.Console.WriteLine("Pruebo verUsuario: "+usuarioDevuelto.Nombre);
 
+            /* Intruzco comentario para primer commit */
+
+
 
 
                 #endregion

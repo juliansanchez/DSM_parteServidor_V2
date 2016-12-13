@@ -55,3 +55,6 @@ C:\Users\OIDEWin7\git\DSM_parteServidor\Entrega1Gen\InitializeDB\bin\Debug\NHibe
 C:\Users\OIDEWin7\git\DSM_parteServidor\Entrega1Gen\InitializeDB\bin\Debug\nunit.core.dll
 C:\Users\OIDEWin7\git\DSM_parteServidor\Entrega1Gen\InitializeDB\bin\Debug\nunit.framework.dll
 C:\Users\OIDEWin7\git\DSM_parteServidor\Entrega1Gen\InitializeDB\bin\Debug\Entrega1GenNHibernate.pdb
+C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
