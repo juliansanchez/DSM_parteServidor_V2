@@ -38,7 +38,7 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public string New_ (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado)
+public string New_ (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser)
 {
         AdministradorEN administradorEN = null;
         string oid;
@@ -60,6 +60,8 @@ public string New_ (string p_nombre, String p_contrasenya, string p_email, int p
         administradorEN.Bibliografia = p_bibliografia;
 
         administradorEN.Baneado = p_baneado;
+
+        administradorEN.NumDenunciasUser = p_numDenunciasUser;
 
         //Call to AdministradorCAD
 

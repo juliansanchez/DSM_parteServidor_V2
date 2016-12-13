@@ -33,9 +33,7 @@ public void Denunciar (int idlibro)
 
         libroEN.Num_denuncias++;
 
-        if (libroEN.Num_denuncias >= 4) {
-                libroEN.Baneado = true;
-        }
+       
 
         _ILibroCAD.ModifyDefault (libroEN);
 

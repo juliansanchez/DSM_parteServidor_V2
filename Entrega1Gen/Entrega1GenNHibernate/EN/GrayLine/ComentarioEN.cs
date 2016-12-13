@@ -33,6 +33,13 @@ private bool baneado;
 
 
 
+/**
+ *	Atributo numdenunciasComentario
+ */
+private int numdenunciasComentario;
+
+
+
 
 
 
@@ -60,6 +67,12 @@ public virtual bool Baneado {
 
 
 
+public virtual int NumdenunciasComentario {
+        get { return numdenunciasComentario; } set { numdenunciasComentario = value;  }
+}
+
+
+
 
 
 public ComentarioEN()
@@ -68,20 +81,20 @@ public ComentarioEN()
 
 
 
-public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado
+public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario
                     )
 {
-        this.init (Id, texto_comentario, libro, baneado);
+        this.init (Id, texto_comentario, libro, baneado, numdenunciasComentario);
 }
 
 
 public ComentarioEN(ComentarioEN comentario)
 {
-        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado);
+        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado, comentario.NumdenunciasComentario);
 }
 
 private void init (int id
-                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado)
+                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario)
 {
         this.Id = id;
 
@@ -91,6 +104,8 @@ private void init (int id
         this.Libro = libro;
 
         this.Baneado = baneado;
+
+        this.NumdenunciasComentario = numdenunciasComentario;
 }
 
 public override bool Equals (object obj)

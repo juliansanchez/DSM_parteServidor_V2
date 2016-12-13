@@ -30,6 +30,9 @@
 					<property name="Baneado" type="boolean"> 
 						<column name="baneado"  not-null="true"/>
 					</property>
+					<property name="NumDenunciasUser" type="integer"> 
+						<column name="numDenunciasUser"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -61,6 +64,8 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 					

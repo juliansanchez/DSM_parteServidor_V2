@@ -113,6 +113,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Baneado = usuario.Baneado;
 
+
+                usuarioEN.NumDenunciasUser = usuario.NumDenunciasUser;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

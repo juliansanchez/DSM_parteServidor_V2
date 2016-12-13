@@ -97,6 +97,9 @@ public void ModifyDefault (ComentarioEN comentario)
 
                 comentarioEN.Baneado = comentario.Baneado;
 
+
+                comentarioEN.NumdenunciasComentario = comentario.NumdenunciasComentario;
+
                 session.Update (comentarioEN);
                 SessionCommit ();
         }

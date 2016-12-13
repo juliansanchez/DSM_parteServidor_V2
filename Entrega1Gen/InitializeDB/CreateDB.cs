@@ -120,9 +120,9 @@ public static void InitializeData ()
                 usuario2adminEN.Contrasenya = "1234";
 
                 // registro de usuarios
-                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado);
+                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado,0);
                 // administrador
-                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado);
+                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado,0);
                 #endregion
 
                 #region Categoria
@@ -298,13 +298,13 @@ public static void InitializeData ()
                 // Comentario 1
                 comentarioEN.Texto_comentario = "Mola mucho este libro!!!";
                 comentarioEN.Baneado = false;
-                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado);
+                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado,0);
 
                 // Comentario 2
                 comentarioEN.Texto_comentario = "Mola mucho este libro otra vez!!!";
                 comentarioEN.Baneado = false;
 
-                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado);
+                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado,0);
 
                 #endregion
 
@@ -445,10 +445,18 @@ public static void InitializeData ()
 
                 /* Metodo Ver usuario */
 
-                var usuarioDevuelto = usuarioCEN.VerUsuario(admin1);
-               System.Console.WriteLine("Pruebo verUsuario: "+usuarioDevuelto.Nombre);
+                var usuarioDevuelto = usuarioCEN.VerUsuario (admin1);
+                System.Console.WriteLine ("Pruebo verUsuario: " + usuarioDevuelto.Nombre);
 
-            /* Intruzco comentario para primer commit */
+                /* Pruebas denunciar usuario y comentario */
+                comentarioCEN.DenunciarComentario(comentario1);
+                comentarioCEN.DenunciarComentario(comentario1);
+                comentarioCEN.DenunciarComentario(comentario1);
+                System.Console.WriteLine("Denucio el comentario 1 tres veces: "+_IComentarioCAD.ReadOIDDefault(comentario1).NumdenunciasComentario);
+
+                usuarioCEN.DenunciarUser(usu1);
+                usuarioCEN.DenunciarUser(usu1);
+                System.Console.WriteLine("Denucio al usuario 1 dos veces: " + _IUsuarioCAD.ReadOIDDefault(usu1).NumDenunciasUser);
 
 
 

@@ -127,6 +127,8 @@
 			<Compile Include="CEN\GrayLine\UsuarioCEN_BanearUsuario.cs" />
 			
 			
+			<Compile Include="CEN\GrayLine\UsuarioCEN_DenunciarUser.cs" />
+			
 	<Compile Include="EN\GrayLine\LibroEN.cs" />
 	<Compile Include="CEN\GrayLine\LibroCEN.cs" />
 	<Compile Include="CAD\GrayLine\ILibroCAD.cs" />
@@ -222,6 +224,8 @@
 			<Compile Include="CEN\GrayLine\ComentarioCEN_EditarComentario.cs" />
 			
 			
+			
+			<Compile Include="CEN\GrayLine\ComentarioCEN_DenunciarComentario.cs" />
 			
 	<Compile Include="EN\GrayLine\ValoracionEN.cs" />
 	<Compile Include="CEN\GrayLine\ValoracionCEN.cs" />

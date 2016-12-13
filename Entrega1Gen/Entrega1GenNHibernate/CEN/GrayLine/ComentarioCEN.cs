@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int New_ (string p_texto_comentario, int p_libro, bool p_baneado)
+public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_numdenunciasComentario)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -56,6 +56,8 @@ public int New_ (string p_texto_comentario, int p_libro, bool p_baneado)
         }
 
         comentarioEN.Baneado = p_baneado;
+
+        comentarioEN.NumdenunciasComentario = p_numdenunciasComentario;
 
         //Call to ComentarioCAD
 

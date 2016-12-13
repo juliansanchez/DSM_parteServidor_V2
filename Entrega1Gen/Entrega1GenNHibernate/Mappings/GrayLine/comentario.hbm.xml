@@ -18,6 +18,9 @@
 					<property name="Baneado" type="boolean"> 
 						<column name="baneado"  not-null="true"/>
 					</property>
+					<property name="NumdenunciasComentario" type="integer"> 
+						<column name="numdenunciasComentario"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -28,6 +31,8 @@
 						</many-to-one>
 											 					
 			
+			
+					
 					
 					
 					
