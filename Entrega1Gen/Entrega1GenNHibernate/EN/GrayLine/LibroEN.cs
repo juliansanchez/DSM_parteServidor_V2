@@ -57,7 +57,7 @@ private System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Capit
 /**
  *	Atributo usuario
  */
-private System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> usuario;
+private Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario;
 
 
 
@@ -141,7 +141,7 @@ public virtual System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLin
 
 
 
-public virtual System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> Usuario {
+public virtual Entrega1GenNHibernate.EN.GrayLine.UsuarioEN Usuario {
         get { return usuario; } set { usuario = value;  }
 }
 
@@ -182,7 +182,6 @@ public virtual int Num_denuncias {
 public LibroEN()
 {
         capitulo = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.CapituloEN>();
-        usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
         categoria = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN>();
         comentario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
         valoracion = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN>();
@@ -190,7 +189,7 @@ public LibroEN()
 
 
 
-public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias
+public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias
                )
 {
         this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias);
@@ -203,7 +202,7 @@ public LibroEN(LibroEN libro)
 }
 
 private void init (int id_libro
-                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias)
+                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias)
 {
         this.Id_libro = id_libro;
 

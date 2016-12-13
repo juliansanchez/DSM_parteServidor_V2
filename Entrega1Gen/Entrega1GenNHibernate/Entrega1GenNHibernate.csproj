@@ -156,6 +156,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\GrayLine\AdministradorEN.cs" />
 	<Compile Include="CEN\GrayLine\AdministradorCEN.cs" />
 	<Compile Include="CAD\GrayLine\IAdministradorCAD.cs" />

@@ -87,7 +87,7 @@ public static void InitializeData ()
                 #region Usuario/administrador
 
                 IUsuarioCAD _IUsuarioCAD = new UsuarioCAD ();
-                UsuarioEN usuario1EN, usuario2adminEN = new UsuarioEN ();
+                UsuarioEN usuario1EN, usuario2adminEN, usuario3EN = new UsuarioEN ();
                 UsuarioCEN usuarioCEN = new UsuarioCEN (_IUsuarioCAD);
 
                 // Usuario ADMINISTRADOR
@@ -108,6 +108,8 @@ public static void InitializeData ()
                 usuario1EN.Baneado = false;
                 usuario1EN.Contrasenya = "12345";
 
+
+
                 //Usuario2
                 usuario2adminEN = new UsuarioEN ();
                 usuario2adminEN.Email = "emailUsu2";
@@ -119,10 +121,24 @@ public static void InitializeData ()
                 usuario2adminEN.Baneado = false;
                 usuario2adminEN.Contrasenya = "1234";
 
+                //Usuario3
+                usuario3EN = new UsuarioEN ();
+                usuario3EN.Email = "emailUsu3";
+                usuario3EN.Nombre = "Cliente3Nombre";
+                usuario3EN.Edad = 24;
+                usuario3EN.Fecha_alta = DateTime.Today;
+                usuario3EN.Foto = @"https://www.socialtools.me/blog/wp-content/uploads/2016/04/foto-de-perfil.jpg";
+                usuario3EN.Bibliografia = "Soy un usuario 3 y pienso que soy un crack";
+                usuario3EN.Baneado = false;
+                usuario3EN.Contrasenya = "12345ABCD";
+
                 // registro de usuarios
-                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado,0);
+                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado, 0);
                 // administrador
-                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado,0);
+                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado, 0);
+                // Tercer usuario
+                var usu3 = usuarioCEN.Registrarse (usuario3EN.Nombre, usuario3EN.Contrasenya, usuario3EN.Email, usuario3EN.Edad, usuario3EN.Fecha_alta, usuario3EN.Foto, usuario3EN.Bibliografia, usuario3EN.Baneado, 0);
+
                 #endregion
 
                 #region Categoria
@@ -227,10 +243,10 @@ public static void InitializeData ()
 
                 /* Se crean dos libros gratuitos y uno de pago
                  * Se guardan sus OIDS para inicializar la bbdd */
-                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, listaUsuarios, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
-                int idLibro2 = gratuitoCEN.New_ (libro2EN.Titulo, libro2EN.Portada, libro2EN.Descripcion, libro2EN.Fecha, libro2EN.Publicado, listaUsuarios, listaCategorias, libro2EN.Baneado, libro2EN.Num_denuncias);
-                int idLibro3 = PagoCEN.New_ (libro3EN.Titulo, libro3EN.Portada, libro3EN.Descripcion, libro3EN.Fecha, libro3EN.Publicado, listaUsuarios, listaCategorias, libro3EN.Baneado, libro3EN.Num_denuncias, 9, false);
-                int idLibro4 = PagoCEN.New_ (libro4EN.Titulo, libro4EN.Portada, libro4EN.Descripcion, libro4EN.Fecha, libro4EN.Publicado, listaUsuarios, listaCategorias2, libro4EN.Baneado, libro4EN.Num_denuncias, 9, false);
+                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
+                int idLibro2 = gratuitoCEN.New_ (libro2EN.Titulo, libro2EN.Portada, libro2EN.Descripcion, libro2EN.Fecha, libro2EN.Publicado, admin1, listaCategorias, libro2EN.Baneado, libro2EN.Num_denuncias);
+                int idLibro3 = PagoCEN.New_ (libro3EN.Titulo, libro3EN.Portada, libro3EN.Descripcion, libro3EN.Fecha, libro3EN.Publicado, usu1, listaCategorias, libro3EN.Baneado, libro3EN.Num_denuncias, 9, false);
+                int idLibro4 = PagoCEN.New_ (libro4EN.Titulo, libro4EN.Portada, libro4EN.Descripcion, libro4EN.Fecha, libro4EN.Publicado, usu3, listaCategorias2, libro4EN.Baneado, libro4EN.Num_denuncias, 9, false);
 
                 #endregion
                 /* Se crean 4 capitulos, los dos primeros para un libro gratuito
@@ -298,13 +314,13 @@ public static void InitializeData ()
                 // Comentario 1
                 comentarioEN.Texto_comentario = "Mola mucho este libro!!!";
                 comentarioEN.Baneado = false;
-                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado,0);
+                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0);
 
                 // Comentario 2
                 comentarioEN.Texto_comentario = "Mola mucho este libro otra vez!!!";
                 comentarioEN.Baneado = false;
 
-                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado,0);
+                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0);
 
                 #endregion
 
@@ -449,14 +465,48 @@ public static void InitializeData ()
                 System.Console.WriteLine ("Pruebo verUsuario: " + usuarioDevuelto.Nombre);
 
                 /* Pruebas denunciar usuario y comentario */
-                comentarioCEN.DenunciarComentario(comentario1);
-                comentarioCEN.DenunciarComentario(comentario1);
-                comentarioCEN.DenunciarComentario(comentario1);
-                System.Console.WriteLine("Denucio el comentario 1 tres veces: "+_IComentarioCAD.ReadOIDDefault(comentario1).NumdenunciasComentario);
+                comentarioCEN.DenunciarComentario (comentario1);
+                comentarioCEN.DenunciarComentario (comentario1);
+                comentarioCEN.DenunciarComentario (comentario1);
+                System.Console.WriteLine ("Denucio el comentario 1 tres veces: " + _IComentarioCAD.ReadOIDDefault (comentario1).NumdenunciasComentario);
 
-                usuarioCEN.DenunciarUser(usu1);
-                usuarioCEN.DenunciarUser(usu1);
-                System.Console.WriteLine("Denucio al usuario 1 dos veces: " + _IUsuarioCAD.ReadOIDDefault(usu1).NumDenunciasUser);
+                usuarioCEN.DenunciarUser (usu1);
+                usuarioCEN.DenunciarUser (usu1);
+                System.Console.WriteLine ("Denucio al usuario 1 dos veces: " + _IUsuarioCAD.ReadOIDDefault (usu1).NumDenunciasUser);
+
+
+                /* Prueba para ver libros de un usuario */
+
+               // var librosUsu1 = libroCEN.VerLibrosUsuario (usu1);
+
+                //var librosUsu3 = libroCEN.VerLibrosUsuario(usu3);
+
+
+                IList<LibroEN> librosUsu1 = libroCEN.VerLibrosUsuario(usu1);
+
+                // Para visualizar las categorias de los libros
+                if (librosUsu1 != null)
+                {
+                    foreach (LibroEN libros in librosUsu1)
+                    {
+                        System.Console.WriteLine("Libros de el usuario 1 son: " + libros.Titulo.ToString());
+                    }
+                }
+
+
+                IList<LibroEN> librosUsu3 = libroCEN.VerLibrosUsuario(usu3);
+
+                // Para visualizar las categorias de los libros
+                if (librosUsu3 != null)
+                {
+                    foreach (LibroEN libros in librosUsu3)
+                    {
+                        System.Console.WriteLine("Libros de el usuario 3 son: " + libros.Titulo.ToString());
+                    }
+                }
+
+              
+
 
 
 

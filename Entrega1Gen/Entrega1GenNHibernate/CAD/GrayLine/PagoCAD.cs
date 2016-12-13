@@ -144,10 +144,11 @@ public int New_ (PagoEN pago)
         {
                 SessionInitializeTransaction ();
                 if (pago.Usuario != null) {
-                        for (int i = 0; i < pago.Usuario.Count; i++) {
-                                pago.Usuario [i] = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), pago.Usuario [i].Email);
-                                pago.Usuario [i].Libro.Add (pago);
-                        }
+                        // Argumento OID y no colección.
+                        pago.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), pago.Usuario.Email);
+
+                        pago.Usuario.Libro
+                        .Add (pago);
                 }
                 if (pago.Categoria != null) {
                         for (int i = 0; i < pago.Categoria.Count; i++) {

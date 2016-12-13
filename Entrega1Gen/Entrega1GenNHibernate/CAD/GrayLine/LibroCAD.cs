@@ -141,10 +141,11 @@ public int CrearLibro (LibroEN libro)
         {
                 SessionInitializeTransaction ();
                 if (libro.Usuario != null) {
-                        for (int i = 0; i < libro.Usuario.Count; i++) {
-                                libro.Usuario [i] = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), libro.Usuario [i].Email);
-                                libro.Usuario [i].Libro.Add (libro);
-                        }
+                        // Argumento OID y no colección.
+                        libro.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), libro.Usuario.Email);
+
+                        libro.Usuario.Libro
+                        .Add (libro);
                 }
                 if (libro.Categoria != null) {
                         for (int i = 0; i < libro.Categoria.Count; i++) {
@@ -510,6 +511,36 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LibroENbuscarLibroPorCategoriaHQL");
                 query.SetParameter ("id_categoria", id_categoria);
+
+                result = query.List<Entrega1GenNHibernate.EN.GrayLine.LibroEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibrosUsuario (string nombre)
+{
+        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM LibroEN self where  SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Email=:nombre";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("LibroENverLibrosUsuarioHQL");
+                query.SetParameter ("nombre", nombre);
 
                 result = query.List<Entrega1GenNHibernate.EN.GrayLine.LibroEN>();
                 SessionCommit ();

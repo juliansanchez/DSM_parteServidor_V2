@@ -38,7 +38,7 @@ public IPagoCAD get_IPagoCAD ()
         return this._IPagoCAD;
 }
 
-public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_precio, bool p_pagado)
+public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_precio, bool p_pagado)
 {
         PagoEN pagoEN = null;
         int oid;
@@ -56,17 +56,11 @@ public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullab
         pagoEN.Publicado = p_publicado;
 
 
-        pagoEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
         if (p_usuario != null) {
-                foreach (string item in p_usuario) {
-                        Entrega1GenNHibernate.EN.GrayLine.UsuarioEN en = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                        en.Email = item;
-                        pagoEN.Usuario.Add (en);
-                }
-        }
-
-        else{
-                pagoEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids id_libro
+                pagoEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
+                pagoEN.Usuario.Email = p_usuario;
         }
 
 

@@ -33,7 +33,7 @@ public void Denunciar (int idlibro)
 
         libroEN.Num_denuncias++;
 
-       
+
 
         _ILibroCAD.ModifyDefault (libroEN);
 

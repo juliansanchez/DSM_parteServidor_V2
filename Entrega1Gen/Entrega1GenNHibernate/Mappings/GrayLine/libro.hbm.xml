@@ -53,15 +53,10 @@
 					
 			
 		  			
-						<bag name="Usuario" table="[usuario_libro]" inverse="true" >
-							<key>
-								
-									<column name="FK_id_libroLibro_idLibro"/> 
-							</key>
-      						<many-to-many class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN">
-									<column name="FK_email_idUsuario"/> 
-      						</many-to-many>
-    					</bag>
+						<many-to-one name="Usuario" class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
 			
 		  			
 						<bag name="Categoria" table="[libro_categoria]"  >
@@ -116,5 +111,6 @@
 		  <query name="LibroENReadAllHQL">from LibroEN</query>
 		  <query name="LibroENbuscarLibroHQL"><![CDATA[FROM LibroEN li WHERE  (li.Titulo= :nombre)]]></query>
 		  <query name="LibroENbuscarLibroPorCategoriaHQL"><![CDATA[select lib FROM LibroEN lib INNER JOIN lib.Categoria cat WHERE cat.Id_categoria=:id_categoria]]></query>
+		  <query name="LibroENverLibrosUsuarioHQL"><![CDATA[ SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Email=:nombre]]></query>
 		</hibernate-mapping>
 	

@@ -115,10 +115,11 @@ public int New_ (GratuitoEN gratuito)
         {
                 SessionInitializeTransaction ();
                 if (gratuito.Usuario != null) {
-                        for (int i = 0; i < gratuito.Usuario.Count; i++) {
-                                gratuito.Usuario [i] = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), gratuito.Usuario [i].Email);
-                                gratuito.Usuario [i].Libro.Add (gratuito);
-                        }
+                        // Argumento OID y no colección.
+                        gratuito.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), gratuito.Usuario.Email);
+
+                        gratuito.Usuario.Libro
+                        .Add (gratuito);
                 }
                 if (gratuito.Categoria != null) {
                         for (int i = 0; i < gratuito.Categoria.Count; i++) {

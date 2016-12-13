@@ -38,7 +38,7 @@ public IGratuitoCAD get_IGratuitoCAD ()
         return this._IGratuitoCAD;
 }
 
-public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
+public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
 {
         GratuitoEN gratuitoEN = null;
         int oid;
@@ -56,17 +56,11 @@ public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullab
         gratuitoEN.Publicado = p_publicado;
 
 
-        gratuitoEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
         if (p_usuario != null) {
-                foreach (string item in p_usuario) {
-                        Entrega1GenNHibernate.EN.GrayLine.UsuarioEN en = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                        en.Email = item;
-                        gratuitoEN.Usuario.Add (en);
-                }
-        }
-
-        else{
-                gratuitoEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids id_libro
+                gratuitoEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
+                gratuitoEN.Usuario.Email = p_usuario;
         }
 
 

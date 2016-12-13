@@ -38,7 +38,7 @@ public ILibroCAD get_ILibroCAD ()
         return this._ILibroCAD;
 }
 
-public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, System.Collections.Generic.IList<string> p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
+public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
 {
         LibroEN libroEN = null;
         int oid;
@@ -56,17 +56,11 @@ public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, 
         libroEN.Publicado = p_publicado;
 
 
-        libroEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
         if (p_usuario != null) {
-                foreach (string item in p_usuario) {
-                        Entrega1GenNHibernate.EN.GrayLine.UsuarioEN en = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                        en.Email = item;
-                        libroEN.Usuario.Add (en);
-                }
-        }
-
-        else{
-                libroEN.Usuario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids id_libro
+                libroEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
+                libroEN.Usuario.Email = p_usuario;
         }
 
 
@@ -134,6 +128,10 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
 public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> BuscarLibroPorCategoria (int ? id_categoria)
 {
         return _ILibroCAD.BuscarLibroPorCategoria (id_categoria);
+}
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibrosUsuario (string nombre)
+{
+        return _ILibroCAD.VerLibrosUsuario (nombre);
 }
 }
 }

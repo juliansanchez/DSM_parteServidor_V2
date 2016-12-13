@@ -25,15 +25,15 @@ public void DenunciarUser (string p_oid)
 
         // Write here your custom code...
 
-    UsuarioEN usuarioEN = null;
+        UsuarioEN usuarioEN = null;
 
-    //Initialized LibroEN
+        //Initialized LibroEN
 
-    usuarioEN = _IUsuarioCAD.ReadOIDDefault(p_oid);
+        usuarioEN = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-    usuarioEN.NumDenunciasUser++;
+        usuarioEN.NumDenunciasUser++;
 
-    _IUsuarioCAD.ModifyDefault(usuarioEN);
+        _IUsuarioCAD.ModifyDefault (usuarioEN);
 
         /*PROTECTED REGION END*/
 }

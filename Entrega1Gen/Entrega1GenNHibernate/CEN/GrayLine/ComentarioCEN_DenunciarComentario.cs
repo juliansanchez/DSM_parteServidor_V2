@@ -25,15 +25,15 @@ public void DenunciarComentario (int p_oid)
 
         // Write here your custom code...
 
-    ComentarioEN comentarioEN = null;
+        ComentarioEN comentarioEN = null;
 
-    //Initialized LibroEN
+        //Initialized LibroEN
 
-    comentarioEN = _IComentarioCAD.ReadOIDDefault(p_oid);
+        comentarioEN = _IComentarioCAD.ReadOIDDefault (p_oid);
 
-    comentarioEN.NumdenunciasComentario++;
+        comentarioEN.NumdenunciasComentario++;
 
-    _IComentarioCAD.ModifyDefault(comentarioEN);
+        _IComentarioCAD.ModifyDefault (comentarioEN);
 
         /*PROTECTED REGION END*/
 }

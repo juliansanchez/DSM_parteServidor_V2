@@ -51,5 +51,8 @@ System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> Busc
 
 
 System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> BuscarLibroPorCategoria (int ? id_categoria);
+
+
+System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibrosUsuario (string nombre);
 }
 }
