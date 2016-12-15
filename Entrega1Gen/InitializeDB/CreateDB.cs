@@ -13,11 +13,14 @@ using Entrega1GenNHibernate.CAD.GrayLine;
 using Entrega1GenNHibernate.CP.GrayLine;
 
 /*PROTECTED REGION END*/
+
+
 namespace InitializeDB
 {
 public class CreateDB
 {
-public static void Create (string databaseArg, string userArg, string passArg)
+    #region Programa
+    public static void Create (string databaseArg, string userArg, string passArg)
 {
         String database = databaseArg;
         String user = userArg;
@@ -74,6 +77,7 @@ public static void Create (string databaseArg, string userArg, string passArg)
                 }
         }
 }
+#endregion
 
 public static void InitializeData ()
 {
@@ -150,9 +154,8 @@ public static void InitializeData ()
                 CategoriaEN categoria_3EN = new CategoriaEN ();
                 CategoriaEN categoria_4EN = new CategoriaEN ();
                 CategoriaEN categoria_5EN = new CategoriaEN ();
-
-
                 CategoriaCEN categoriaCEN = new CategoriaCEN (_ICategoriaCAD);
+
                 /* Creamos las categorias y almacenamos su OID */
                 categoria_1EN.Nombre_categoria = Entrega1GenNHibernate.Enumerated.GrayLine.Tipo_categoriaEnum.aventura;
                 var cat1 = categoriaCEN.New_ (categoria_1EN.Nombre_categoria);
@@ -347,7 +350,10 @@ public static void InitializeData ()
 
                 /* Pruebas para ver los comentarios publicados y no baneados */
                 IList<ComentarioEN> listaComentarios = comentarioCEN.VerComentarios (idLibro1);
-                // Para visualizar el contenido de cada comentario
+                
+#region visualizaciones
+
+             // Para visualizar el contenido de cada comentario
                 if (listaComentarios != null) {
                         foreach (ComentarioEN comentarios in listaComentarios) {
                                 // System.Console.WriteLine (comentarios.Texto_comentario.ToString ());
@@ -372,6 +378,8 @@ public static void InitializeData ()
                                 // System.Console.WriteLine (categorias.Nombre_categoria.ToString ());
                         }
                 }
+#endregion
+               
 
                 /* Creamos una lista de Libros paar ver su categoria pasada por parametro */
                 /* La categoria cat1 tiene tres libros t cat2 solo uno */
@@ -451,9 +459,9 @@ public static void InitializeData ()
                 System.Console.WriteLine ("Contra del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Contrasenya.ToString ());
 
 
-                System.Console.WriteLine ("Foto del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);
+                /*System.Console.WriteLine ("Foto del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);
                 usuarioCEN.CambiarFoto (usu1, "http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg");
-                System.Console.WriteLine ("Foto del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);
+                System.Console.WriteLine ("Foto del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);*/
 
                 System.Console.WriteLine ("Bilbiografia del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Bibliografia);
                 usuarioCEN.CambiarBibliografia (usu1, "Me llamo Juan y molo un monton");
@@ -488,7 +496,6 @@ public static void InitializeData ()
 
 
                 IList<LibroEN> librosUsu3 = libroCEN.VerLibrosUsuario (usu3);
-
                 // Para visualizar libros de un usuario
                 if (librosUsu3 != null) {
                         foreach (LibroEN libros in librosUsu3) {
@@ -509,6 +516,49 @@ public static void InitializeData ()
                 capituloCEN.Redactar("Erase una vez...", cap1);
                 System.Console.WriteLine("Contenido del cap1 despues: " + capituloCEN.VerCapitulo(cap1).Contenido);
 
+                
+                /* Pruebas Valoraciones */
+                ValoracionCAD _IValoracionCAD = new ValoracionCAD();
+                ValoracionEN valoracion_1EN = new ValoracionEN();
+                ValoracionEN valoracion_2EN = new ValoracionEN();
+                ValoracionEN valoracion_3EN = new ValoracionEN();
+                ValoracionEN valoracion_4EN = new ValoracionEN();
+                ValoracionEN valoracion_5EN = new ValoracionEN();
+                ValoracionEN valoracion_6EN = new ValoracionEN();
+                ValoracionCEN valoracionCEN = new ValoracionCEN(_IValoracionCAD);
+
+                /* Creamos las puntuaciones y almacenamos su OID */
+                valoracion_1EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cero;
+                valoracion_2EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.dos;
+                valoracion_3EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cuatro;
+                valoracion_4EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.seis;
+                valoracion_5EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.ocho;
+                valoracion_6EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.diez;
+               
+                var val1 = valoracionCEN.New_(valoracion_1EN.Puntuacion, idLibro1);
+                var val2 = valoracionCEN.New_(valoracion_2EN.Puntuacion, idLibro1);
+                var val3 = valoracionCEN.New_(valoracion_3EN.Puntuacion, idLibro1);
+
+                List<int> listaValoraciones = new List<int>();
+            
+                listaValoraciones.Add(val1);
+                listaValoraciones.Add(val2);
+                listaValoraciones.Add(val3);
+
+                libroCEN.Valorar(idLibro1, listaValoraciones);
+                
+               
+                /* Implementar un read-filter para leer las puntuaciones de los libros
+                 a partir del id del libro */
+                
+
+                
+
+               
+              
+              
+
+                
 
                 #endregion
 
