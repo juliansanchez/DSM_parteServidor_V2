@@ -174,8 +174,9 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_OB7p5KQ5EeamjJeFffQGjw" name="eliminarCapitulo" operationType="Destroy" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_0dU-eqUNEeaH7OKPPz799w" name="p_Capitulo_OID" type="OID" typeObject="_MH93kKQ5EeamjJeFffQGjw"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_iRvLEKQ5EeamjJeFffQGjw" name="redactar" operationType="Modifier" type="Void" automaticSynchronize="false" customized="true">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_iRvLEKQ5EeamjJeFffQGjw" name="redactar" type="Void" automaticSynchronize="false" customized="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_jyM4Q6Q5EeamjJeFffQGjw" name="p_contenido" type="Text"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lKtiAMLzEeavAdwVIb85MA" name="Id_capitulo" type="OID" typeObject="_MH93kKQ5EeamjJeFffQGjw"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oQnkUKQ5EeamjJeFffQGjw" name="invitarUsuario" operationType="Relationer" type="Void" relatedRol="_t5dloaUJEeaH7OKPPz799w">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XiunMKWYEeaNuYFamNLlbQ" name="p_Capitulo_OID" type="OID" typeObject="_MH93kKQ5EeamjJeFffQGjw"/>
