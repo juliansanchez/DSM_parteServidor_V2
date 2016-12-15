@@ -22,8 +22,6 @@ void EliminarCapitulo (int id_capitulo
                        );
 
 
-void Redactar (CapituloEN capitulo);
-
 
 void InvitarUsuario (int p_Capitulo_OID, string p_usuario_OID);
 

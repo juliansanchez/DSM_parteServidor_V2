@@ -240,7 +240,7 @@ public static void InitializeData ()
                 // creamos listas de usuarios y categorias para crear los libros
                 System.Collections.Generic.List<String> listaUsuarios = new List<string>();
                 listaUsuarios.Add (usuario1EN.Email);
-
+                CapituloCAD _ICapituloCAD = new CapituloCAD ();
                 /* Se crean dos libros gratuitos y uno de pago
                  * Se guardan sus OIDS para inicializar la bbdd */
                 int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
@@ -477,38 +477,37 @@ public static void InitializeData ()
 
                 /* Prueba para ver libros de un usuario */
 
-               // var librosUsu1 = libroCEN.VerLibrosUsuario (usu1);
-
-                //var librosUsu3 = libroCEN.VerLibrosUsuario(usu3);
-
-
-                IList<LibroEN> librosUsu1 = libroCEN.VerLibrosUsuario(usu1);
+                IList<LibroEN> librosUsu1 = libroCEN.VerLibrosUsuario (usu1);
 
                 // Para visualizar las categorias de los libros
-                if (librosUsu1 != null)
-                {
-                    foreach (LibroEN libros in librosUsu1)
-                    {
-                        System.Console.WriteLine("Libros de el usuario 1 son: " + libros.Titulo.ToString());
-                    }
+                if (librosUsu1 != null) {
+                        foreach (LibroEN libros in librosUsu1) {
+                                System.Console.WriteLine ("Libros de el usuario 1 son: " + libros.Titulo.ToString ());
+                        }
                 }
 
 
-                IList<LibroEN> librosUsu3 = libroCEN.VerLibrosUsuario(usu3);
+                IList<LibroEN> librosUsu3 = libroCEN.VerLibrosUsuario (usu3);
 
-                // Para visualizar las categorias de los libros
-                if (librosUsu3 != null)
-                {
-                    foreach (LibroEN libros in librosUsu3)
-                    {
-                        System.Console.WriteLine("Libros de el usuario 3 son: " + libros.Titulo.ToString());
-                    }
+                // Para visualizar libros de un usuario
+                if (librosUsu3 != null) {
+                        foreach (LibroEN libros in librosUsu3) {
+                                System.Console.WriteLine ("Libros de el usuario 3 son: " + libros.Titulo.ToString ());
+                        }
                 }
 
-              
 
+                /* Pruebas INVITAR usuario*/
+                capituloCEN.InvitarUsuario (cap1, _IUsuarioCAD.ReadOIDDefault (usu3).Email);
 
+                /* COMO mostrar q capitulos estan disponibles para un usuario */
 
+                
+                /* Pruebas redactar. Añado un asterisco para indentificar
+                 el nuevo texto añadido */
+                System.Console.WriteLine("Contenido del cap1 antes: " + capituloCEN.VerCapitulo(cap1).Contenido);
+                capituloCEN.Redactar("Erase una vez...", cap1);
+                System.Console.WriteLine("Contenido del cap1 despues: " + capituloCEN.VerCapitulo(cap1).Contenido);
 
 
                 #endregion

@@ -204,29 +204,6 @@ public void EliminarCapitulo (int id_capitulo
         }
 }
 
-public void Redactar (CapituloEN capitulo)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                CapituloEN capituloEN = (CapituloEN)session.Load (typeof(CapituloEN), capitulo.Id_capitulo);
-                session.Update (capituloEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in CapituloCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 public void InvitarUsuario (int p_Capitulo_OID, string p_usuario_OID)
 {
         Entrega1GenNHibernate.EN.GrayLine.CapituloEN capituloEN = null;
