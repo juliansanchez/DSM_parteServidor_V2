@@ -167,7 +167,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+
+            LibroCEN cen = new LibroCEN();
+
+            cen.EliminarLibro(id);
+
+            return RedirectToAction("Index");
         }
 
         //
@@ -179,6 +184,9 @@ namespace MvcApplication1.Controllers
             try
             {
                 // TODO: Add delete logic here
+                LibroCEN cen = new LibroCEN();
+    
+                cen.EliminarLibro(id);
 
                 return RedirectToAction("Index");
             }
