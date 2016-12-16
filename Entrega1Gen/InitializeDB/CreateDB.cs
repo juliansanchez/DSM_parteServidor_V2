@@ -13,14 +13,11 @@ using Entrega1GenNHibernate.CAD.GrayLine;
 using Entrega1GenNHibernate.CP.GrayLine;
 
 /*PROTECTED REGION END*/
-
-
 namespace InitializeDB
 {
 public class CreateDB
 {
-    #region Programa
-    public static void Create (string databaseArg, string userArg, string passArg)
+public static void Create (string databaseArg, string userArg, string passArg)
 {
         String database = databaseArg;
         String user = userArg;
@@ -77,7 +74,6 @@ public class CreateDB
                 }
         }
 }
-#endregion
 
 public static void InitializeData ()
 {
@@ -350,10 +346,10 @@ public static void InitializeData ()
 
                 /* Pruebas para ver los comentarios publicados y no baneados */
                 IList<ComentarioEN> listaComentarios = comentarioCEN.VerComentarios (idLibro1);
-                
-#region visualizaciones
 
-             // Para visualizar el contenido de cada comentario
+                #region visualizaciones
+
+                // Para visualizar el contenido de cada comentario
                 if (listaComentarios != null) {
                         foreach (ComentarioEN comentarios in listaComentarios) {
                                 // System.Console.WriteLine (comentarios.Texto_comentario.ToString ());
@@ -378,8 +374,8 @@ public static void InitializeData ()
                                 // System.Console.WriteLine (categorias.Nombre_categoria.ToString ());
                         }
                 }
-#endregion
-               
+                #endregion
+
 
                 /* Creamos una lista de Libros paar ver su categoria pasada por parametro */
                 /* La categoria cat1 tiene tres libros t cat2 solo uno */
@@ -396,11 +392,11 @@ public static void InitializeData ()
 
                 /* Prueba para bannear usuario. Se le paa el OID del usuario1EN y lo bannea*/
                 _IUsuarioCAD.ReadOIDDefault (usu1);
-                usuarioCEN.BanearUsuario (usuario1EN.Email);
-/*                var usuBaneado = _IUsuarioCAD.ReadOIDDefault (usu1).Baneado;
-
-                System.Console.WriteLine ("El usuario " + _IUsuarioCAD.ReadOIDDefault (usu1).Nombre.ToString () + " debe estar baneado: " + usuBaneado);
-*/
+                /*                usuarioCEN.BanearUsuario (usuario1EN.Email);
+                 *          var usuBaneado = _IUsuarioCAD.ReadOIDDefault (usu1).Baneado;
+                 *
+                 *            System.Console.WriteLine ("El usuario " + _IUsuarioCAD.ReadOIDDefault (usu1).Nombre.ToString () + " debe estar baneado: " + usuBaneado);
+                 */
                 /* Leemos el OID del libro y lo denunciamos 4 veces
                  * EL libro se banea con 4 denuncias */
                 // _ILibroCAD.ReadOIDDefault (idLibro1);
@@ -460,8 +456,8 @@ public static void InitializeData ()
 
 
                 /*System.Console.WriteLine ("Foto del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);
-                usuarioCEN.CambiarFoto (usu1, "http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg");
-                System.Console.WriteLine ("Foto del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);*/
+                 * usuarioCEN.CambiarFoto (usu1, "http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg");
+                 * System.Console.WriteLine ("Foto del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);*/
 
                 System.Console.WriteLine ("Bilbiografia del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Bibliografia);
                 usuarioCEN.CambiarBibliografia (usu1, "Me llamo Juan y molo un monton");
@@ -509,23 +505,23 @@ public static void InitializeData ()
 
                 /* COMO mostrar q capitulos estan disponibles para un usuario */
 
-                
-                /* Pruebas redactar. Añado un asterisco para indentificar
-                 el nuevo texto añadido */
-                System.Console.WriteLine("Contenido del cap1 antes: " + capituloCEN.VerCapitulo(cap1).Contenido);
-                capituloCEN.Redactar("Erase una vez...", cap1);
-                System.Console.WriteLine("Contenido del cap1 despues: " + capituloCEN.VerCapitulo(cap1).Contenido);
 
-                
+                /* Pruebas redactar. Añado un asterisco para indentificar
+                 * el nuevo texto añadido */
+                System.Console.WriteLine ("Contenido del cap1 antes: " + capituloCEN.VerCapitulo (cap1).Contenido);
+                capituloCEN.Redactar ("Erase una vez...", cap1);
+                System.Console.WriteLine ("Contenido del cap1 despues: " + capituloCEN.VerCapitulo (cap1).Contenido);
+
+
                 /* Pruebas Valoraciones */
-                ValoracionCAD _IValoracionCAD = new ValoracionCAD();
-                ValoracionEN valoracion_1EN = new ValoracionEN();
-                ValoracionEN valoracion_2EN = new ValoracionEN();
-                ValoracionEN valoracion_3EN = new ValoracionEN();
-                ValoracionEN valoracion_4EN = new ValoracionEN();
-                ValoracionEN valoracion_5EN = new ValoracionEN();
-                ValoracionEN valoracion_6EN = new ValoracionEN();
-                ValoracionCEN valoracionCEN = new ValoracionCEN(_IValoracionCAD);
+                ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
+                ValoracionEN valoracion_1EN = new ValoracionEN ();
+                ValoracionEN valoracion_2EN = new ValoracionEN ();
+                ValoracionEN valoracion_3EN = new ValoracionEN ();
+                ValoracionEN valoracion_4EN = new ValoracionEN ();
+                ValoracionEN valoracion_5EN = new ValoracionEN ();
+                ValoracionEN valoracion_6EN = new ValoracionEN ();
+                ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
 
                 /* Creamos las puntuaciones y almacenamos su OID */
                 valoracion_1EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cero;
@@ -534,31 +530,31 @@ public static void InitializeData ()
                 valoracion_4EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.seis;
                 valoracion_5EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.ocho;
                 valoracion_6EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.diez;
-               
-                var val1 = valoracionCEN.New_(valoracion_1EN.Puntuacion, idLibro1);
-                var val2 = valoracionCEN.New_(valoracion_2EN.Puntuacion, idLibro1);
-                var val3 = valoracionCEN.New_(valoracion_3EN.Puntuacion, idLibro1);
+
+                var val1 = valoracionCEN.New_ (valoracion_1EN.Puntuacion, idLibro1);
+                var val2 = valoracionCEN.New_ (valoracion_2EN.Puntuacion, idLibro1);
+                var val3 = valoracionCEN.New_ (valoracion_3EN.Puntuacion, idLibro1);
 
                 List<int> listaValoraciones = new List<int>();
-            
-                listaValoraciones.Add(val1);
-                listaValoraciones.Add(val2);
-                listaValoraciones.Add(val3);
 
-                libroCEN.Valorar(idLibro1, listaValoraciones);
-                
-               
+                listaValoraciones.Add (val1);
+                listaValoraciones.Add (val2);
+                listaValoraciones.Add (val3);
+
+                libroCEN.Valorar (idLibro1, listaValoraciones);
+
+
                 /* Implementar un read-filter para leer las puntuaciones de los libros
-                 a partir del id del libro */
-                
+                 * a partir del id del libro */
 
-                
 
-               
-              
-              
 
-                
+
+
+
+
+
+
 
                 #endregion
 
