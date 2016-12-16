@@ -397,10 +397,10 @@ public static void InitializeData ()
                 /* Prueba para bannear usuario. Se le paa el OID del usuario1EN y lo bannea*/
                 _IUsuarioCAD.ReadOIDDefault (usu1);
                 usuarioCEN.BanearUsuario (usuario1EN.Email);
-                var usuBaneado = _IUsuarioCAD.ReadOIDDefault (usu1).Baneado;
+/*                var usuBaneado = _IUsuarioCAD.ReadOIDDefault (usu1).Baneado;
 
                 System.Console.WriteLine ("El usuario " + _IUsuarioCAD.ReadOIDDefault (usu1).Nombre.ToString () + " debe estar baneado: " + usuBaneado);
-
+*/
                 /* Leemos el OID del libro y lo denunciamos 4 veces
                  * EL libro se banea con 4 denuncias */
                 // _ILibroCAD.ReadOIDDefault (idLibro1);

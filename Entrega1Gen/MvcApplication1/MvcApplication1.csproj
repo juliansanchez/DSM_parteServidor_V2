@@ -350,6 +350,7 @@
     <Content Include="Views\Capitulos\_listadoCapituloPartial.cshtml" />
     <Content Include="Views\Libreria\Edit.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Libreria\CreateGratis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

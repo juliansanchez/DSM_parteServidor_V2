@@ -23,11 +23,11 @@ namespace MvcApplication1.Models
 
         [Display(Prompt = "Descripción del artículo", Description = "Descripción del artículo", Name = "Descripción ")]
         [Required(ErrorMessage = "Debe indicar un nombre para el artículo")]
-        [StringLength(maximumLength: 200, ErrorMessage = "El nombre no puede tener más de 200 caracteres")]
+        [StringLength(maximumLength: 500, ErrorMessage = "La descripcion no puede tener más de 500 caracteres")]
         public string descripcion { get; set; }
     
         [Display(Prompt =   "Fecha de subida", Description="Fecha de subida del libro",Name="Fecha")]
-        public DateTime? fecha { get; set; }
+        public System.DateTime? fecha { get; set; }
 
         [Display(Prompt="Libro publicado",Description="El libro se ha publicado",Name="Publicado")]
         public Boolean publicado {get;set;}

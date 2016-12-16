@@ -40,9 +40,12 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Libreria/Create
 
-        public ActionResult Create()
+        public ActionResult CreateGratis()
         {
-            return View();
+            Libro libr = null;
+
+            return View(libr);
+
         }
         //
 
@@ -67,10 +70,28 @@ namespace MvcApplication1.Controllers
             try
             {
               // TODO: Add insert logic here
+                UsuarioCEN UsuCEN=new UsuarioCEN();
+                IList<UsuarioEN> listaUsu= UsuCEN.ReadAll(0,1);
+                UsuarioEN usu = new UsuarioEN();
+                usu= listaUsu[0];
+                string emailUsu = usu.Email; 
+                CategoriaCEN CategoriaCEN=new CategoriaCEN();
+                IList<CategoriaEN> CategoriaList= CategoriaCEN.VerCategorias(0,1);
+                   System.Collections.Generic.List<int> Cate = new List<int>();
+       /*         Entrega1GenNHibernate.Enumerated.GrayLine.Tipo_categoriaEnum.fantasia
+                Cate.Add(Entrega1GenNHibernate.Enumerated.GrayLine.Tipo_categoriaEnum.fantasia);
+                Cate.Add(2);*/
 
-      /*          GratuitoCEN cen = new GratuitoCEN();
-                cen.New_(libr.titulo, libr.portada,libr.descripcion,libr.fecha,libr.publicado,)
-
+                 CategoriaCEN categoriaCEN=new CategoriaCEN();
+                 CategoriaEN categoria_1EN = new CategoriaEN ();
+                categoria_1EN.Nombre_categoria = Entrega1GenNHibernate.Enumerated.GrayLine.Tipo_categoriaEnum.aventura;
+                var cat1 = categoriaCEN.New_ (categoria_1EN.Nombre_categoria);
+                Cate.Add(cat1);
+           
+                 GratuitoCEN cen = new GratuitoCEN();
+                // cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, usu, CategoriaList, false, 0);
+                 cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, emailUsu, Cate, false, 0);
+/*
                     gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, listaUsuarios, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
                 */
 
@@ -116,44 +137,30 @@ namespace MvcApplication1.Controllers
         // POST: /Libreria/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Libro libr)
+
+
+
+        public ActionResult Edit(int id, Libro libr)
         {
             try
             {
-                LibroCEN cen = new LibroCEN();
-               // cen.CambiarTitulo(libr.titulo);
-                return RedirectToAction("Index");
-               
+                // TODO: Add update logic here
+                /*Falta que cambiar furule bien*/
+               LibroCEN cen = new LibroCEN();
+                cen.CambiarTitulo(id,libr.titulo);
+                cen.CambiarPortada(id,libr.portada);
+                cen.CambiarDescripcion(id,libr.descripcion);
+
+                var valorGetC = (libr.titulo);
+                var valorGetU = (libr.portada);
+                var valorGetD = (libr.descripcion);
+                return RedirectToAction("Details",new {id = libr.id});
             }
             catch
             {
                 return View();
             }
         }
-
-
-
-      /*  public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-                /*Falta que cambiar furule bien*/
-         /*       LibroCEN cen = new LibroCEN();
-                cen.CambiarTitulo(collection.Get(1));
-                cen.CambiarPortada(collection.Get(2));
-                cen.CambiarDescripcion(collection.Get(3));
-
-                var valorGetC = (collection.Get(1));
-                var valorGetU = (collection.Get(2));
-                var valorGetD = (collection.Get(3));
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
 
         //
         // GET: /Libreria/Delete/5

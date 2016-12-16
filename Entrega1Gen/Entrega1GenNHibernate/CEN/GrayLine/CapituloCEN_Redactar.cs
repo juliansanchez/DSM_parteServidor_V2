@@ -28,11 +28,11 @@ public void Redactar (string p_contenido, int id_capitulo)
 
         //Initialized LibroEN
 
-        capituloEN = _ICapituloCAD.ReadOIDDefault(id_capitulo);
+        capituloEN = _ICapituloCAD.ReadOIDDefault (id_capitulo);
 
-        capituloEN.Contenido = capituloEN.Contenido+" * "+p_contenido;
+        capituloEN.Contenido = capituloEN.Contenido + " * " + p_contenido;
 
-        _ICapituloCAD.ModifyDefault(capituloEN);
+        _ICapituloCAD.ModifyDefault (capituloEN);
 
         // throw new NotImplementedException ("Method Redactar() not yet implemented.");
 

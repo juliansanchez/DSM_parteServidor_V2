@@ -1,11 +1,11 @@
 ﻿@model MvcApplication1.Models.Libro
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "CreateGratis";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>CreateGratis</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -41,7 +41,10 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.fecha)
         </div>
-
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha)
+            @Html.ValidationMessageFor(model => model.fecha)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.publicado)
@@ -52,23 +55,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.baneado)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.baneado)
-            @Html.ValidationMessageFor(model => model.baneado)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.numDen)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.numDen)
-            @Html.ValidationMessageFor(model => model.numDen)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
