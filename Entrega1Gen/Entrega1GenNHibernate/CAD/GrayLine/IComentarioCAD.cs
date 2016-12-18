@@ -23,5 +23,9 @@ void Destroy (int id
 
 
 System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> VerComentarios (int ? idlibro);
+
+
+
+System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro);
 }
 }

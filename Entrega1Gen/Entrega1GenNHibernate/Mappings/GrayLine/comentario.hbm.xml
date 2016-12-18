@@ -21,6 +21,9 @@
 					<property name="NumdenunciasComentario" type="integer"> 
 						<column name="numdenunciasComentario"  not-null="true"/>
 					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -32,6 +35,15 @@
 											 					
 			
 			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+					
+					
 					
 					
 					
@@ -42,5 +54,6 @@
 		  
 		  <query name="ComentarioENReadAllHQL">from ComentarioEN</query>
 		  <query name="ComentarioENverComentariosHQL"><![CDATA[FROM ComentarioEN com WHERE com.Baneado=false AND com.Libro=:idlibro]]></query>
+		  <query name="ComentarioENcomentariosLibroHQL"><![CDATA[FROM ComentarioEN com WHERE  (com.Libro= :milibro) ORDER BY com.Fecha]]></query>
 		</hibernate-mapping>
 	

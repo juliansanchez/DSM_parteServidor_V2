@@ -82,6 +82,13 @@ private int numDenunciasUser;
 
 
 
+/**
+ *	Atributo comentario
+ */
+private System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario;
+
+
+
 
 
 
@@ -151,30 +158,37 @@ public virtual int NumDenunciasUser {
 
 
 
+public virtual System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> Comentario {
+        get { return comentario; } set { comentario = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
 {
         libro = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.LibroEN>();
         capitulo = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.CapituloEN>();
+        comentario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
 }
 
 
 
-public UsuarioEN(string email, string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser
+public UsuarioEN(string email, string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario
                  )
 {
-        this.init (Email, nombre, contrasenya, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser);
+        this.init (Email, nombre, contrasenya, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser, comentario);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.Contrasenya, usuario.Edad, usuario.Fecha_alta, usuario.Foto, usuario.Bibliografia, usuario.Libro, usuario.Capitulo, usuario.Baneado, usuario.NumDenunciasUser);
+        this.init (Email, usuario.Nombre, usuario.Contrasenya, usuario.Edad, usuario.Fecha_alta, usuario.Foto, usuario.Bibliografia, usuario.Libro, usuario.Capitulo, usuario.Baneado, usuario.NumDenunciasUser, usuario.Comentario);
 }
 
 private void init (string email
-                   , string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser)
+                   , string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario)
 {
         this.Email = email;
 
@@ -198,6 +212,8 @@ private void init (string email
         this.Baneado = baneado;
 
         this.NumDenunciasUser = numDenunciasUser;
+
+        this.Comentario = comentario;
 }
 
 public override bool Equals (object obj)

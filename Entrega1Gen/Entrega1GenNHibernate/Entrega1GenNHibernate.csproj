@@ -228,6 +228,7 @@
 			
 			<Compile Include="CEN\GrayLine\ComentarioCEN_DenunciarComentario.cs" />
 			
+			
 	<Compile Include="EN\GrayLine\ValoracionEN.cs" />
 	<Compile Include="CEN\GrayLine\ValoracionCEN.cs" />
 	<Compile Include="CAD\GrayLine\IValoracionCAD.cs" />

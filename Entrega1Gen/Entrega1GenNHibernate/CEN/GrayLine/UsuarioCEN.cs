@@ -82,9 +82,9 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         list = _IUsuarioCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> BuscarUsuario (string arg0)
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> BuscarUsuario (string mote)
 {
-        return _IUsuarioCAD.BuscarUsuario (arg0);
+        return _IUsuarioCAD.BuscarUsuario (mote);
 }
 public UsuarioEN VerUsuario (string email
                              )

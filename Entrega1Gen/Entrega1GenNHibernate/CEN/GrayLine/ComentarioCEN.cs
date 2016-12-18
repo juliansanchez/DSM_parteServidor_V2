@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_numdenunciasComentario)
+public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_numdenunciasComentario, Nullable<DateTime> p_fecha, string p_usuario)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -59,6 +59,16 @@ public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_n
 
         comentarioEN.NumdenunciasComentario = p_numdenunciasComentario;
 
+        comentarioEN.Fecha = p_fecha;
+
+
+        if (p_usuario != null) {
+                // El argumento p_usuario -> Property usuario es oid = false
+                // Lista de oids id
+                comentarioEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
+                comentarioEN.Usuario.Email = p_usuario;
+        }
+
         //Call to ComentarioCAD
 
         oid = _IComentarioCAD.New_ (comentarioEN);
@@ -74,6 +84,10 @@ public void Destroy (int id
 public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> VerComentarios (int ? idlibro)
 {
         return _IComentarioCAD.VerComentarios (idlibro);
+}
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro)
+{
+        return _IComentarioCAD.ComentariosLibro (milibro);
 }
 }
 }

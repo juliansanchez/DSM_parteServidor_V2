@@ -313,13 +313,26 @@ public static void InitializeData ()
                 // Comentario 1
                 comentarioEN.Texto_comentario = "Mola mucho este libro!!!";
                 comentarioEN.Baneado = false;
-                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0);
+                var comentario1 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today, usu1);
 
                 // Comentario 2
                 comentarioEN.Texto_comentario = "Mola mucho este libro otra vez!!!";
                 comentarioEN.Baneado = false;
 
-                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0);
+                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today,usu3);
+
+
+                // Comentario 3
+                comentarioEN.Texto_comentario = "Este libro me ha emocionado como ninguno";
+                comentarioEN.Baneado = false;
+
+                var comentario3 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro2, comentarioEN.Baneado, 0, DateTime.Today,usu1);
+
+                // Comentario 4
+                comentarioEN.Texto_comentario = "Soy lo peor, no me he enterado de la mitad. Muy bueno";
+                comentarioEN.Baneado = false;
+
+                var comentario4 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today, usu1);
 
                 #endregion
 
@@ -376,7 +389,7 @@ public static void InitializeData ()
                 }
                 #endregion
 
-
+                #region readfilters
                 /* Creamos una lista de Libros paar ver su categoria pasada por parametro */
                 /* La categoria cat1 tiene tres libros t cat2 solo uno */
                 IList<LibroEN> listLibros = libroCEN.BuscarLibroPorCategoria (cat1);
@@ -390,8 +403,38 @@ public static void InitializeData ()
                 }
 
 
+                /* Creamos una lista de Usuarios para ver todos los que se llaman igual */
+
+                IList<UsuarioEN> listUsuarios = usuarioCEN.BuscarUsuario ("Cliente1Nombre");
+
+
+                // Para visualizar las categorias de los libros
+                if (listUsuarios != null) {
+                        foreach (UsuarioEN usuarios in listUsuarios) {
+                                System.Console.WriteLine ("Los usuarios son: " + usuarios.Nombre.ToString ());
+                        }
+                }
+
+
+                /* Creamos una lista de comentarios para ver todos los coemntarios ordenados por fecha del libro */
+
+                IList<ComentarioEN> listComentarios = comentarioCEN.ComentariosLibro (idLibro1);
+
+
+                // Para visualizar las categorias de los libros
+                if (listComentarios != null) {
+                        foreach (ComentarioEN comentarios in listComentarios) {
+                                System.Console.WriteLine ("Los comentarios son: " + comentarios.Texto_comentario.ToString ());
+                                //System.Console.WriteLine("Los comentarios son: " + comentarios.Usuario.ToString());
+                                System.Console.WriteLine("Persona que realiza el comentario:" + _IComentarioCAD.ReadOIDDefault(comentarios.Id).Usuario.Email);
+                        }
+                }
+
+                #endregion
+
+
                 /* Prueba para bannear usuario. Se le paa el OID del usuario1EN y lo bannea*/
-                _IUsuarioCAD.ReadOIDDefault (usu1);
+                //_IUsuarioCAD.ReadOIDDefault (usu1);
                 /*                usuarioCEN.BanearUsuario (usuario1EN.Email);
                  *          var usuBaneado = _IUsuarioCAD.ReadOIDDefault (usu1).Baneado;
                  *
@@ -511,7 +554,11 @@ public static void InitializeData ()
                 System.Console.WriteLine ("Contenido del cap1 antes: " + capituloCEN.VerCapitulo (cap1).Contenido);
                 capituloCEN.Redactar ("Erase una vez...", cap1);
                 System.Console.WriteLine ("Contenido del cap1 despues: " + capituloCEN.VerCapitulo (cap1).Contenido);
+                
 
+                
+                
+                
 
                 /* Pruebas Valoraciones */
                 ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
@@ -544,16 +591,14 @@ public static void InitializeData ()
                 libroCEN.Valorar (idLibro1, listaValoraciones);
 
 
+
+
+
+
+
+
                 /* Implementar un read-filter para leer las puntuaciones de los libros
                  * a partir del id del libro */
-
-
-
-
-
-
-
-
 
 
                 #endregion

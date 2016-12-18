@@ -40,6 +40,20 @@ private int numdenunciasComentario;
 
 
 
+/**
+ *	Atributo fecha
+ */
+private Nullable<DateTime> fecha;
+
+
+
+/**
+ *	Atributo usuario
+ */
+private Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario;
+
+
+
 
 
 
@@ -73,6 +87,18 @@ public virtual int NumdenunciasComentario {
 
 
 
+public virtual Nullable<DateTime> Fecha {
+        get { return fecha; } set { fecha = value;  }
+}
+
+
+
+public virtual Entrega1GenNHibernate.EN.GrayLine.UsuarioEN Usuario {
+        get { return usuario; } set { usuario = value;  }
+}
+
+
+
 
 
 public ComentarioEN()
@@ -81,20 +107,20 @@ public ComentarioEN()
 
 
 
-public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario
+public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario
                     )
 {
-        this.init (Id, texto_comentario, libro, baneado, numdenunciasComentario);
+        this.init (Id, texto_comentario, libro, baneado, numdenunciasComentario, fecha, usuario);
 }
 
 
 public ComentarioEN(ComentarioEN comentario)
 {
-        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado, comentario.NumdenunciasComentario);
+        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado, comentario.NumdenunciasComentario, comentario.Fecha, comentario.Usuario);
 }
 
 private void init (int id
-                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario)
+                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario)
 {
         this.Id = id;
 
@@ -106,6 +132,10 @@ private void init (int id
         this.Baneado = baneado;
 
         this.NumdenunciasComentario = numdenunciasComentario;
+
+        this.Fecha = fecha;
+
+        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)

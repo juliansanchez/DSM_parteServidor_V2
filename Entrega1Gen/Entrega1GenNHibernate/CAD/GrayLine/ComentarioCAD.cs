@@ -100,6 +100,10 @@ public void ModifyDefault (ComentarioEN comentario)
 
                 comentarioEN.NumdenunciasComentario = comentario.NumdenunciasComentario;
 
+
+                comentarioEN.Fecha = comentario.Fecha;
+
+
                 session.Update (comentarioEN);
                 SessionCommit ();
         }
@@ -129,6 +133,13 @@ public int New_ (ComentarioEN comentario)
                         comentario.Libro = (Entrega1GenNHibernate.EN.GrayLine.LibroEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.LibroEN), comentario.Libro.Id_libro);
 
                         comentario.Libro.Comentario
+                        .Add (comentario);
+                }
+                if (comentario.Usuario != null) {
+                        // Argumento OID y no colección.
+                        comentario.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), comentario.Usuario.Email);
+
+                        comentario.Usuario.Comentario
                         .Add (comentario);
                 }
 
@@ -213,6 +224,36 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Coment
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENverComentariosHQL");
                 query.SetParameter ("idlibro", idlibro);
+
+                result = query.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro)
+{
+        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN com WHERE  (com.Libro= :milibro) ORDER BY com.Fecha";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENcomentariosLibroHQL");
+                query.SetParameter ("milibro", milibro);
 
                 result = query.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
                 SessionCommit ();

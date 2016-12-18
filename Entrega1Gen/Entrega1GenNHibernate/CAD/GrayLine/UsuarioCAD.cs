@@ -116,6 +116,7 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.NumDenunciasUser = usuario.NumDenunciasUser;
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -320,7 +321,7 @@ public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
         return result;
 }
 
-public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> BuscarUsuario (string arg0)
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> BuscarUsuario (string mote)
 {
         System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> result;
         try
@@ -329,7 +330,7 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Usuari
                 //String sql = @"FROM UsuarioEN self where FROM UsuarioEN us WHERE  (us.Nombre= :mote)";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENbuscarUsuarioHQL");
-                query.SetParameter ("arg0", arg0);
+                query.SetParameter ("mote", mote);
 
                 result = query.List<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN>();
                 SessionCommit ();
