@@ -81,9 +81,12 @@ public void Destroy (int id
         _IComentarioCAD.Destroy (id);
 }
 
-public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> VerComentarios (int ? idlibro)
+public System.Collections.Generic.IList<ComentarioEN> VerComentarios (int first, int size)
 {
-        return _IComentarioCAD.VerComentarios (idlibro);
+        System.Collections.Generic.IList<ComentarioEN> list = null;
+
+        list = _IComentarioCAD.VerComentarios (first, size);
+        return list;
 }
 public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro)
 {

@@ -15,7 +15,7 @@ private int id;
 /**
  *	Atributo puntuacion
  */
-private Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum puntuacion;
+private int puntuacion;
 
 
 
@@ -35,7 +35,7 @@ public virtual int Id {
 
 
 
-public virtual Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum Puntuacion {
+public virtual int Puntuacion {
         get { return puntuacion; } set { puntuacion = value;  }
 }
 
@@ -55,7 +55,7 @@ public ValoracionEN()
 
 
 
-public ValoracionEN(int id, Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro
+public ValoracionEN(int id, int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro
                     )
 {
         this.init (Id, puntuacion, libro);
@@ -68,7 +68,7 @@ public ValoracionEN(ValoracionEN valoracion)
 }
 
 private void init (int id
-                   , Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro)
+                   , int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro)
 {
         this.Id = id;
 

@@ -196,5 +196,36 @@ public void Destroy (int id
                 SessionClose ();
         }
 }
+
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> ValoracionesLibro (int ? identificadorlibro)
+{
+        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ValoracionEN self where FROM ValoracionEN val WHERE  (val.Libro= :identificadorlibro)";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ValoracionENvaloracionesLibroHQL");
+                query.SetParameter ("identificadorlibro", identificadorlibro);
+
+                result = query.List<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in ValoracionCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

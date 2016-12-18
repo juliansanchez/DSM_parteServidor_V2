@@ -121,6 +121,9 @@ public void Pagar (PagoEN pago)
         {
                 SessionInitializeTransaction ();
                 PagoEN pagoEN = (PagoEN)session.Load (typeof(PagoEN), pago.Id_libro);
+
+                pagoEN.Pagado = pago.Pagado;
+
                 session.Update (pagoEN);
                 SessionCommit ();
         }

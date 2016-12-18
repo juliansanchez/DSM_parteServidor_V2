@@ -38,7 +38,7 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public int New_ (Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum p_puntuacion, int p_libro)
+public int New_ (int p_puntuacion, int p_libro)
 {
         ValoracionEN valoracionEN = null;
         int oid;
@@ -61,7 +61,7 @@ public int New_ (Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum p_pun
         return oid;
 }
 
-public void Modify (int p_Valoracion_OID, Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum p_puntuacion)
+public void Modify (int p_Valoracion_OID, int p_puntuacion)
 {
         ValoracionEN valoracionEN = null;
 
@@ -78,6 +78,11 @@ public void Destroy (int id
                      )
 {
         _IValoracionCAD.Destroy (id);
+}
+
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> ValoracionesLibro (int ? identificadorlibro)
+{
+        return _IValoracionCAD.ValoracionesLibro (identificadorlibro);
 }
 }
 }

@@ -319,20 +319,39 @@ public static void InitializeData ()
                 comentarioEN.Texto_comentario = "Mola mucho este libro otra vez!!!";
                 comentarioEN.Baneado = false;
 
-                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today,usu3);
+                var comentario2 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today, usu3);
 
 
                 // Comentario 3
                 comentarioEN.Texto_comentario = "Este libro me ha emocionado como ninguno";
                 comentarioEN.Baneado = false;
 
-                var comentario3 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro2, comentarioEN.Baneado, 0, DateTime.Today,usu1);
+                var comentario3 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro2, comentarioEN.Baneado, 0, DateTime.Today, usu1);
 
                 // Comentario 4
                 comentarioEN.Texto_comentario = "Soy lo peor, no me he enterado de la mitad. Muy bueno";
                 comentarioEN.Baneado = false;
 
                 var comentario4 = comentarioCEN.New_ (comentarioEN.Texto_comentario, idLibro1, comentarioEN.Baneado, 0, DateTime.Today, usu1);
+
+                #endregion
+
+
+                #region Valoracion
+                ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
+                ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
+                var val1 = valoracionCEN.New_ (5, idLibro1);
+                var val2 = valoracionCEN.New_ (10, idLibro1);
+                var val3 = valoracionCEN.New_ (6, idLibro1);
+
+                List<int> listaValoraciones = new List<int>();
+
+                listaValoraciones.Add (val1);
+                listaValoraciones.Add (val2);
+                listaValoraciones.Add (val3);
+
+                libroCEN.Valorar (idLibro1, listaValoraciones);
+
 
                 #endregion
 
@@ -358,7 +377,7 @@ public static void InitializeData ()
                 CapituloCP capituloCP = new CapituloCP ();
 
                 /* Pruebas para ver los comentarios publicados y no baneados */
-                IList<ComentarioEN> listaComentarios = comentarioCEN.VerComentarios (idLibro1);
+                IList<ComentarioEN> listaComentarios = comentarioCEN.VerComentarios (0, 10);
 
                 #region visualizaciones
 
@@ -426,8 +445,25 @@ public static void InitializeData ()
                         foreach (ComentarioEN comentarios in listComentarios) {
                                 System.Console.WriteLine ("Los comentarios son: " + comentarios.Texto_comentario.ToString ());
                                 //System.Console.WriteLine("Los comentarios son: " + comentarios.Usuario.ToString());
-                                System.Console.WriteLine("Persona que realiza el comentario:" + _IComentarioCAD.ReadOIDDefault(comentarios.Id).Usuario.Email);
+                                System.Console.WriteLine ("Persona que realiza el comentario:" + _IComentarioCAD.ReadOIDDefault (comentarios.Id).Usuario.Email);
                         }
+                }
+
+
+                /* Creamos una lista de valoraciones para ver todas las valoraciones de un libro */
+
+                IList<ValoracionEN> listValoracion = valoracionCEN.ValoracionesLibro(idLibro1);
+
+
+                // Para visualizar las categorias de los libros
+                if (listValoracion != null)
+                {
+                    foreach (ValoracionEN valoraciones in listValoracion)
+                    {
+                       // System.Console.WriteLine("Los comentarios son: " + valoraciones.Texto_comentario.ToString());
+                       
+                        System.Console.WriteLine("Valoraciones de libro1:" + _IValoracionCAD.ReadOIDDefault(valoraciones.Id).Puntuacion);
+                    }
                 }
 
                 #endregion
@@ -498,6 +534,12 @@ public static void InitializeData ()
                 System.Console.WriteLine ("Contra del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Contrasenya.ToString ());
 
 
+                /* Pagar libro */
+
+                PagoCEN.Pagar (idLibro4, true);
+                System.Console.WriteLine ("Pagado ¿si o no? " + _IPagoCAD.ReadOIDDefault (idLibro4).Pagado);
+
+
                 /*System.Console.WriteLine ("Foto del usuario 1 antes: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);
                  * usuarioCEN.CambiarFoto (usu1, "http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg");
                  * System.Console.WriteLine ("Foto del usuario 1 despues: " + _IUsuarioCAD.ReadOIDDefault (usu1).Foto);*/
@@ -554,41 +596,48 @@ public static void InitializeData ()
                 System.Console.WriteLine ("Contenido del cap1 antes: " + capituloCEN.VerCapitulo (cap1).Contenido);
                 capituloCEN.Redactar ("Erase una vez...", cap1);
                 System.Console.WriteLine ("Contenido del cap1 despues: " + capituloCEN.VerCapitulo (cap1).Contenido);
-                
 
-                
-                
-                
+
+
+
+
 
                 /* Pruebas Valoraciones */
-                ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
-                ValoracionEN valoracion_1EN = new ValoracionEN ();
-                ValoracionEN valoracion_2EN = new ValoracionEN ();
-                ValoracionEN valoracion_3EN = new ValoracionEN ();
-                ValoracionEN valoracion_4EN = new ValoracionEN ();
-                ValoracionEN valoracion_5EN = new ValoracionEN ();
-                ValoracionEN valoracion_6EN = new ValoracionEN ();
-                ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
+                /*
+                 * ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
+                 * ValoracionEN valoracion_1EN = new ValoracionEN ();
+                 * ValoracionEN valoracion_2EN = new ValoracionEN ();
+                 * ValoracionEN valoracion_3EN = new ValoracionEN ();
+                 * ValoracionEN valoracion_4EN = new ValoracionEN ();
+                 * ValoracionEN valoracion_5EN = new ValoracionEN ();
+                 * ValoracionEN valoracion_6EN = new ValoracionEN ();
+                 * ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
+                 *
+                 *
+                 *
+                 * // Creamos las puntuaciones y almacenamos su OID
+                 * valoracion_1EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cero;
+                 * valoracion_2EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.dos;
+                 * valoracion_3EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cuatro;
+                 * valoracion_4EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.seis;
+                 * valoracion_5EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.ocho;
+                 * valoracion_6EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.diez;
+                 *
+                 *
+                 *
+                 * var val1 = valoracionCEN.New_ (valoracion_1EN.Puntuacion, idLibro1);
+                 * var val2 = valoracionCEN.New_ (valoracion_2EN.Puntuacion, idLibro1);
+                 * var val3 = valoracionCEN.New_ (valoracion_3EN.Puntuacion, idLibro1);
+                 *
+                 * List<int> listaValoraciones = new List<int>();
+                 *
+                 * listaValoraciones.Add (val1);
+                 * listaValoraciones.Add (val2);
+                 * listaValoraciones.Add (val3);
+                 *
+                 * libroCEN.Valorar (idLibro1, listaValoraciones);
+                 */
 
-                /* Creamos las puntuaciones y almacenamos su OID */
-                valoracion_1EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cero;
-                valoracion_2EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.dos;
-                valoracion_3EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cuatro;
-                valoracion_4EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.seis;
-                valoracion_5EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.ocho;
-                valoracion_6EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.diez;
-
-                var val1 = valoracionCEN.New_ (valoracion_1EN.Puntuacion, idLibro1);
-                var val2 = valoracionCEN.New_ (valoracion_2EN.Puntuacion, idLibro1);
-                var val3 = valoracionCEN.New_ (valoracion_3EN.Puntuacion, idLibro1);
-
-                List<int> listaValoraciones = new List<int>();
-
-                listaValoraciones.Add (val1);
-                listaValoraciones.Add (val2);
-                listaValoraciones.Add (val3);
-
-                libroCEN.Valorar (idLibro1, listaValoraciones);
 
 
 

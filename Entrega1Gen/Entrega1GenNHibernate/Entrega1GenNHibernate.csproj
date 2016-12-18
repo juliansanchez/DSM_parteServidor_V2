@@ -237,8 +237,8 @@
 			
 			
 			
+			
 	<Compile Include="Enumerated\GrayLine\Tipo_categoriaEnum.cs" />
-	<Compile Include="Enumerated\GrayLine\Puntuacion1Enum.cs" />
 	
 	
 

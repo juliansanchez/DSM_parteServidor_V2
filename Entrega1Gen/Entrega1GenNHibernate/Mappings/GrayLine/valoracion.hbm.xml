@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Puntuacion" > 
+					<property name="Puntuacion" type="integer"> 
 						<column name="puntuacion"  not-null="true"/>
 					</property>
 			
@@ -31,5 +31,6 @@
 		 </class>	
 		  
 		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
+		  <query name="ValoracionENvaloracionesLibroHQL"><![CDATA[FROM ValoracionEN val WHERE  (val.Libro= :identificadorlibro)]]></query>
 		</hibernate-mapping>
 	

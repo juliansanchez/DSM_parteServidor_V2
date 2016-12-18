@@ -214,18 +214,17 @@ public void Destroy (int id
         }
 }
 
-public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> VerComentarios (int ? idlibro)
+public System.Collections.Generic.IList<ComentarioEN> VerComentarios (int first, int size)
 {
-        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> result;
+        System.Collections.Generic.IList<ComentarioEN> result = null;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN com WHERE com.Baneado=false AND com.Libro=:idlibro";
-                //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENverComentariosHQL");
-                query.SetParameter ("idlibro", idlibro);
-
-                result = query.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(ComentarioEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<ComentarioEN>();
+                else
+                        result = session.CreateCriteria (typeof(ComentarioEN)).List<ComentarioEN>();
                 SessionCommit ();
         }
 
@@ -244,13 +243,14 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Coment
 
         return result;
 }
+
 public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro)
 {
         System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN com WHERE  (com.Libro= :milibro) ORDER BY com.Fecha";
+                //String sql = @"FROM ComentarioEN self where FROM ComentarioEN com WHERE  (com.Libro= :milibro AND com.Baneado=false) ORDER BY com.Fecha";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ComentarioENcomentariosLibroHQL");
                 query.SetParameter ("milibro", milibro);

@@ -20,5 +20,8 @@ void Modify (ValoracionEN valoracion);
 
 void Destroy (int id
               );
+
+
+System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> ValoracionesLibro (int ? identificadorlibro);
 }
 }
