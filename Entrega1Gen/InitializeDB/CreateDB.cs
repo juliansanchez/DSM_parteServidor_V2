@@ -242,10 +242,10 @@ public static void InitializeData ()
                 CapituloCAD _ICapituloCAD = new CapituloCAD ();
                 /* Se crean dos libros gratuitos y uno de pago
                  * Se guardan sus OIDS para inicializar la bbdd */
-                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias, 0);
-                int idLibro2 = gratuitoCEN.New_ (libro2EN.Titulo, libro2EN.Portada, libro2EN.Descripcion, libro2EN.Fecha, libro2EN.Publicado, admin1, listaCategorias, libro2EN.Baneado, libro2EN.Num_denuncias, 0);
-                int idLibro3 = PagoCEN.New_ (libro3EN.Titulo, libro3EN.Portada, libro3EN.Descripcion, libro3EN.Fecha, libro3EN.Publicado, usu1, listaCategorias, libro3EN.Baneado, libro3EN.Num_denuncias, 0, 9, false);
-                int idLibro4 = PagoCEN.New_ (libro4EN.Titulo, libro4EN.Portada, libro4EN.Descripcion, libro4EN.Fecha, libro4EN.Publicado, usu3, listaCategorias2, libro4EN.Baneado, libro4EN.Num_denuncias, 0, 9, false);
+                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias, 5);
+                int idLibro2 = gratuitoCEN.New_ (libro2EN.Titulo, libro2EN.Portada, libro2EN.Descripcion, libro2EN.Fecha, libro2EN.Publicado, admin1, listaCategorias, libro2EN.Baneado, libro2EN.Num_denuncias, 3);
+                int idLibro3 = PagoCEN.New_ (libro3EN.Titulo, libro3EN.Portada, libro3EN.Descripcion, libro3EN.Fecha, libro3EN.Publicado, usu1, listaCategorias, libro3EN.Baneado, libro3EN.Num_denuncias, 10, 9, false);
+                int idLibro4 = PagoCEN.New_ (libro4EN.Titulo, libro4EN.Portada, libro4EN.Descripcion, libro4EN.Fecha, libro4EN.Publicado, usu3, listaCategorias2, libro4EN.Baneado, libro4EN.Num_denuncias, 1, 9, false);
 
                 #endregion
                 /* Se crean 4 capitulos, los dos primeros para un libro gratuito
@@ -344,17 +344,20 @@ public static void InitializeData ()
                 var val2 = valoracionCEN.New_ (10, idLibro1);
                 var val3 = valoracionCEN.New_ (6, idLibro1);
 
+                
+
                 List<int> listaValoraciones = new List<int>();
 
                 listaValoraciones.Add (val1);
                 listaValoraciones.Add (val2);
                 listaValoraciones.Add (val3);
+                
 
                 LibroCP libroCP = new LibroCP ();
                 libroCP.Valorar (idLibro1, 5);
 
                 var notaMEdia1 = _ILibroCAD.ReadOIDDefault (idLibro1).NotaMediaValoracion;
-                System.Console.WriteLine("La media de valoracion del libro es: " + notaMEdia1);
+                System.Console.WriteLine ("La media de valoracion del libro es: " + notaMEdia1);
 
                 #endregion
 
@@ -464,6 +467,19 @@ public static void InitializeData ()
                                 // System.Console.WriteLine("Los comentarios son: " + valoraciones.Texto_comentario.ToString());
 
                                 System.Console.WriteLine ("Valoraciones de libro1:" + _IValoracionCAD.ReadOIDDefault (valoraciones.Id).Puntuacion);
+                        }
+                }
+
+
+                /* Creamos una lista de LIBROS para ver LOS 6 MEJORES */
+
+                IList<LibroEN> listmejoreslibros = libroCEN.MejoresLibros ();
+
+
+                // Para visualizar las categorias de los libros
+                if (listmejoreslibros != null) {
+                        foreach (LibroEN libros in listmejoreslibros) {
+                                System.Console.WriteLine ("mejores libros:" + _ILibroCAD.ReadOIDDefault (libros.Id_libro).Titulo);
                         }
                 }
 

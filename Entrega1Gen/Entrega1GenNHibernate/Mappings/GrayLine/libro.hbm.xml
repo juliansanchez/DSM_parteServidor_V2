@@ -117,5 +117,6 @@
 		  <query name="LibroENbuscarLibroHQL"><![CDATA[FROM LibroEN li WHERE  (li.Titulo= :nombre)]]></query>
 		  <query name="LibroENbuscarLibroPorCategoriaHQL"><![CDATA[select lib FROM LibroEN lib INNER JOIN lib.Categoria cat WHERE cat.Id_categoria=:id_categoria]]></query>
 		  <query name="LibroENverLibrosUsuarioHQL"><![CDATA[ SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Email=:nombre]]></query>
+		  <query name="LibroENmejoresLibrosHQL"><![CDATA[FROM LibroEN lib ORDER BY lib.NotaMediaValoracion DESC]]></query>
 		</hibernate-mapping>
 	

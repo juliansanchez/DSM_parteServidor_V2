@@ -129,5 +129,9 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
 {
         return _ILibroCAD.VerLibrosUsuario (nombre);
 }
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> MejoresLibros ()
+{
+        return _ILibroCAD.MejoresLibros ();
+}
 }
 }
