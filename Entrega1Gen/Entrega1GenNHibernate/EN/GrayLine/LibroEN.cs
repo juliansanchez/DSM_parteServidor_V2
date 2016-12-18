@@ -96,6 +96,13 @@ private int num_denuncias;
 
 
 
+/**
+ *	Atributo notaMediaValoracion
+ */
+private float notaMediaValoracion;
+
+
+
 
 
 
@@ -177,6 +184,12 @@ public virtual int Num_denuncias {
 
 
 
+public virtual float NotaMediaValoracion {
+        get { return notaMediaValoracion; } set { notaMediaValoracion = value;  }
+}
+
+
+
 
 
 public LibroEN()
@@ -189,20 +202,20 @@ public LibroEN()
 
 
 
-public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias
+public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion
                )
 {
-        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias);
+        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion);
 }
 
 
 public LibroEN(LibroEN libro)
 {
-        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias);
+        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias, libro.NotaMediaValoracion);
 }
 
 private void init (int id_libro
-                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias)
+                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion)
 {
         this.Id_libro = id_libro;
 
@@ -230,6 +243,8 @@ private void init (int id_libro
         this.Valoracion = valoracion;
 
         this.Num_denuncias = num_denuncias;
+
+        this.NotaMediaValoracion = notaMediaValoracion;
 }
 
 public override bool Equals (object obj)

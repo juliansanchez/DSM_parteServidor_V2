@@ -38,7 +38,7 @@ public IGratuitoCAD get_IGratuitoCAD ()
         return this._IGratuitoCAD;
 }
 
-public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
+public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_notaMediaValoracion)
 {
         GratuitoEN gratuitoEN = null;
         int oid;
@@ -80,6 +80,8 @@ public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullab
         gratuitoEN.Baneado = p_baneado;
 
         gratuitoEN.Num_denuncias = p_num_denuncias;
+
+        gratuitoEN.NotaMediaValoracion = p_notaMediaValoracion;
 
         //Call to GratuitoCAD
 

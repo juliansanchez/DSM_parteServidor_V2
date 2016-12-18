@@ -33,6 +33,9 @@
 					<property name="Num_denuncias" type="integer"> 
 						<column name="num_denuncias"  not-null="true"/>
 					</property>
+					<property name="NotaMediaValoracion" type="float"> 
+						<column name="notaMediaValoracion"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -92,6 +95,8 @@
 					    </bag>
 					
 			
+			
+					
 					
 					
 					

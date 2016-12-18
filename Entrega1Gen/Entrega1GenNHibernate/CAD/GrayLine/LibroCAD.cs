@@ -116,6 +116,9 @@ public void ModifyDefault (LibroEN libro)
 
                 libroEN.Num_denuncias = libro.Num_denuncias;
 
+
+                libroEN.NotaMediaValoracion = libro.NotaMediaValoracion;
+
                 session.Update (libroEN);
                 SessionCommit ();
         }
@@ -393,45 +396,6 @@ public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
         return result;
 }
 
-public void Valorar (int p_Libro_OID, System.Collections.Generic.IList<int> p_valoracion_OIDs)
-{
-        Entrega1GenNHibernate.EN.GrayLine.LibroEN libroEN = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                libroEN = (LibroEN)session.Load (typeof(LibroEN), p_Libro_OID);
-                Entrega1GenNHibernate.EN.GrayLine.ValoracionEN valoracionENAux = null;
-                if (libroEN.Valoracion == null) {
-                        libroEN.Valoracion = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN>();
-                }
-
-                foreach (int item in p_valoracion_OIDs) {
-                        valoracionENAux = new Entrega1GenNHibernate.EN.GrayLine.ValoracionEN ();
-                        valoracionENAux = (Entrega1GenNHibernate.EN.GrayLine.ValoracionEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.ValoracionEN), item);
-                        valoracionENAux.Libro = libroEN;
-
-                        libroEN.Valoracion.Add (valoracionENAux);
-                }
-
-
-                session.Update (libroEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-
 public void Comentar (int p_Libro_OID, System.Collections.Generic.IList<int> p_comentario_OIDs)
 {
         Entrega1GenNHibernate.EN.GrayLine.LibroEN libroEN = null;
@@ -560,6 +524,32 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
         }
 
         return result;
+}
+public void ModificarNotaMedia (LibroEN libro)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                LibroEN libroEN = (LibroEN)session.Load (typeof(LibroEN), libro.Id_libro);
+
+                libroEN.NotaMediaValoracion = libro.NotaMediaValoracion;
+
+                session.Update (libroEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

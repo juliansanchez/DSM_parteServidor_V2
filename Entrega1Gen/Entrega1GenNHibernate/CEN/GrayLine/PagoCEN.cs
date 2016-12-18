@@ -38,7 +38,7 @@ public IPagoCAD get_IPagoCAD ()
         return this._IPagoCAD;
 }
 
-public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_precio, bool p_pagado)
+public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_notaMediaValoracion, float p_precio, bool p_pagado)
 {
         PagoEN pagoEN = null;
         int oid;
@@ -80,6 +80,8 @@ public int New_ (string p_titulo, string p_portada, string p_descripcion, Nullab
         pagoEN.Baneado = p_baneado;
 
         pagoEN.Num_denuncias = p_num_denuncias;
+
+        pagoEN.NotaMediaValoracion = p_notaMediaValoracion;
 
         pagoEN.Precio = p_precio;
 

@@ -152,10 +152,13 @@
 			
 			<Compile Include="CEN\GrayLine\LibroCEN_Denunciar.cs" />
 			
+			<Compile Include="CP\GrayLine\LibroCP_Valorar.cs" />
 			
 			
 			
 			
+			
+			<Compile Include="CEN\GrayLine\LibroCEN_ModificarNotaMedia.cs" />
 			
 	<Compile Include="EN\GrayLine\AdministradorEN.cs" />
 	<Compile Include="CEN\GrayLine\AdministradorCEN.cs" />

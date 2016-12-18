@@ -43,7 +43,6 @@ System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size);
 
 
 
-void Valorar (int p_Libro_OID, System.Collections.Generic.IList<int> p_valoracion_OIDs);
 
 void Comentar (int p_Libro_OID, System.Collections.Generic.IList<int> p_comentario_OIDs);
 
@@ -54,5 +53,8 @@ System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> Busc
 
 
 System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibrosUsuario (string nombre);
+
+
+void ModificarNotaMedia (LibroEN libro);
 }
 }

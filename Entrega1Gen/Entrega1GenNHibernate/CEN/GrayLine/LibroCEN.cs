@@ -38,7 +38,7 @@ public ILibroCAD get_ILibroCAD ()
         return this._ILibroCAD;
 }
 
-public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias)
+public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_notaMediaValoracion)
 {
         LibroEN libroEN = null;
         int oid;
@@ -81,6 +81,8 @@ public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, 
 
         libroEN.Num_denuncias = p_num_denuncias;
 
+        libroEN.NotaMediaValoracion = p_notaMediaValoracion;
+
         //Call to LibroCAD
 
         oid = _ILibroCAD.CrearLibro (libroEN);
@@ -108,12 +110,6 @@ public System.Collections.Generic.IList<LibroEN> ReadAll (int first, int size)
 
         list = _ILibroCAD.ReadAll (first, size);
         return list;
-}
-public void Valorar (int p_Libro_OID, System.Collections.Generic.IList<int> p_valoracion_OIDs)
-{
-        //Call to LibroCAD
-
-        _ILibroCAD.Valorar (p_Libro_OID, p_valoracion_OIDs);
 }
 public void Comentar (int p_Libro_OID, System.Collections.Generic.IList<int> p_comentario_OIDs)
 {
