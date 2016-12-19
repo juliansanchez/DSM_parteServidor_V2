@@ -242,7 +242,7 @@ public static void InitializeData ()
                 CapituloCAD _ICapituloCAD = new CapituloCAD ();
                 /* Se crean dos libros gratuitos y uno de pago
                  * Se guardan sus OIDS para inicializar la bbdd */
-                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias, 5);
+                int idLibro1 = gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, usu1, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias, 0);
                 int idLibro2 = gratuitoCEN.New_ (libro2EN.Titulo, libro2EN.Portada, libro2EN.Descripcion, libro2EN.Fecha, libro2EN.Publicado, admin1, listaCategorias, libro2EN.Baneado, libro2EN.Num_denuncias, 3);
                 int idLibro3 = PagoCEN.New_ (libro3EN.Titulo, libro3EN.Portada, libro3EN.Descripcion, libro3EN.Fecha, libro3EN.Publicado, usu1, listaCategorias, libro3EN.Baneado, libro3EN.Num_denuncias, 10, 9, false);
                 int idLibro4 = PagoCEN.New_ (libro4EN.Titulo, libro4EN.Portada, libro4EN.Descripcion, libro4EN.Fecha, libro4EN.Publicado, usu3, listaCategorias2, libro4EN.Baneado, libro4EN.Num_denuncias, 1, 9, false);
@@ -338,23 +338,40 @@ public static void InitializeData ()
 
 
                 #region Valoracion
+
+
                 ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
                 ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
-                var val1 = valoracionCEN.New_ (5, idLibro1);
-                var val2 = valoracionCEN.New_ (10, idLibro1);
-                var val3 = valoracionCEN.New_ (6, idLibro1);
-
-                
-
-                List<int> listaValoraciones = new List<int>();
-
-                listaValoraciones.Add (val1);
-                listaValoraciones.Add (val2);
-                listaValoraciones.Add (val3);
-                
+                /*
+                 * var val1 = valoracionCEN.New_ (5, idLibro1, usu1);
+                 * var val2 = valoracionCEN.New_ (10, idLibro1, usu3);
+                 * var val3 = valoracionCEN.New_ (6, idLibro1, admin1);
+                 *
+                 * System.Console.WriteLine ("La valoracion 1 la hace el: " + _IValoracionCAD.ReadOIDDefault (val1).Usuario);
+                 * System.Console.WriteLine ("el libro valorado es: " + _IValoracionCAD.ReadOIDDefault (val1).Libro);
+                 *
+                 *
+                 *
+                 *
+                 * List<int> listaValoraciones = new List<int>();
+                 *
+                 * listaValoraciones.Add (val1);
+                 * listaValoraciones.Add (val2);
+                 * listaValoraciones.Add (val3);
+                 */
 
                 LibroCP libroCP = new LibroCP ();
-                libroCP.Valorar (idLibro1, 5);
+
+                libroCP.Valorar (idLibro1, 5, usu1);
+                libroCP.Valorar(idLibro1, 10, usu3);
+                libroCP.Valorar (idLibro1, 7, usu1);
+
+                // System.Console.WriteLine("La valoracion 1 la hace el: " + _IValoracionCAD.ReadOIDDefault(val1).Usuario);
+                //System.Console.WriteLine("el libro valorado es: " + _IValoracionCAD.ReadOIDDefault(val1).Libro);
+
+
+
+
 
                 var notaMEdia1 = _ILibroCAD.ReadOIDDefault (idLibro1).NotaMediaValoracion;
                 System.Console.WriteLine ("La media de valoracion del libro es: " + notaMEdia1);

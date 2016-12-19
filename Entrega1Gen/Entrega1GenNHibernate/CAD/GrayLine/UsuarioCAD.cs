@@ -117,6 +117,7 @@ public void ModifyDefault (UsuarioEN usuario)
                 usuarioEN.NumDenunciasUser = usuario.NumDenunciasUser;
 
 
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

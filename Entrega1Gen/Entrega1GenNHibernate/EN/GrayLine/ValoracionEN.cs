@@ -26,6 +26,13 @@ private Entrega1GenNHibernate.EN.GrayLine.LibroEN libro;
 
 
 
+/**
+ *	Atributo usuario
+ */
+private Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario;
+
+
+
 
 
 
@@ -47,6 +54,12 @@ public virtual Entrega1GenNHibernate.EN.GrayLine.LibroEN Libro {
 
 
 
+public virtual Entrega1GenNHibernate.EN.GrayLine.UsuarioEN Usuario {
+        get { return usuario; } set { usuario = value;  }
+}
+
+
+
 
 
 public ValoracionEN()
@@ -55,20 +68,20 @@ public ValoracionEN()
 
 
 
-public ValoracionEN(int id, int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro
+public ValoracionEN(int id, int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario
                     )
 {
-        this.init (Id, puntuacion, libro);
+        this.init (Id, puntuacion, libro, usuario);
 }
 
 
 public ValoracionEN(ValoracionEN valoracion)
 {
-        this.init (Id, valoracion.Puntuacion, valoracion.Libro);
+        this.init (Id, valoracion.Puntuacion, valoracion.Libro, valoracion.Usuario);
 }
 
 private void init (int id
-                   , int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro)
+                   , int puntuacion, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario)
 {
         this.Id = id;
 
@@ -76,6 +89,8 @@ private void init (int id
         this.Puntuacion = puntuacion;
 
         this.Libro = libro;
+
+        this.Usuario = usuario;
 }
 
 public override bool Equals (object obj)

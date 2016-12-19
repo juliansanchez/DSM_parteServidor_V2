@@ -89,6 +89,13 @@ private System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Comen
 
 
 
+/**
+ *	Atributo valoracion
+ */
+private System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion;
+
+
+
 
 
 
@@ -164,6 +171,12 @@ public virtual System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLin
 
 
 
+public virtual System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> Valoracion {
+        get { return valoracion; } set { valoracion = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -171,24 +184,25 @@ public UsuarioEN()
         libro = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.LibroEN>();
         capitulo = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.CapituloEN>();
         comentario = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN>();
+        valoracion = new System.Collections.Generic.List<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN>();
 }
 
 
 
-public UsuarioEN(string email, string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario
+public UsuarioEN(string email, string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion
                  )
 {
-        this.init (Email, nombre, contrasenya, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser, comentario);
+        this.init (Email, nombre, contrasenya, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser, comentario, valoracion);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.Contrasenya, usuario.Edad, usuario.Fecha_alta, usuario.Foto, usuario.Bibliografia, usuario.Libro, usuario.Capitulo, usuario.Baneado, usuario.NumDenunciasUser, usuario.Comentario);
+        this.init (Email, usuario.Nombre, usuario.Contrasenya, usuario.Edad, usuario.Fecha_alta, usuario.Foto, usuario.Bibliografia, usuario.Libro, usuario.Capitulo, usuario.Baneado, usuario.NumDenunciasUser, usuario.Comentario, usuario.Valoracion);
 }
 
 private void init (string email
-                   , string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario)
+                   , string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion)
 {
         this.Email = email;
 
@@ -214,6 +228,8 @@ private void init (string email
         this.NumDenunciasUser = numDenunciasUser;
 
         this.Comentario = comentario;
+
+        this.Valoracion = valoracion;
 }
 
 public override bool Equals (object obj)

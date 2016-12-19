@@ -76,6 +76,18 @@
 							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.ComentarioEN"/>
 					    </bag>
 					
+			
+		  			
+						<bag name="Valoracion" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.ValoracionEN"/>
+					    </bag>
+					
+					
 					
 					
 					

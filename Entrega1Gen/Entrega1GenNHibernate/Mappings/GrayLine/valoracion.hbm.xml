@@ -24,6 +24,13 @@
 								<column name="FK_id_libroLibro_idLibro"/> 
 						</many-to-one>
 											 					
+			
+		  			
+						<many-to-one name="Usuario" class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN" >	
+								<column name="FK_email_idUsuario"/> 
+						</many-to-one>
+											 					
+					
 					
 					
 					
@@ -32,5 +39,6 @@
 		  
 		  <query name="ValoracionENReadAllHQL">from ValoracionEN</query>
 		  <query name="ValoracionENvaloracionesLibroHQL"><![CDATA[FROM ValoracionEN val WHERE  (val.Libro= :identificadorlibro)]]></query>
+		  <query name="ValoracionENvaloracionUnicaFiltroHQL"><![CDATA[FROM ValoracionEN val WHERE (val.Libro=:libro1) AND (val.Usuario=:usuario1)]]></query>
 		</hibernate-mapping>
 	
