@@ -161,6 +161,8 @@
 			<Compile Include="CEN\GrayLine\LibroCEN_ModificarNotaMedia.cs" />
 			
 			
+			<Compile Include="CEN\GrayLine\LibroCEN_NumValoraciones.cs" />
+			
 	<Compile Include="EN\GrayLine\AdministradorEN.cs" />
 	<Compile Include="CEN\GrayLine\AdministradorCEN.cs" />
 	<Compile Include="CAD\GrayLine\IAdministradorCAD.cs" />

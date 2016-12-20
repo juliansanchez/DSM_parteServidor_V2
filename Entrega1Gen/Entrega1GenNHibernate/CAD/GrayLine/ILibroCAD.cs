@@ -59,5 +59,8 @@ void ModificarNotaMedia (LibroEN libro);
 
 
 System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> MejoresLibros ();
+
+
+void NumValoraciones (LibroEN libro);
 }
 }

@@ -119,6 +119,9 @@ public void ModifyDefault (LibroEN libro)
 
                 libroEN.NotaMediaValoracion = libro.NotaMediaValoracion;
 
+
+                libroEN.ContValoraciones = libro.ContValoraciones;
+
                 session.Update (libroEN);
                 SessionCommit ();
         }
@@ -579,6 +582,32 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
         }
 
         return result;
+}
+public void NumValoraciones (LibroEN libro)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                LibroEN libroEN = (LibroEN)session.Load (typeof(LibroEN), libro.Id_libro);
+
+                libroEN.ContValoraciones = libro.ContValoraciones;
+
+                session.Update (libroEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

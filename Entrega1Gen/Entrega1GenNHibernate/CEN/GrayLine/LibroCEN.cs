@@ -38,7 +38,7 @@ public ILibroCAD get_ILibroCAD ()
         return this._ILibroCAD;
 }
 
-public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_notaMediaValoracion)
+public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, Nullable<DateTime> p_fecha, bool p_publicado, string p_usuario, System.Collections.Generic.IList<int> p_categoria, bool p_baneado, int p_num_denuncias, float p_notaMediaValoracion, float p_contValoraciones)
 {
         LibroEN libroEN = null;
         int oid;
@@ -82,6 +82,8 @@ public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, 
         libroEN.Num_denuncias = p_num_denuncias;
 
         libroEN.NotaMediaValoracion = p_notaMediaValoracion;
+
+        libroEN.ContValoraciones = p_contValoraciones;
 
         //Call to LibroCAD
 

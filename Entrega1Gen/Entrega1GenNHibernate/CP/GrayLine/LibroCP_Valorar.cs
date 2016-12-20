@@ -73,6 +73,8 @@ public void Valorar (int p_Libro_OID, int puntuacion, string emailusuario)
                                 }
 
                                 total = sumatorio / contador;
+
+                                libroCEN.NumValoraciones (p_Libro_OID, contador);
                                 libroCEN.ModificarNotaMedia (p_Libro_OID, total);
                         }
                 }

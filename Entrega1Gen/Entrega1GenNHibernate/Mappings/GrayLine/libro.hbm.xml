@@ -36,6 +36,9 @@
 					<property name="NotaMediaValoracion" type="float"> 
 						<column name="notaMediaValoracion"  not-null="true"/>
 					</property>
+					<property name="ContValoraciones" type="float"> 
+						<column name="contValoraciones"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -96,6 +99,8 @@
 					
 			
 			
+			
+					
 					
 					
 					

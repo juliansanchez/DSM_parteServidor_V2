@@ -103,6 +103,13 @@ private float notaMediaValoracion;
 
 
 
+/**
+ *	Atributo contValoraciones
+ */
+private float contValoraciones;
+
+
+
 
 
 
@@ -190,6 +197,12 @@ public virtual float NotaMediaValoracion {
 
 
 
+public virtual float ContValoraciones {
+        get { return contValoraciones; } set { contValoraciones = value;  }
+}
+
+
+
 
 
 public LibroEN()
@@ -202,20 +215,20 @@ public LibroEN()
 
 
 
-public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion
+public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones
                )
 {
-        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion);
+        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion, contValoraciones);
 }
 
 
 public LibroEN(LibroEN libro)
 {
-        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias, libro.NotaMediaValoracion);
+        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias, libro.NotaMediaValoracion, libro.ContValoraciones);
 }
 
 private void init (int id_libro
-                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion)
+                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones)
 {
         this.Id_libro = id_libro;
 
@@ -245,6 +258,8 @@ private void init (int id_libro
         this.Num_denuncias = num_denuncias;
 
         this.NotaMediaValoracion = notaMediaValoracion;
+
+        this.ContValoraciones = contValoraciones;
 }
 
 public override bool Equals (object obj)
