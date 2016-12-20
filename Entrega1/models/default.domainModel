@@ -188,7 +188,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_jyM4Q6Q5EeamjJeFffQGjw" name="p_contenido" type="Text"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_lKtiAMLzEeavAdwVIb85MA" name="Id_capitulo" type="OID" typeObject="_MH93kKQ5EeamjJeFffQGjw"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oQnkUKQ5EeamjJeFffQGjw" name="invitarUsuario" operationType="Relationer" type="Void" relatedRol="_t5dloaUJEeaH7OKPPz799w">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_oQnkUKQ5EeamjJeFffQGjw" name="invitarUsuario" operationType="Relationer" type="Void" relatedRol="_t5dloaUJEeaH7OKPPz799w" customizedTransaction="true">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XiunMKWYEeaNuYFamNLlbQ" name="p_Capitulo_OID" type="OID" typeObject="_MH93kKQ5EeamjJeFffQGjw"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_XiunMaWYEeaNuYFamNLlbQ" name="p_usuario_OID" type="OID" typeObject="_p0z3wKQ1EeamjJeFffQGjw"/>
       </operations>
