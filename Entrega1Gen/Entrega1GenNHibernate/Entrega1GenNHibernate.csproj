@@ -191,6 +191,10 @@
 			
 			
 			
+			<Compile Include="CEN\GrayLine\CapituloCEN_RedactarColaborativo.cs" />
+			
+			<Compile Include="CEN\GrayLine\CapituloCEN_GuardarContenido.cs" />
+			
 	<Compile Include="EN\GrayLine\PagoEN.cs" />
 	<Compile Include="CEN\GrayLine\PagoCEN.cs" />
 	<Compile Include="CAD\GrayLine\IPagoCAD.cs" />

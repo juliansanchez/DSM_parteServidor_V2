@@ -260,11 +260,10 @@ public static void InitializeData ()
                 capituloEN.Nombre = "Capitulo 1 - La amenaza Fantasma";
                 capituloEN.Numero = 1;
                 capituloEN.Contenido = "Este capitulo es el primero del libro 1";
-                // capituloEN.Libro = libro1EN;
-                // capituloEN.Usuario = usuario1EN;
+              
                 capituloEN.Editando = false;
 
-                var cap1 = capituloCEN.New_ (capituloEN.Nombre, capituloEN.Numero, capituloEN.Contenido, idLibro1, true);
+                var cap1 = capituloCEN.New_ (capituloEN.Nombre, capituloEN.Numero, capituloEN.Contenido, idLibro1, capituloEN.Editando);
 
 
                 //capitulo 2
@@ -376,8 +375,9 @@ public static void InitializeData ()
 
                 #endregion
 
+                
                 #region Pruebas
-
+                
                 // llamadas paa comprobar de lectura read all
                 var r = usuarioCEN.ReadAll (0, 10);
                 var l = gratuitoCEN.VerLibrosGratuitos (0, 10);
@@ -385,7 +385,7 @@ public static void InitializeData ()
                 var mostrarLibros = libroCEN.VerLibreria (0, 10);
                 var mostrarLibro = libroCEN.VerLibro (idLibro1);
                 var c = capituloCEN.ReadAll (0, 10);
-
+            
                 /* Iniciar sesion */
                 System.Console.WriteLine ("Inicia sesion?: " + usuarioCEN.IniciarSesion (usuario2adminEN.Email, usuario2adminEN.Contrasenya));
 
@@ -618,14 +618,14 @@ public static void InitializeData ()
 
 
                 /* Pruebas INVITAR usuario*/
-                
-                
+
+
                 capituloCP.InvitarUsuario (cap1, _IUsuarioCAD.ReadOIDDefault (usu3).Email);
-                capituloCP.InvitarUsuario(cap1, _IUsuarioCAD.ReadOIDDefault(usu3).Email);
+                capituloCP.InvitarUsuario (cap1, _IUsuarioCAD.ReadOIDDefault (usu3).Email);
 
                 /* COMO mostrar q capitulos estan disponibles para un usuario */
 
-               
+
 
                 /* Pruebas redactar. Añado un asterisco para indentificar
                  * el nuevo texto añadido */
@@ -638,52 +638,21 @@ public static void InitializeData ()
 
 
 
-                /* Pruebas Valoraciones */
-                /*
-                 * ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
-                 * ValoracionEN valoracion_1EN = new ValoracionEN ();
-                 * ValoracionEN valoracion_2EN = new ValoracionEN ();
-                 * ValoracionEN valoracion_3EN = new ValoracionEN ();
-                 * ValoracionEN valoracion_4EN = new ValoracionEN ();
-                 * ValoracionEN valoracion_5EN = new ValoracionEN ();
-                 * ValoracionEN valoracion_6EN = new ValoracionEN ();
-                 * ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
-                 *
-                 *
-                 *
-                 * // Creamos las puntuaciones y almacenamos su OID
-                 * valoracion_1EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cero;
-                 * valoracion_2EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.dos;
-                 * valoracion_3EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.cuatro;
-                 * valoracion_4EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.seis;
-                 * valoracion_5EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.ocho;
-                 * valoracion_6EN.Puntuacion = Entrega1GenNHibernate.Enumerated.GrayLine.Puntuacion1Enum.diez;
-                 *
-                 *
-                 *
-                 * var val1 = valoracionCEN.New_ (valoracion_1EN.Puntuacion, idLibro1);
-                 * var val2 = valoracionCEN.New_ (valoracion_2EN.Puntuacion, idLibro1);
-                 * var val3 = valoracionCEN.New_ (valoracion_3EN.Puntuacion, idLibro1);
-                 *
-                 * List<int> listaValoraciones = new List<int>();
-                 *
-                 * listaValoraciones.Add (val1);
-                 * listaValoraciones.Add (val2);
-                 * listaValoraciones.Add (val3);
-                 *
-                 * libroCEN.Valorar (idLibro1, listaValoraciones);
-                 */
+                /* Pruebas Escritura colaborativa */
+
+                capituloCEN.RedactarColaborativo (cap1);
+                capituloCEN.RedactarColaborativo (cap1);
+                capituloCEN.GuardarContenido (cap1, "Erase una vez...");
+                capituloCEN.RedactarColaborativo (cap1);
+
+
+
+            
 
 
 
 
 
-
-
-
-
-                /* Implementar un read-filter para leer las puntuaciones de los libros
-                 * a partir del id del libro */
 
 
                 #endregion
