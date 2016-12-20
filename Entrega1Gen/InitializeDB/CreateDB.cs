@@ -363,14 +363,12 @@ public static void InitializeData ()
                 LibroCP libroCP = new LibroCP ();
 
                 libroCP.Valorar (idLibro1, 5, usu1);
-                libroCP.Valorar(idLibro1, 10, usu3);
+                libroCP.Valorar (idLibro1, 10, usu3);
                 libroCP.Valorar (idLibro1, 7, usu1);
 
-                // System.Console.WriteLine("La valoracion 1 la hace el: " + _IValoracionCAD.ReadOIDDefault(val1).Usuario);
+
+                //System.Console.WriteLine("La valoracion 1 la hace el: " + _IValoracionCAD.ReadOIDDefault(val1).Usuario);
                 //System.Console.WriteLine("el libro valorado es: " + _IValoracionCAD.ReadOIDDefault(val1).Libro);
-
-
-
 
 
                 var notaMEdia1 = _ILibroCAD.ReadOIDDefault (idLibro1).NotaMediaValoracion;
@@ -620,10 +618,14 @@ public static void InitializeData ()
 
 
                 /* Pruebas INVITAR usuario*/
-                capituloCEN.InvitarUsuario (cap1, _IUsuarioCAD.ReadOIDDefault (usu3).Email);
+                
+                
+                capituloCP.InvitarUsuario (cap1, _IUsuarioCAD.ReadOIDDefault (usu3).Email);
+                capituloCP.InvitarUsuario(cap1, _IUsuarioCAD.ReadOIDDefault(usu3).Email);
 
                 /* COMO mostrar q capitulos estan disponibles para un usuario */
 
+               
 
                 /* Pruebas redactar. Añado un asterisco para indentificar
                  * el nuevo texto añadido */

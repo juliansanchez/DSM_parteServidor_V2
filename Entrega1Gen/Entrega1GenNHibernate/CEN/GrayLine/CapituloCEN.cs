@@ -73,12 +73,6 @@ public void EliminarCapitulo (int id_capitulo
         _ICapituloCAD.EliminarCapitulo (id_capitulo);
 }
 
-public void InvitarUsuario (int p_Capitulo_OID, string p_usuario_OID)
-{
-        //Call to CapituloCAD
-
-        _ICapituloCAD.InvitarUsuario (p_Capitulo_OID, p_usuario_OID);
-}
 public System.Collections.Generic.IList<CapituloEN> ReadAll (int first, int size)
 {
         System.Collections.Generic.IList<CapituloEN> list = null;

@@ -43,15 +43,15 @@ public void Valorar (int p_Libro_OID, int puntuacion, string emailusuario)
                 valoracionCAD = new ValoracionCAD (session);
                 valoracionCEN = new ValoracionCEN (valoracionCAD);
 
-                usuarioCAD = new UsuarioCAD(session);
-                usuarioCEN = new UsuarioCEN(usuarioCAD);
+                usuarioCAD = new UsuarioCAD (session);
+                usuarioCEN = new UsuarioCEN (usuarioCAD);
 
-                
-                
+
+
 
                 // Write here your custom transaction ...
 
-                UsuarioEN nombre = usuarioCEN.VerUsuario(emailusuario);
+                UsuarioEN nombre = usuarioCEN.VerUsuario (emailusuario);
 
                 IList<ValoracionEN> usuarioUnico = valoracionCEN.ValoracionUnicaFiltro (nombre, p_Libro_OID);
 
@@ -75,6 +75,9 @@ public void Valorar (int p_Libro_OID, int puntuacion, string emailusuario)
                                 total = sumatorio / contador;
                                 libroCEN.ModificarNotaMedia (p_Libro_OID, total);
                         }
+                }
+                else{
+                        System.Console.WriteLine ("No puedes valorar otra vez");
                 }
                 /*
                  * else {
