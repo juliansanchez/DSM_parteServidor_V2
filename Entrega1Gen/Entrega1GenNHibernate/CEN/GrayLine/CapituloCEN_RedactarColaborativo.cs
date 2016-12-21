@@ -24,7 +24,21 @@ public void RedactarColaborativo (int p_oid)
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Capitulo_redactarColaborativo) ENABLED START*/
 
         // Write here your custom code...
-        //copia aqui el codigo que no se ha subido bien al git
+       
+        CapituloEN capituloEN = null;
+
+        capituloEN = _ICapituloCAD.ReadOIDDefault(p_oid);
+
+        if (capituloEN.Editando == false)
+        {
+            capituloEN.Editando = true;
+            _ICapituloCAD.ModifyDefault(capituloEN);
+            System.Console.WriteLine("Me he metido a editar el contenido");
+        }
+        else
+        {
+            System.Console.WriteLine("Ya hay alguien editando el contenido");
+        }
 
 
 

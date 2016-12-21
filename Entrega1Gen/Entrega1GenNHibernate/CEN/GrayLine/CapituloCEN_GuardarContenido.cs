@@ -24,7 +24,21 @@ public void GuardarContenido (int p_Capitulo_OID, string p_contenido)
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Capitulo_guardarContenido) ENABLED START*/
 
         // Write here your custom code...
-        //Pega aqui lo que no se ha subido al git
+        CapituloEN capituloEN = null;
+        capituloEN = _ICapituloCAD.ReadOIDDefault(p_Capitulo_OID);
+
+        //Initialized CapituloEN
+
+        capituloEN.Id_capitulo = p_Capitulo_OID;
+        capituloEN.Contenido = p_contenido;
+        capituloEN.Editando = false;
+
+
+
+        //Call to CapituloCAD
+        _ICapituloCAD.ModifyDefault(capituloEN);
+
+        System.Console.WriteLine("Guardo y salgo para que otro usuario pueda redactar");
        
 
         /*PROTECTED REGION END*/

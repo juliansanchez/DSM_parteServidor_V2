@@ -622,9 +622,6 @@ public static void InitializeData ()
 
 
 
-
-
-
                 /* Pruebas Escritura colaborativa */
 
                 capituloCEN.RedactarColaborativo (cap1);
