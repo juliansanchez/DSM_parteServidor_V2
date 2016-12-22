@@ -55,6 +55,5 @@ C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\bin
 C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\bin\Debug\Iesi.Collections.dll
 C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\bin\Debug\Antlr3.Runtime.dll
 C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\bin\Debug\log4net.dll
-C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\obj\Debug\Entrega1GenNHibernate.csprojResolveAssemblyReference.cache
 C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\obj\Debug\Entrega1GenNHibernate.dll
 C:\Users\OIDEWin7\git\DSM_parteServidor_V2\Entrega1Gen\Entrega1GenNHibernate\obj\Debug\Entrega1GenNHibernate.pdb

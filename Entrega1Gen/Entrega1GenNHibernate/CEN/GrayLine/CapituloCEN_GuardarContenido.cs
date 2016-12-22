@@ -25,7 +25,8 @@ public void GuardarContenido (int p_Capitulo_OID, string p_contenido)
 
         // Write here your custom code...
         CapituloEN capituloEN = null;
-        capituloEN = _ICapituloCAD.ReadOIDDefault(p_Capitulo_OID);
+
+        capituloEN = _ICapituloCAD.ReadOIDDefault (p_Capitulo_OID);
 
         //Initialized CapituloEN
 
@@ -36,10 +37,10 @@ public void GuardarContenido (int p_Capitulo_OID, string p_contenido)
 
 
         //Call to CapituloCAD
-        _ICapituloCAD.ModifyDefault(capituloEN);
+        _ICapituloCAD.ModifyDefault (capituloEN);
 
-        System.Console.WriteLine("Guardo y salgo para que otro usuario pueda redactar");
-       
+        System.Console.WriteLine ("Guardo y salgo para que otro usuario pueda redactar");
+
 
         /*PROTECTED REGION END*/
 }

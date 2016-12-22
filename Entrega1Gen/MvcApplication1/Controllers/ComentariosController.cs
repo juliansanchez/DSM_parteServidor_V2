@@ -42,7 +42,7 @@ namespace MvcApplication1.Controllers
 
             //int id = Int32.Parse(idLibro);
             ComentarioCEN cen = new ComentarioCEN();
-            IEnumerable<ComentarioEN> list = cen.VerComentarios(idLibro).ToList();
+            IEnumerable<ComentarioEN> list = cen.VerComentarios();
           
             return PartialView("_listaComentarioPartial", list);
 

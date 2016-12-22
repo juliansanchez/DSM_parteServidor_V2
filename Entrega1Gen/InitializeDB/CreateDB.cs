@@ -341,7 +341,7 @@ public static void InitializeData ()
 
                 ValoracionCAD _IValoracionCAD = new ValoracionCAD ();
                 ValoracionCEN valoracionCEN = new ValoracionCEN (_IValoracionCAD);
-                
+
 
                 LibroCP libroCP = new LibroCP ();
 
@@ -350,14 +350,14 @@ public static void InitializeData ()
                 libroCP.Valorar (idLibro1, 7, usu1);
 
 
-                
+
 
 
                 var notaMEdia1 = _ILibroCAD.ReadOIDDefault (idLibro1).NotaMediaValoracion;
                 System.Console.WriteLine ("La media de valoracion del libro es: " + notaMEdia1);
 
-                var numVal = _ILibroCAD.ReadOIDDefault(idLibro1).ContValoraciones;
-                System.Console.WriteLine("Han valorado un numero de usuarios de: " + numVal);
+                var numVal = _ILibroCAD.ReadOIDDefault (idLibro1).ContValoraciones;
+                System.Console.WriteLine ("Han valorado un numero de usuarios de: " + numVal);
 
 
                 #endregion
