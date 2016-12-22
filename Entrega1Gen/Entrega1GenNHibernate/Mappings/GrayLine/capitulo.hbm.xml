@@ -19,7 +19,7 @@
 						<column name="numero"  not-null="true"/>
 					</property>
 					<property name="Contenido" type="string"> 
-						<column name="contenido" length="2000" not-null="true"/>
+						<column name="contenido" sql-type="varchar(max)" not-null="true"/>
 					</property>
 					<property name="Editando" type="boolean"> 
 						<column name="editando"  not-null="true"/>
