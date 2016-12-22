@@ -54,6 +54,13 @@ private Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario;
 
 
 
+/**
+ *	Atributo enRevisionC
+ */
+private bool enRevisionC;
+
+
+
 
 
 
@@ -99,6 +106,12 @@ public virtual Entrega1GenNHibernate.EN.GrayLine.UsuarioEN Usuario {
 
 
 
+public virtual bool EnRevisionC {
+        get { return enRevisionC; } set { enRevisionC = value;  }
+}
+
+
+
 
 
 public ComentarioEN()
@@ -107,20 +120,20 @@ public ComentarioEN()
 
 
 
-public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario
+public ComentarioEN(int id, string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, bool enRevisionC
                     )
 {
-        this.init (Id, texto_comentario, libro, baneado, numdenunciasComentario, fecha, usuario);
+        this.init (Id, texto_comentario, libro, baneado, numdenunciasComentario, fecha, usuario, enRevisionC);
 }
 
 
 public ComentarioEN(ComentarioEN comentario)
 {
-        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado, comentario.NumdenunciasComentario, comentario.Fecha, comentario.Usuario);
+        this.init (Id, comentario.Texto_comentario, comentario.Libro, comentario.Baneado, comentario.NumdenunciasComentario, comentario.Fecha, comentario.Usuario, comentario.EnRevisionC);
 }
 
 private void init (int id
-                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario)
+                   , string texto_comentario, Entrega1GenNHibernate.EN.GrayLine.LibroEN libro, bool baneado, int numdenunciasComentario, Nullable<DateTime> fecha, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, bool enRevisionC)
 {
         this.Id = id;
 
@@ -136,6 +149,8 @@ private void init (int id
         this.Fecha = fecha;
 
         this.Usuario = usuario;
+
+        this.EnRevisionC = enRevisionC;
 }
 
 public override bool Equals (object obj)

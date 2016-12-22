@@ -104,6 +104,9 @@ public void ModifyDefault (ComentarioEN comentario)
                 comentarioEN.Fecha = comentario.Fecha;
 
 
+
+                comentarioEN.EnRevisionC = comentario.EnRevisionC;
+
                 session.Update (comentarioEN);
                 SessionCommit ();
         }

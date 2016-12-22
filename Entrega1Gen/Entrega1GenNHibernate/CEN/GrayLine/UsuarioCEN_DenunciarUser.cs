@@ -31,7 +31,13 @@ public void DenunciarUser (string p_oid)
 
         usuarioEN = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
+
         usuarioEN.NumDenunciasUser++;
+
+        if (usuarioEN.EnRevisionU == false)
+        {
+            usuarioEN.EnRevisionU = true;
+        }
 
         _IUsuarioCAD.ModifyDefault (usuarioEN);
 

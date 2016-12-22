@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string Registrarse (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser)
+public string Registrarse (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser, bool p_enRevisionU)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -62,6 +62,8 @@ public string Registrarse (string p_nombre, String p_contrasenya, string p_email
         usuarioEN.Baneado = p_baneado;
 
         usuarioEN.NumDenunciasUser = p_numDenunciasUser;
+
+        usuarioEN.EnRevisionU = p_enRevisionU;
 
         //Call to UsuarioCAD
 

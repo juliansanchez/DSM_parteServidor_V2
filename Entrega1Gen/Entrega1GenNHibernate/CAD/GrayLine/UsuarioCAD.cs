@@ -118,6 +118,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
+                usuarioEN.EnRevisionU = usuario.EnRevisionU;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

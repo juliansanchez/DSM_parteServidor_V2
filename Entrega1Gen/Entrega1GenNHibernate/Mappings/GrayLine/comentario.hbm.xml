@@ -24,6 +24,9 @@
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>
 					</property>
+					<property name="EnRevisionC" type="boolean"> 
+						<column name="enRevisionC"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -42,6 +45,8 @@
 								<column name="FK_email_idUsuario"/> 
 						</many-to-one>
 											 					
+			
+					
 					
 					
 					

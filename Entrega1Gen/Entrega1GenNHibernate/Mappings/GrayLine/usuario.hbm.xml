@@ -33,6 +33,9 @@
 					<property name="NumDenunciasUser" type="integer"> 
 						<column name="numDenunciasUser"  not-null="true"/>
 					</property>
+					<property name="EnRevisionU" type="boolean"> 
+						<column name="enRevisionU"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -86,6 +89,8 @@
 					      	</key>
 							<one-to-many class="Entrega1GenNHibernate.EN.GrayLine.ValoracionEN"/>
 					    </bag>
+					
+			
 					
 					
 					

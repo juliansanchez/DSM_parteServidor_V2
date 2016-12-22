@@ -33,6 +33,10 @@ public void DenunciarComentario (int p_oid)
 
         comentarioEN.NumdenunciasComentario++;
 
+        if (comentarioEN.EnRevisionC == false) {
+                comentarioEN.EnRevisionC = true;
+        }
+
         _IComentarioCAD.ModifyDefault (comentarioEN);
 
         /*PROTECTED REGION END*/

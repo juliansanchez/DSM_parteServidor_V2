@@ -38,7 +38,7 @@ public IComentarioCAD get_IComentarioCAD ()
         return this._IComentarioCAD;
 }
 
-public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_numdenunciasComentario, Nullable<DateTime> p_fecha, string p_usuario)
+public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_numdenunciasComentario, Nullable<DateTime> p_fecha, string p_usuario, bool p_enRevisionC)
 {
         ComentarioEN comentarioEN = null;
         int oid;
@@ -68,6 +68,8 @@ public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_n
                 comentarioEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
                 comentarioEN.Usuario.Email = p_usuario;
         }
+
+        comentarioEN.EnRevisionC = p_enRevisionC;
 
         //Call to ComentarioCAD
 
