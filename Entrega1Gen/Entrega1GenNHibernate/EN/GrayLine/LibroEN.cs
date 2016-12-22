@@ -110,6 +110,13 @@ private float contValoraciones;
 
 
 
+/**
+ *	Atributo enRevision
+ */
+private bool enRevision;
+
+
+
 
 
 
@@ -203,6 +210,12 @@ public virtual float ContValoraciones {
 
 
 
+public virtual bool EnRevision {
+        get { return enRevision; } set { enRevision = value;  }
+}
+
+
+
 
 
 public LibroEN()
@@ -215,20 +228,20 @@ public LibroEN()
 
 
 
-public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones
+public LibroEN(int id_libro, string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones, bool enRevision
                )
 {
-        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion, contValoraciones);
+        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion, contValoraciones, enRevision);
 }
 
 
 public LibroEN(LibroEN libro)
 {
-        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias, libro.NotaMediaValoracion, libro.ContValoraciones);
+        this.init (Id_libro, libro.Titulo, libro.Portada, libro.Descripcion, libro.Fecha, libro.Publicado, libro.Capitulo, libro.Usuario, libro.Categoria, libro.Baneado, libro.Comentario, libro.Valoracion, libro.Num_denuncias, libro.NotaMediaValoracion, libro.ContValoraciones, libro.EnRevision);
 }
 
 private void init (int id_libro
-                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones)
+                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones, bool enRevision)
 {
         this.Id_libro = id_libro;
 
@@ -260,6 +273,8 @@ private void init (int id_libro
         this.NotaMediaValoracion = notaMediaValoracion;
 
         this.ContValoraciones = contValoraciones;
+
+        this.EnRevision = enRevision;
 }
 
 public override bool Equals (object obj)

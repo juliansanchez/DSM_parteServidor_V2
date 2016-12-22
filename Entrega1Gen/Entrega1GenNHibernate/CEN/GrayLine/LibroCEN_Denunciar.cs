@@ -33,6 +33,11 @@ public void Denunciar (int idlibro)
 
         libroEN.Num_denuncias++;
 
+        if(libroEN.EnRevision == false){
+            libroEN.EnRevision = true;
+        }
+        
+
 
 
         _ILibroCAD.ModifyDefault (libroEN);

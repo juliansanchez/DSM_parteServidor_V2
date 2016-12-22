@@ -39,6 +39,9 @@
 					<property name="ContValoraciones" type="float"> 
 						<column name="contValoraciones"  not-null="true"/>
 					</property>
+					<property name="EnRevision" type="boolean"> 
+						<column name="enRevision"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -100,6 +103,8 @@
 			
 			
 			
+			
+					
 					
 					
 					

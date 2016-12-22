@@ -14,20 +14,20 @@ public GratuitoEN() : base ()
 
 
 public GratuitoEN(int id_libro,
-                  string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones
+                  string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones, bool enRevision
                   )
 {
-        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion, contValoraciones);
+        this.init (Id_libro, titulo, portada, descripcion, fecha, publicado, capitulo, usuario, categoria, baneado, comentario, valoracion, num_denuncias, notaMediaValoracion, contValoraciones, enRevision);
 }
 
 
 public GratuitoEN(GratuitoEN gratuito)
 {
-        this.init (Id_libro, gratuito.Titulo, gratuito.Portada, gratuito.Descripcion, gratuito.Fecha, gratuito.Publicado, gratuito.Capitulo, gratuito.Usuario, gratuito.Categoria, gratuito.Baneado, gratuito.Comentario, gratuito.Valoracion, gratuito.Num_denuncias, gratuito.NotaMediaValoracion, gratuito.ContValoraciones);
+        this.init (Id_libro, gratuito.Titulo, gratuito.Portada, gratuito.Descripcion, gratuito.Fecha, gratuito.Publicado, gratuito.Capitulo, gratuito.Usuario, gratuito.Categoria, gratuito.Baneado, gratuito.Comentario, gratuito.Valoracion, gratuito.Num_denuncias, gratuito.NotaMediaValoracion, gratuito.ContValoraciones, gratuito.EnRevision);
 }
 
 private void init (int id_libro
-                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones)
+                   , string titulo, string portada, string descripcion, Nullable<DateTime> fecha, bool publicado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, Entrega1GenNHibernate.EN.GrayLine.UsuarioEN usuario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> categoria, bool baneado, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, int num_denuncias, float notaMediaValoracion, float contValoraciones, bool enRevision)
 {
         this.Id_libro = id_libro;
 
@@ -59,6 +59,8 @@ private void init (int id_libro
         this.NotaMediaValoracion = notaMediaValoracion;
 
         this.ContValoraciones = contValoraciones;
+
+        this.EnRevision = enRevision;
 }
 
 public override bool Equals (object obj)

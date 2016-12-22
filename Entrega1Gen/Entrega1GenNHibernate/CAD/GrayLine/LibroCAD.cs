@@ -122,6 +122,9 @@ public void ModifyDefault (LibroEN libro)
 
                 libroEN.ContValoraciones = libro.ContValoraciones;
 
+
+                libroEN.EnRevision = libro.EnRevision;
+
                 session.Update (libroEN);
                 SessionCommit ();
         }
