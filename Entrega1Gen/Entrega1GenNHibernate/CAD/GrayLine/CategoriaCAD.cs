@@ -216,5 +216,36 @@ public System.Collections.Generic.IList<CategoriaEN> VerCategorias (int first, i
 
         return result;
 }
+
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> VerCatLibro (int ? idLibro)
+{
+        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM CategoriaEN self where select cate FROM CategoriaEN cate INNER JOIN cate.Libro lib WHERE lib=:idLibro";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("CategoriaENverCatLibroHQL");
+                query.SetParameter ("idLibro", idLibro);
+
+                result = query.List<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in CategoriaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

@@ -66,5 +66,9 @@ public System.Collections.Generic.IList<CategoriaEN> VerCategorias (int first, i
         list = _ICategoriaCAD.VerCategorias (first, size);
         return list;
 }
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> VerCatLibro (int ? idLibro)
+{
+        return _ICategoriaCAD.VerCatLibro (idLibro);
+}
 }
 }

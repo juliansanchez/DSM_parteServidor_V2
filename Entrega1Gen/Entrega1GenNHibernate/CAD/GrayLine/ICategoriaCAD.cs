@@ -23,5 +23,8 @@ void Destroy (int id_categoria
 
 
 System.Collections.Generic.IList<CategoriaEN> VerCategorias (int first, int size);
+
+
+System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CategoriaEN> VerCatLibro (int ? idLibro);
 }
 }

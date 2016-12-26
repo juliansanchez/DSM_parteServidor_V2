@@ -36,5 +36,6 @@
 		 </class>	
 		  
 		  <query name="CategoriaENReadAllHQL">from CategoriaEN</query>
+		  <query name="CategoriaENverCatLibroHQL"><![CDATA[select cate FROM CategoriaEN cate INNER JOIN cate.Libro lib WHERE lib=:idLibro]]></query>
 		</hibernate-mapping>
 	

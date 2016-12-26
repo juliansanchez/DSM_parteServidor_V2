@@ -133,12 +133,12 @@ public static void InitializeData ()
                 usuario3EN.Contrasenya = "12345ABCD";
 
                 // registro de usuarios
-                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado, 0,false);
+                var usu1 = usuarioCEN.Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado, 0, false);
                 // administrador
-                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado, 0,false);
+                var admin1 = administradorCEN.New_ (usuario2adminEN.Nombre, usuario2adminEN.Contrasenya, usuario2adminEN.Email, usuario2adminEN.Edad, usuario2adminEN.Fecha_alta, usuario2adminEN.Foto, usuario2adminEN.Bibliografia, usuario2adminEN.Baneado, 0, false);
                 // Tercer usuario
-                var usu3 = usuarioCEN.Registrarse (usuario3EN.Nombre, usuario3EN.Contrasenya, usuario3EN.Email, usuario3EN.Edad, usuario3EN.Fecha_alta, usuario3EN.Foto, usuario3EN.Bibliografia, usuario3EN.Baneado, 0,false
-                    );
+                var usu3 = usuarioCEN.Registrarse (usuario3EN.Nombre, usuario3EN.Contrasenya, usuario3EN.Email, usuario3EN.Edad, usuario3EN.Fecha_alta, usuario3EN.Foto, usuario3EN.Bibliografia, usuario3EN.Baneado, 0, false
+                        );
 
                 #endregion
 
@@ -536,12 +536,12 @@ public static void InitializeData ()
 
                 // DENUNCIAR USUARIO
                 /* Pruebas denunciar usuario y comentario */
-                System.Console.WriteLine("Esta en revision el usuario 1 ANTES de denunciarlo??: " + _IUsuarioCAD.ReadOIDDefault(usu1).EnRevisionU);
+                System.Console.WriteLine ("Esta en revision el usuario 1 ANTES de denunciarlo??: " + _IUsuarioCAD.ReadOIDDefault (usu1).EnRevisionU);
                 usuarioCEN.DenunciarUser (usu1);
                 usuarioCEN.DenunciarUser (usu1);
                 System.Console.WriteLine ("Denucio al usuario 1 dos veces: " + _IUsuarioCAD.ReadOIDDefault (usu1).EnRevisionU);
-                System.Console.WriteLine("Esta en revision el usuario 1 DESPUES de denunciarlo??: " + _IUsuarioCAD.ReadOIDDefault(usu1).EnRevisionU);
-                System.Console.WriteLine("NUM denuncias usuario 1 (2): " + _IUsuarioCAD.ReadOIDDefault(usu1).NumDenunciasUser);
+                System.Console.WriteLine ("Esta en revision el usuario 1 DESPUES de denunciarlo??: " + _IUsuarioCAD.ReadOIDDefault (usu1).EnRevisionU);
+                System.Console.WriteLine ("NUM denuncias usuario 1 (2): " + _IUsuarioCAD.ReadOIDDefault (usu1).NumDenunciasUser);
 
 
                 // VER un capitulo de un libro
@@ -555,7 +555,7 @@ public static void InitializeData ()
                 capituloPrueba = cen.VerCapitulo (cap1);
                 System.Console.WriteLine ("Le paso el capitulo 1: " + capituloPrueba.Nombre);
 
-                /* Probar modificar atributos de Libro */
+                // Probar MODIFICAR atributos de LIBRO
                 LibroEN libroEN = _ILibroCAD.ReadOIDDefault (idLibro1);
                 string cadena = "Nueva descripcion del Quijote";
                 libroCEN.CambiarDescripcion (idLibro1, cadena);
@@ -588,7 +588,6 @@ public static void InitializeData ()
 
 
                 /* Pagar libro */
-
                 PagoCEN.Pagar (idLibro4, true);
                 System.Console.WriteLine ("Pagado ¿si o no? " + _IPagoCAD.ReadOIDDefault (idLibro4).Pagado);
 
@@ -659,6 +658,36 @@ public static void InitializeData ()
                 capituloCEN.RedactarColaborativo (cap1);
                 capituloCEN.GuardarContenido (cap1, "Erase una vez...");
                 capituloCEN.RedactarColaborativo (cap1);
+
+
+                // PRUEBAS VerCategoriasLibro
+               // devuelve una lista de categorias a partir del id del Libro
+
+                IList<CategoriaEN> categoriasLibro1 = categoriaCEN.VerCatLibro (idLibro1);
+                // Para visualizar el contenido de categorias. Se muestran todas
+                var y = 0;
+                if (categoriasLibro1 != null) {
+                        foreach (CategoriaEN categorias in categoriasLibro1) {
+                            System.Console.WriteLine("Categoria " + y+ " del Libro 1: " + categorias.Nombre_categoria.ToString());
+                            y++;
+                        }
+                }
+
+            // para el libr02
+                IList<CategoriaEN> categoriasLibro2 = categoriaCEN.VerCatLibro(idLibro4);
+                // Para visualizar el contenido de categorias. Se muestran todas
+                var contador = 0;
+                if (categoriasLibro2 != null)
+                {
+                    foreach (CategoriaEN categorias2 in categoriasLibro2)
+                    {
+                        System.Console.WriteLine("Categoria " + contador + " del Libro 2: " + categorias2.Nombre_categoria.ToString());
+                        contador++;
+                    }
+                }
+
+
+
 
 
 
