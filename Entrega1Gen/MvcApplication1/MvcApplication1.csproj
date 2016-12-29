@@ -213,6 +213,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasicController.cs" />
     <Compile Include="Controllers\CapitulosController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibreriaController.cs" />
@@ -350,6 +351,7 @@
     <Content Include="Views\Capitulos\_listadoCapituloPartial.cshtml" />
     <Content Include="Views\Libreria\Edit.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Categoria\_selectCategoriaPartial.cshtml" />
     <Content Include="Views\Libreria\CreateGratis.cshtml" />
   </ItemGroup>
   <ItemGroup>

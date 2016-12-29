@@ -119,7 +119,6 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Edit(int id)
         {
-            //aqui tenemos que cargar al dueño o al invitado
             return View();
         }
 

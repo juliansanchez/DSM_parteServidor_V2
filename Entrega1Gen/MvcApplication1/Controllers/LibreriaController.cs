@@ -42,9 +42,14 @@ namespace MvcApplication1.Controllers
 
         public ActionResult CreateGratis()
         {
+        //    CategoriaCEN cen = new CategoriaCEN();
+          //  IList<CategoriaEN> categoriasEn= cen.VerCategorias(0,-1);
             Libro libr = null;
 
-            return View(libr);
+            LibroEN libro= null;
+
+            //this.ViewBag.Categorias = new SelectList(categoriasEn, "Categorias");
+            return View(libro);
 
         }
         //
@@ -87,10 +92,19 @@ namespace MvcApplication1.Controllers
                 categoria_1EN.Nombre_categoria = Entrega1GenNHibernate.Enumerated.GrayLine.Tipo_categoriaEnum.aventura;
                 var cat1 = categoriaCEN.New_ (categoria_1EN.Nombre_categoria);
                 Cate.Add(cat1);
-           
+              
                  GratuitoCEN cen = new GratuitoCEN();
                 // cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, usu, CategoriaList, false, 0);
-                 cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, emailUsu, Cate, false, 0);
+              
+                 cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, emailUsu, Cate, false, 0, 0, 0, false);
+
+
+
+
+
+
+
+               //  cen.New_(libr.titulo, libr.portada, libr.descripcion, DateTime.Today, libr.publicado, emailUsu, Cate, false, 0);
 /*
                     gratuitoCEN.New_ (libro1EN.Titulo, libro1EN.Portada, libro1EN.Descripcion, libro1EN.Fecha, libro1EN.Publicado, listaUsuarios, listaCategorias, libro1EN.Baneado, libro1EN.Num_denuncias);
                 */
@@ -145,7 +159,7 @@ namespace MvcApplication1.Controllers
             try
             {
                 // TODO: Add update logic here
-                /*Falta que cambiar furule bien*/
+     
                LibroCEN cen = new LibroCEN();
                 cen.CambiarTitulo(id,libr.titulo);
                 cen.CambiarPortada(id,libr.portada);

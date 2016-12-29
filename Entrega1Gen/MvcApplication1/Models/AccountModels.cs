@@ -60,6 +60,11 @@ namespace MvcApplication1.Models
         [Required]
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
+        
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Correo Electronico")]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -86,6 +91,25 @@ namespace MvcApplication1.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+     //  usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado, 0,false);
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Correo Electronico")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Edad")]  
+        public Int32 Edad { get; set; }
+
+        [Display(Name = "Foto")]
+        public string Foto { get; set; }
+
+        [Display(Name = "Bibliografia")]
+        public string Bibliografia { get; set; }
+
+
     }
 
     public class ExternalLogin

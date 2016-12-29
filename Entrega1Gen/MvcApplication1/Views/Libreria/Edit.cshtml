@@ -67,6 +67,10 @@
             @Html.ValidationMessageFor(model => model.numDen)
         </div>
 
+        <div>
+            @Html.Action("selectCategoria", "Categoria")
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>

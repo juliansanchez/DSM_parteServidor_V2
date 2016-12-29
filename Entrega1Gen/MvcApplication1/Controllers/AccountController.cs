@@ -10,6 +10,9 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MvcApplication1.Filters;
 using MvcApplication1.Models;
+using Entrega1GenNHibernate.CEN.GrayLine;
+using Entrega1GenNHibernate.EN.GrayLine;
+using Entrega1GenNHibernate.CAD.GrayLine;
 
 namespace MvcApplication1.Controllers
 {
@@ -35,13 +38,18 @@ namespace MvcApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            var va = WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe);
+
+            if (ModelState.IsValid && WebSecurity.Login(model.Email, model.Password, persistCookie: model.RememberMe))
             {
+                UsuarioCEN usuCen = new UsuarioCEN();
+                UsuarioEN usu = new UsuarioEN();
+                if(usuCen.IniciarSesion(model.Email, model.Password))
                 return RedirectToLocal(returnUrl);
             }
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
-            ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
+            ModelState.AddModelError("", "El Email o la contraseña especificados son incorrectos.");
             return View(model);
         }
 
@@ -79,8 +87,14 @@ namespace MvcApplication1.Controllers
                 // Intento de registrar al usuario
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
+  //   Registrarse (usuario1EN.Nombre, usuario1EN.Contrasenya, usuario1EN.Email, usuario1EN.Edad, usuario1EN.Fecha_alta, usuario1EN.Foto, usuario1EN.Bibliografia, usuario1EN.Baneado, 0,false);
+
+                    UsuarioCEN usu = new UsuarioCEN();
+                    usu.Registrarse(model.UserName,model.Password,model.Email,model.Edad,DateTime.Today,model.Foto,model.Bibliografia,false,0,false);
+
+
+                    WebSecurity.CreateUserAndAccount(model.Email, model.Password);
+                    WebSecurity.Login(model.Email, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -156,6 +170,9 @@ namespace MvcApplication1.Controllers
                     try
                     {
                         changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+                        UsuarioCEN usu = new UsuarioCEN();
+                        UsuarioEN en = usu.get_IUsuarioCAD().ReadOIDDefault(User.Identity.Name);
+                        usu.CambiarContrasenya(en.Email, model.NewPassword);
                     }
                     catch (Exception)
                     {

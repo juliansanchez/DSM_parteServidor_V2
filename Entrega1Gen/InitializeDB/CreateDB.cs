@@ -661,32 +661,31 @@ public static void InitializeData ()
 
 
                 // PRUEBAS VerCategoriasLibro
-               // devuelve una lista de categorias a partir del id del Libro
+                // devuelve una lista de categorias a partir del id del Libro
+
 
                 IList<CategoriaEN> categoriasLibro1 = categoriaCEN.VerCatLibro (idLibro1);
                 // Para visualizar el contenido de categorias. Se muestran todas
                 var y = 0;
                 if (categoriasLibro1 != null) {
                         foreach (CategoriaEN categorias in categoriasLibro1) {
-                            System.Console.WriteLine("Categoria " + y+ " del Libro 1: " + categorias.Nombre_categoria.ToString());
-                            y++;
+                                System.Console.WriteLine ("Categoria " + y + " del Libro 1: " + categorias.Nombre_categoria.ToString ());
+                                y++;
                         }
                 }
 
-            // para el libr02
-                IList<CategoriaEN> categoriasLibro2 = categoriaCEN.VerCatLibro(idLibro4);
+                // para el libr02
+                IList<CategoriaEN> categoriasLibro2 = categoriaCEN.VerCatLibro (idLibro4);
                 // Para visualizar el contenido de categorias. Se muestran todas
                 var contador = 0;
-                if (categoriasLibro2 != null)
-                {
-                    foreach (CategoriaEN categorias2 in categoriasLibro2)
-                    {
-                        System.Console.WriteLine("Categoria " + contador + " del Libro 2: " + categorias2.Nombre_categoria.ToString());
-                        contador++;
-                    }
+                if (categoriasLibro2 != null) {
+                        foreach (CategoriaEN categorias2 in categoriasLibro2) {
+                                System.Console.WriteLine ("Categoria " + contador + " del Libro 2: " + categorias2.Nombre_categoria.ToString ());
+                                contador++;
+                        }
                 }
 
-
+                
 
 
 
