@@ -46,9 +46,6 @@ public void Valorar (int p_Libro_OID, int puntuacion, string emailusuario)
                 usuarioCAD = new UsuarioCAD (session);
                 usuarioCEN = new UsuarioCEN (usuarioCAD);
 
-
-
-
                 // Write here your custom transaction ...
 
                 UsuarioEN nombre = usuarioCEN.VerUsuario (emailusuario);
