@@ -133,7 +133,7 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_smVkcLceEea6ysC5mO5Lpw" name="buscarLibroPorCategoria" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_QeKtsKQ3EeamjJeFffQGjw" filter="select lib FROM LibroEN lib INNER JOIN lib.Categoria cat WHERE cat.Id_categoria=:id_categoria" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_o84igLfDEea3ZKqU3wjivA" name="id_categoria" type="Integer"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_R1NeIMFMEeabavcD3d61WA" name="verLibrosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_QeKtsKQ3EeamjJeFffQGjw" filter=" SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Email=:nombre" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_R1NeIMFMEeabavcD3d61WA" name="verLibrosUsuario" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_QeKtsKQ3EeamjJeFffQGjw" filter=" SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Alias=:nombre" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CYifUMFNEeabavcD3d61WA" name="nombre"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_w_TC0MVCEeaOIssGt7VrEw" name="modificarNotaMedia" operationType="Modifier" type="Void" automaticSynchronize="false" customized="true">
@@ -252,6 +252,10 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_LVJw7dGnEeayhcaXAL6DHA" name="p_pagado" type="Boolean"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_3WEb8KZnEeat7_WgrJhB0A" name="verLibrosPago" operationType="ReadAll" type="Object" collectionType="List" typeObject="_Ryj7cKUAEeaH7OKPPz799w"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_O4QbsNHdEeaCuttMq1xsBA" name="pagar" operationType="CustomTransaction" type="Void">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_O4QbsdHdEeaCuttMq1xsBA" name="p_oid" type="OID" typeObject="_Ryj7cKUAEeaH7OKPPz799w"/>
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_SNU6ENHdEeaCuttMq1xsBA" name="Usuario_oid" type="OID" typeObject="_p0z3wKQ1EeamjJeFffQGjw"/>
+      </operations>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_TiwtwKUAEeaH7OKPPz799w" alias="precio" name="precio" type="Float"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_iF18sKUAEeaH7OKPPz799w" alias="pagado" name="pagado" type="Boolean"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_LVDqQNGnEeayhcaXAL6DHA" alias="idUsuario_0" lower="0" upper="*" associationOrigin="_LU9joNGnEeayhcaXAL6DHA" name="usuario_0" type="Object"/>
@@ -929,6 +933,13 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_3WKik6ZnEeat7_WgrJhB0A" fontName="Segoe UI"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_3WKilKZnEeat7_WgrJhB0A"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3WKilaZnEeat7_WgrJhB0A"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_O4WiUNHdEeaCuttMq1xsBA" type="3004" element="_O4QbsNHdEeaCuttMq1xsBA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_O4WiVdHdEeaCuttMq1xsBA" type="5004"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_O4WiUdHdEeaCuttMq1xsBA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_O4WiUtHdEeaCuttMq1xsBA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_O4WiU9HdEeaCuttMq1xsBA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_O4WiVNHdEeaCuttMq1xsBA"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_R1GSGqUAEeaH7OKPPz799w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_R1GSG6UAEeaH7OKPPz799w"/>
