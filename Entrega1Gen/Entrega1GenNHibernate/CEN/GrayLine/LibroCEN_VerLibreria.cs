@@ -19,14 +19,11 @@ namespace Entrega1GenNHibernate.CEN.GrayLine
 {
 public partial class LibroCEN
 {
-public System.Collections.Generic.IList<LibroEN> VerLibreria (int first, int size)
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibreria ()
 {
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Libro_verLibreria_customized) START*/
 
-        System.Collections.Generic.IList<LibroEN> list = null;
-
-        list = _ILibroCAD.VerLibreria (first, size);
-        return list;
+        return _ILibroCAD.VerLibreria ();
         /*PROTECTED REGION END*/
 }
 }

@@ -124,6 +124,7 @@
 		 </class>	
 		  
 		  <query name="LibroENReadAllHQL">from LibroEN</query>
+		  <query name="LibroENverLibreriaHQL"><![CDATA[FROM LibroEN li WHERE  li.Baneado=false AND li.Publicado=true]]></query>
 		  <query name="LibroENbuscarLibroHQL"><![CDATA[FROM LibroEN li WHERE  (li.Titulo= :nombre)]]></query>
 		  <query name="LibroENbuscarLibroPorCategoriaHQL"><![CDATA[select lib FROM LibroEN lib INNER JOIN lib.Categoria cat WHERE cat.Id_categoria=:id_categoria]]></query>
 		  <query name="LibroENverLibrosUsuarioHQL"><![CDATA[ SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Alias=:nombre]]></query>

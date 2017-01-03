@@ -28,7 +28,7 @@ void CambiarPortada (LibroEN libro);
 void CambiarDescripcion (LibroEN libro);
 
 
-System.Collections.Generic.IList<LibroEN> VerLibreria (int first, int size);
+System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibreria ();
 
 
 LibroEN VerLibro (int id_libro

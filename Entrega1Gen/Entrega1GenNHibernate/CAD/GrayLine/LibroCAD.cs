@@ -286,17 +286,17 @@ public void CambiarDescripcion (LibroEN libro)
                 SessionClose ();
         }
 }
-public System.Collections.Generic.IList<LibroEN> VerLibreria (int first, int size)
+public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> VerLibreria ()
 {
-        System.Collections.Generic.IList<LibroEN> result = null;
+        System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                if (size > 0)
-                        result = session.CreateCriteria (typeof(LibroEN)).
-                                 SetFirstResult (first).SetMaxResults (size).List<LibroEN>();
-                else
-                        result = session.CreateCriteria (typeof(LibroEN)).List<LibroEN>();
+                //String sql = @"FROM LibroEN self where FROM LibroEN li WHERE  li.Baneado=false AND li.Publicado=true";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("LibroENverLibreriaHQL");
+
+                result = query.List<Entrega1GenNHibernate.EN.GrayLine.LibroEN>();
                 SessionCommit ();
         }
 
@@ -315,7 +315,6 @@ public System.Collections.Generic.IList<LibroEN> VerLibreria (int first, int siz
 
         return result;
 }
-
 //Sin e: VerLibro
 //Con e: LibroEN
 public LibroEN VerLibro (int id_libro
