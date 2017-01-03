@@ -89,17 +89,17 @@ public static void InitializeData ()
                 #region Roles
 
                 IRolCAD _IRolCAD = new RolCAD ();
-                RolEN rolUser = new RolEN ();
-                RolEN rolAdmin = new RolEN ();
                 RolCEN rolCEN = new RolCEN (_IRolCAD);
 
+                RolEN rolUser = new RolEN ();
                 rolUser.TipoRoll = "Usuario";
 
                 var rol1 = rolCEN.New_ (rolUser.TipoRoll);
 
+                RolEN rolAdmin = new RolEN ();
                 rolAdmin.TipoRoll = "Administrador";
-
                 var rol2 = rolCEN.New_ (rolAdmin.TipoRoll);
+
 
 
 

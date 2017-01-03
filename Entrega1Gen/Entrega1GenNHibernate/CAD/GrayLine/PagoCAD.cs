@@ -116,37 +116,6 @@ public void ModifyDefault (PagoEN pago)
 }
 
 
-public void Pagar (int p_Pago_OID, bool p_pagado)
-{
-        Entrega1GenNHibernate.EN.GrayLine.PagoEN pagoEN = null;
-        try
-        {
-                SessionInitializeTransaction ();
-                pagoEN = (PagoEN)session.Load (typeof(PagoEN), p_Pago_OID);
-                pagoEN.Usuario_0 = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), p_pagado);
-
-                pagoEN.Usuario_0.Pago.Add (pagoEN);
-
-
-
-                session.Update (pagoEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in PagoCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
-
 public int New_ (PagoEN pago)
 {
         try

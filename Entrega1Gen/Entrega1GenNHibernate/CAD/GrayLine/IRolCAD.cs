@@ -20,5 +20,12 @@ void Modify (RolEN rol);
 
 void Destroy (string tipoRoll
               );
+
+
+RolEN ReadOID (string tipoRoll
+               );
+
+
+System.Collections.Generic.IList<RolEN> ReadAll (int first, int size);
 }
 }

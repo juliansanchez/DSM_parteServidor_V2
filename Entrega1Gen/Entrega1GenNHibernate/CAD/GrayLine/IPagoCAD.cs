@@ -13,8 +13,6 @@ void ModifyDefault (PagoEN pago);
 
 
 
-void Pagar (int p_Pago_OID, bool p_pagado);
-
 
 int New_ (PagoEN pago);
 

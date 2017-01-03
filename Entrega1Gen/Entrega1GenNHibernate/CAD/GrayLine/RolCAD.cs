@@ -183,5 +183,65 @@ public void Destroy (string tipoRoll
                 SessionClose ();
         }
 }
+
+//Sin e: ReadOID
+//Con e: RolEN
+public RolEN ReadOID (string tipoRoll
+                      )
+{
+        RolEN rolEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                rolEN = (RolEN)session.Get (typeof(RolEN), tipoRoll);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in RolCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return rolEN;
+}
+
+public System.Collections.Generic.IList<RolEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<RolEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(RolEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<RolEN>();
+                else
+                        result = session.CreateCriteria (typeof(RolEN)).List<RolEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in RolCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

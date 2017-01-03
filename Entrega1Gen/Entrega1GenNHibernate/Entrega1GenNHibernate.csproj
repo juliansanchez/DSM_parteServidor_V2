@@ -173,6 +173,8 @@
 			
 			
 			
+			
+			
 	<Compile Include="EN\GrayLine\CapituloEN.cs" />
 	<Compile Include="CEN\GrayLine\CapituloCEN.cs" />
 	<Compile Include="CAD\GrayLine\ICapituloCAD.cs" />
@@ -200,8 +202,6 @@
 	<Compile Include="CAD\GrayLine\IPagoCAD.cs" />
 	<Compile Include="CAD\GrayLine\PagoCAD.cs" />
 	<Compile Include="CP\GrayLine\PagoCP.cs" />
-			<Compile Include="CP\GrayLine\PagoCP_Pagar.cs" />
-			
 			<Compile Include="CEN\GrayLine\PagoCEN_Descargar.cs" />
 			
 			

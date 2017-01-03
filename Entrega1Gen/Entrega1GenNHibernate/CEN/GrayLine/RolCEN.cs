@@ -70,5 +70,22 @@ public void Destroy (string tipoRoll
 {
         _IRolCAD.Destroy (tipoRoll);
 }
+
+public RolEN ReadOID (string tipoRoll
+                      )
+{
+        RolEN rolEN = null;
+
+        rolEN = _IRolCAD.ReadOID (tipoRoll);
+        return rolEN;
+}
+
+public System.Collections.Generic.IList<RolEN> ReadAll (int first, int size)
+{
+        System.Collections.Generic.IList<RolEN> list = null;
+
+        list = _IRolCAD.ReadAll (first, size);
+        return list;
+}
 }
 }
