@@ -103,7 +103,7 @@
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NKHNUMESEeajjNlfcHbU2w" name="p_Libro_OID" type="OID" typeObject="_QeKtsKQ3EeamjJeFffQGjw"/>
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_NKJCgMESEeajjNlfcHbU2w" name="p_descripcion"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Vq0jUKQ4EeamjJeFffQGjw" name="verLibreria" operationType="ReadAll" type="Object" collectionType="List" typeObject="_QeKtsKQ3EeamjJeFffQGjw" filter="FROM LibroEN " customized="true"/>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_Vq0jUKQ4EeamjJeFffQGjw" name="verLibreria" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_QeKtsKQ3EeamjJeFffQGjw" filter="FROM LibroEN li WHERE  li.Baneado=false AND li.Publicado=true" automaticSynchronize="false" customized="true"/>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_cxm_0KQ4EeamjJeFffQGjw" name="verLibro" operationType="ReadOID" type="Object" typeObject="_QeKtsKQ3EeamjJeFffQGjw">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_HUdQTchfEea5UcDSoXFjVQ" name="p_Libro_OID" type="OID" typeObject="_QeKtsKQ3EeamjJeFffQGjw"/>
       </operations>
