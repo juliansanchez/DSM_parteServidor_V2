@@ -206,6 +206,8 @@
 			
 			
 			
+			<Compile Include="CP\GrayLine\PagoCP_Pagar.cs" />
+			
 	<Compile Include="EN\GrayLine\GratuitoEN.cs" />
 	<Compile Include="CEN\GrayLine\GratuitoCEN.cs" />
 	<Compile Include="CAD\GrayLine\IGratuitoCAD.cs" />

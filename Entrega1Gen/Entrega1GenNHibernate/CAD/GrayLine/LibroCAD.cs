@@ -507,7 +507,7 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroE
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM LibroEN self where  SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Email=:nombre";
+                //String sql = @"FROM LibroEN self where  SELECT lib FROM  LibroEN lib INNER JOIN lib.Usuario usu WHERE usu.Alias=:nombre";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LibroENverLibrosUsuarioHQL");
                 query.SetParameter ("nombre", nombre);

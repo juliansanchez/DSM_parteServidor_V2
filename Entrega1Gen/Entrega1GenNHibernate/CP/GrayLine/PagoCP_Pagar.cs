@@ -20,12 +20,15 @@ namespace Entrega1GenNHibernate.CP.GrayLine
 {
 public partial class PagoCP : BasicCP
 {
-public void Pagar (int p_Pago_OID, bool p_pagado)
+public void Pagar (int p_oid, string usuario_oid)
 {
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CP.GrayLine_Pago_pagar) ENABLED START*/
 
         IPagoCAD pagoCAD = null;
         PagoCEN pagoCEN = null;
+
+        IUsuarioCAD usuarioCAD = null;
+        UsuarioCEN usuarioCEN = null;
 
 
 
@@ -35,6 +38,20 @@ public void Pagar (int p_Pago_OID, bool p_pagado)
                 pagoCAD = new PagoCAD (session);
                 pagoCEN = new  PagoCEN (pagoCAD);
 
+                usuarioCAD = new UsuarioCAD (session);
+                usuarioCEN = new UsuarioCEN (usuarioCAD);
+
+
+                UsuarioEN usu1 = usuarioCAD.ReadOIDDefault (usuario_oid);
+                PagoEN pag1 = pagoCAD.ReadOIDDefault (p_oid);
+
+                usu1.Pago.Add (pag1);
+                pag1.Usuario_0.Add (usu1);
+
+
+                usuarioCAD.ModifyDefault (usu1);
+                pagoCAD.ModifyDefault (pag1);
+
 
 
 
@@ -42,7 +59,7 @@ public void Pagar (int p_Pago_OID, bool p_pagado)
 
                 //Call to PagoCAD
 
-                pagoCAD.Pagar (p_Pago_OID, p_pagado);
+                // pagoCAD.Pagar (p_Pago_OID, p_pagado);
 
 
 
