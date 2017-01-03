@@ -9,7 +9,7 @@
 <joined-subclass name="AdministradorEN" extends="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN" table="Administrador"> 
 	<key>
     	
-				<column name="email"/>
+				<column name="alias"/>
 		
     	
    	</key>

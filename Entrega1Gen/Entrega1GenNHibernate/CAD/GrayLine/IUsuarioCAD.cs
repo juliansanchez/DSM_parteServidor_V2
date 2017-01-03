@@ -6,7 +6,7 @@ namespace Entrega1GenNHibernate.CAD.GrayLine
 {
 public partial interface IUsuarioCAD
 {
-UsuarioEN ReadOIDDefault (string email
+UsuarioEN ReadOIDDefault (string alias
                           );
 
 void ModifyDefault (UsuarioEN usuario);
@@ -15,7 +15,7 @@ void ModifyDefault (UsuarioEN usuario);
 
 string Registrarse (UsuarioEN usuario);
 
-void EliminarCuenta (string email
+void EliminarCuenta (string alias
                      );
 
 
@@ -40,7 +40,7 @@ System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.UsuarioEN> Bu
 
 
 
-UsuarioEN VerUsuario (string email
+UsuarioEN VerUsuario (string alias
                       );
 }
 }

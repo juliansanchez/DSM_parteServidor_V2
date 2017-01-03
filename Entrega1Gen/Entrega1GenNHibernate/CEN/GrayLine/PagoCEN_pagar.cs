@@ -23,15 +23,10 @@ public void Pagar (int p_Pago_OID, bool p_pagado)
 {
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Pago_pagar_customized) START*/
 
-        PagoEN pagoEN = null;
 
-        //Initialized PagoEN
-        pagoEN = new PagoEN ();
-        pagoEN.Id_libro = p_Pago_OID;
-        pagoEN.Pagado = p_pagado;
         //Call to PagoCAD
 
-        _IPagoCAD.Pagar (pagoEN);
+        _IPagoCAD.Pagar (p_Pago_OID, p_pagado);
 
         /*PROTECTED REGION END*/
 }

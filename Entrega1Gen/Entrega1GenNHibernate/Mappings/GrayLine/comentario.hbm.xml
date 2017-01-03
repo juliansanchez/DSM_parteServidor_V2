@@ -42,7 +42,7 @@
 			
 		  			
 						<many-to-one name="Usuario" class="Entrega1GenNHibernate.EN.GrayLine.UsuarioEN" >	
-								<column name="FK_email_idUsuario"/> 
+								<column name="FK_alias_idUsuario"/> 
 						</many-to-one>
 											 					
 			

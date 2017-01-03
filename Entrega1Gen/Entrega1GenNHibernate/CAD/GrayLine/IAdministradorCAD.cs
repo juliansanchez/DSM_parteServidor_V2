@@ -6,7 +6,7 @@ namespace Entrega1GenNHibernate.CAD.GrayLine
 {
 public partial interface IAdministradorCAD
 {
-AdministradorEN ReadOIDDefault (string email
+AdministradorEN ReadOIDDefault (string alias
                                 );
 
 void ModifyDefault (AdministradorEN administrador);
@@ -15,7 +15,7 @@ void ModifyDefault (AdministradorEN administrador);
 
 string New_ (AdministradorEN administrador);
 
-void Destroy (string email
+void Destroy (string alias
               );
 
 

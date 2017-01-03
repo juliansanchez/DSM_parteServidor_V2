@@ -29,7 +29,7 @@ public AdministradorCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public AdministradorEN ReadOIDDefault (string email
+public AdministradorEN ReadOIDDefault (string alias
                                        )
 {
         AdministradorEN administradorEN = null;
@@ -37,7 +37,7 @@ public AdministradorEN ReadOIDDefault (string email
         try
         {
                 SessionInitializeTransaction ();
-                administradorEN = (AdministradorEN)session.Get (typeof(AdministradorEN), email);
+                administradorEN = (AdministradorEN)session.Get (typeof(AdministradorEN), alias);
                 SessionCommit ();
         }
 
@@ -89,7 +89,7 @@ public void ModifyDefault (AdministradorEN administrador)
         try
         {
                 SessionInitializeTransaction ();
-                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Email);
+                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Alias);
                 session.Update (administradorEN);
                 SessionCommit ();
         }
@@ -132,16 +132,16 @@ public string New_ (AdministradorEN administrador)
                 SessionClose ();
         }
 
-        return administrador.Email;
+        return administrador.Alias;
 }
 
-public void Destroy (string email
+public void Destroy (string alias
                      )
 {
         try
         {
                 SessionInitializeTransaction ();
-                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), email);
+                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), alias);
                 session.Delete (administradorEN);
                 SessionCommit ();
         }
@@ -165,7 +165,7 @@ public void EliminarComentario (AdministradorEN administrador)
         try
         {
                 SessionInitializeTransaction ();
-                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Email);
+                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Alias);
                 session.Update (administradorEN);
                 SessionCommit ();
         }
@@ -188,7 +188,7 @@ public void EliminarLibro (AdministradorEN administrador)
         try
         {
                 SessionInitializeTransaction ();
-                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Email);
+                AdministradorEN administradorEN = (AdministradorEN)session.Load (typeof(AdministradorEN), administrador.Alias);
                 session.Update (administradorEN);
                 SessionCommit ();
         }

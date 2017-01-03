@@ -27,7 +27,7 @@ public void CambiarFoto (string p_Usuario_OID, string p_foto)
 
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
-        usuarioEN.Email = p_Usuario_OID;
+        usuarioEN.Alias = p_Usuario_OID;
         usuarioEN.Foto = p_foto;
         //Call to UsuarioCAD
 

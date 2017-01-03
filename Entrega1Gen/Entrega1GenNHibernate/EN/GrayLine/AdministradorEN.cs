@@ -13,28 +13,30 @@ public AdministradorEN() : base ()
 
 
 
-public AdministradorEN(string email,
-                       string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, bool enRevisionU
+public AdministradorEN(string alias,
+                       string nombre, String contrasenya, string email, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, bool enRevisionU
                        )
 {
-        this.init (Email, nombre, contrasenya, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser, comentario, valoracion, enRevisionU);
+        this.init (Alias, nombre, contrasenya, email, edad, fecha_alta, foto, bibliografia, libro, capitulo, baneado, numDenunciasUser, comentario, valoracion, enRevisionU);
 }
 
 
 public AdministradorEN(AdministradorEN administrador)
 {
-        this.init (Email, administrador.Nombre, administrador.Contrasenya, administrador.Edad, administrador.Fecha_alta, administrador.Foto, administrador.Bibliografia, administrador.Libro, administrador.Capitulo, administrador.Baneado, administrador.NumDenunciasUser, administrador.Comentario, administrador.Valoracion, administrador.EnRevisionU);
+        this.init (Alias, administrador.Nombre, administrador.Contrasenya, administrador.Email, administrador.Edad, administrador.Fecha_alta, administrador.Foto, administrador.Bibliografia, administrador.Libro, administrador.Capitulo, administrador.Baneado, administrador.NumDenunciasUser, administrador.Comentario, administrador.Valoracion, administrador.EnRevisionU);
 }
 
-private void init (string email
-                   , string nombre, String contrasenya, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, bool enRevisionU)
+private void init (string alias
+                   , string nombre, String contrasenya, string email, int edad, Nullable<DateTime> fecha_alta, string foto, string bibliografia, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> libro, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.CapituloEN> capitulo, bool baneado, int numDenunciasUser, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> comentario, System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ValoracionEN> valoracion, bool enRevisionU)
 {
-        this.Email = email;
+        this.Alias = alias;
 
 
         this.Nombre = nombre;
 
         this.Contrasenya = contrasenya;
+
+        this.Email = email;
 
         this.Edad = edad;
 
@@ -66,7 +68,7 @@ public override bool Equals (object obj)
         AdministradorEN t = obj as AdministradorEN;
         if (t == null)
                 return false;
-        if (Email.Equals (t.Email))
+        if (Alias.Equals (t.Alias))
                 return true;
         else
                 return false;
@@ -76,7 +78,7 @@ public override int GetHashCode ()
 {
         int hash = 13;
 
-        hash += this.Email.GetHashCode ();
+        hash += this.Alias.GetHashCode ();
         return hash;
 }
 }

@@ -27,7 +27,7 @@ public void CambiarBibliografia (string p_Usuario_OID, string p_bibliografia)
 
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
-        usuarioEN.Email = p_Usuario_OID;
+        usuarioEN.Alias = p_Usuario_OID;
         usuarioEN.Bibliografia = p_bibliografia;
         //Call to UsuarioCAD
 

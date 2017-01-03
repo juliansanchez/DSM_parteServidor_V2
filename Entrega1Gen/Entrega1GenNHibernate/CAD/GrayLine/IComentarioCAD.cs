@@ -27,5 +27,8 @@ System.Collections.Generic.IList<ComentarioEN> VerComentarios (int first, int si
 
 
 System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.ComentarioEN> ComentariosLibro (int ? milibro);
+
+
+void BanearComentario (ComentarioEN comentario);
 }
 }

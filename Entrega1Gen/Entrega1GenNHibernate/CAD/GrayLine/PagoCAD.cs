@@ -96,6 +96,7 @@ public void ModifyDefault (PagoEN pago)
 
                 pagoEN.Pagado = pago.Pagado;
 
+
                 session.Update (pagoEN);
                 SessionCommit ();
         }
@@ -115,14 +116,18 @@ public void ModifyDefault (PagoEN pago)
 }
 
 
-public void Pagar (PagoEN pago)
+public void Pagar (int p_Pago_OID, bool p_pagado)
 {
+        Entrega1GenNHibernate.EN.GrayLine.PagoEN pagoEN = null;
         try
         {
                 SessionInitializeTransaction ();
-                PagoEN pagoEN = (PagoEN)session.Load (typeof(PagoEN), pago.Id_libro);
+                pagoEN = (PagoEN)session.Load (typeof(PagoEN), p_Pago_OID);
+                pagoEN.Usuario_0 = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), p_pagado);
 
-                pagoEN.Pagado = pago.Pagado;
+                pagoEN.Usuario_0.Pago.Add (pagoEN);
+
+
 
                 session.Update (pagoEN);
                 SessionCommit ();
@@ -141,6 +146,7 @@ public void Pagar (PagoEN pago)
                 SessionClose ();
         }
 }
+
 public int New_ (PagoEN pago)
 {
         try
@@ -148,7 +154,7 @@ public int New_ (PagoEN pago)
                 SessionInitializeTransaction ();
                 if (pago.Usuario != null) {
                         // Argumento OID y no colección.
-                        pago.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), pago.Usuario.Email);
+                        pago.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), pago.Usuario.Alias);
 
                         pago.Usuario.Libro
                         .Add (pago);

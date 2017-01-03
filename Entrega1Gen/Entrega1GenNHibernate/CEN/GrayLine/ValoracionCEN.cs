@@ -60,7 +60,7 @@ public int New_ (int p_puntuacion, int p_libro, string p_usuario)
                 // El argumento p_usuario -> Property usuario es oid = false
                 // Lista de oids id
                 valoracionEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                valoracionEN.Usuario.Email = p_usuario;
+                valoracionEN.Usuario.Alias = p_usuario;
         }
 
         //Call to ValoracionCAD

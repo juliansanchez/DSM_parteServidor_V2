@@ -128,7 +128,7 @@ public int New_ (ValoracionEN valoracion)
                 }
                 if (valoracion.Usuario != null) {
                         // Argumento OID y no colección.
-                        valoracion.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), valoracion.Usuario.Email);
+                        valoracion.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), valoracion.Usuario.Alias);
 
                         valoracion.Usuario.Valoracion
                         .Add (valoracion);

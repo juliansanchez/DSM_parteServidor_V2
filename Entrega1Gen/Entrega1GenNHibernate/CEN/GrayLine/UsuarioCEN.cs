@@ -38,7 +38,7 @@ public IUsuarioCAD get_IUsuarioCAD ()
         return this._IUsuarioCAD;
 }
 
-public string Registrarse (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser, bool p_enRevisionU)
+public string Registrarse (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser, bool p_enRevisionU, string p_alias, string p_rol)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -65,16 +65,26 @@ public string Registrarse (string p_nombre, String p_contrasenya, string p_email
 
         usuarioEN.EnRevisionU = p_enRevisionU;
 
+        usuarioEN.Alias = p_alias;
+
+
+        if (p_rol != null) {
+                // El argumento p_rol -> Property rol es oid = false
+                // Lista de oids alias
+                usuarioEN.Rol = new Entrega1GenNHibernate.EN.GrayLine.RolEN ();
+                usuarioEN.Rol.TipoRoll = p_rol;
+        }
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.Registrarse (usuarioEN);
         return oid;
 }
 
-public void EliminarCuenta (string email
+public void EliminarCuenta (string alias
                             )
 {
-        _IUsuarioCAD.EliminarCuenta (email);
+        _IUsuarioCAD.EliminarCuenta (alias);
 }
 
 public System.Collections.Generic.IList<UsuarioEN> ReadAll (int first, int size)
@@ -88,12 +98,12 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Usuari
 {
         return _IUsuarioCAD.BuscarUsuario (mote);
 }
-public UsuarioEN VerUsuario (string email
+public UsuarioEN VerUsuario (string alias
                              )
 {
         UsuarioEN usuarioEN = null;
 
-        usuarioEN = _IUsuarioCAD.VerUsuario (email);
+        usuarioEN = _IUsuarioCAD.VerUsuario (alias);
         return usuarioEN;
 }
 }

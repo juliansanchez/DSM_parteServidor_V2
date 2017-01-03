@@ -27,7 +27,7 @@ public void CambiarContrasenya (string p_Usuario_OID, String p_contrasenya)
 
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
-        usuarioEN.Email = p_Usuario_OID;
+        usuarioEN.Alias = p_Usuario_OID;
         usuarioEN.Contrasenya = Utils.Util.GetEncondeMD5 (p_contrasenya);
         //Call to UsuarioCAD
 

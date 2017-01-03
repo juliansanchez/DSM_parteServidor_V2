@@ -66,7 +66,7 @@ public int New_ (string p_texto_comentario, int p_libro, bool p_baneado, int p_n
                 // El argumento p_usuario -> Property usuario es oid = false
                 // Lista de oids id
                 comentarioEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                comentarioEN.Usuario.Email = p_usuario;
+                comentarioEN.Usuario.Alias = p_usuario;
         }
 
         comentarioEN.EnRevisionC = p_enRevisionC;

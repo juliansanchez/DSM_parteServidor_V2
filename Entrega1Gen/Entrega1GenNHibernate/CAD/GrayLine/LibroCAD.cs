@@ -151,7 +151,7 @@ public int CrearLibro (LibroEN libro)
                 SessionInitializeTransaction ();
                 if (libro.Usuario != null) {
                         // Argumento OID y no colección.
-                        libro.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), libro.Usuario.Email);
+                        libro.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), libro.Usuario.Alias);
 
                         libro.Usuario.Libro
                         .Add (libro);
@@ -595,6 +595,29 @@ public void NumValoraciones (LibroEN libro)
 
                 libroEN.ContValoraciones = libro.ContValoraciones;
 
+                session.Update (libroEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void BanearLibro (LibroEN libro)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                LibroEN libroEN = (LibroEN)session.Load (typeof(LibroEN), libro.Id_libro);
                 session.Update (libroEN);
                 SessionCommit ();
         }

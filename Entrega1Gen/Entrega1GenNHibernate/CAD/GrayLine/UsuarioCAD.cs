@@ -29,7 +29,7 @@ public UsuarioCAD(ISession sessionAux) : base (sessionAux)
 
 
 
-public UsuarioEN ReadOIDDefault (string email
+public UsuarioEN ReadOIDDefault (string alias
                                  )
 {
         UsuarioEN usuarioEN = null;
@@ -37,7 +37,7 @@ public UsuarioEN ReadOIDDefault (string email
         try
         {
                 SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), email);
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), alias);
                 SessionCommit ();
         }
 
@@ -89,12 +89,15 @@ public void ModifyDefault (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Alias);
 
                 usuarioEN.Nombre = usuario.Nombre;
 
 
                 usuarioEN.Contrasenya = usuario.Contrasenya;
+
+
+                usuarioEN.Email = usuario.Email;
 
 
                 usuarioEN.Edad = usuario.Edad;
@@ -121,6 +124,8 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.EnRevisionU = usuario.EnRevisionU;
 
+
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -145,6 +150,13 @@ public string Registrarse (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
+                if (usuario.Rol != null) {
+                        // Argumento OID y no colección.
+                        usuario.Rol = (Entrega1GenNHibernate.EN.GrayLine.RolEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.RolEN), usuario.Rol.TipoRoll);
+
+                        usuario.Rol.Usuario
+                        .Add (usuario);
+                }
 
                 session.Save (usuario);
                 SessionCommit ();
@@ -163,16 +175,16 @@ public string Registrarse (UsuarioEN usuario)
                 SessionClose ();
         }
 
-        return usuario.Email;
+        return usuario.Alias;
 }
 
-public void EliminarCuenta (string email
+public void EliminarCuenta (string alias
                             )
 {
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), alias);
                 session.Delete (usuarioEN);
                 SessionCommit ();
         }
@@ -196,7 +208,7 @@ public void CambiarNombre (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Alias);
 
                 usuarioEN.Nombre = usuario.Nombre;
 
@@ -222,7 +234,7 @@ public void CambiarContrasenya (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Alias);
 
                 usuarioEN.Contrasenya = usuario.Contrasenya;
 
@@ -248,7 +260,7 @@ public void CambiarFoto (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Alias);
 
                 usuarioEN.Foto = usuario.Foto;
 
@@ -274,7 +286,7 @@ public void CambiarBibliografia (UsuarioEN usuario)
         try
         {
                 SessionInitializeTransaction ();
-                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Email);
+                UsuarioEN usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), usuario.Alias);
 
                 usuarioEN.Bibliografia = usuario.Bibliografia;
 
@@ -357,7 +369,7 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Usuari
 }
 //Sin e: VerUsuario
 //Con e: UsuarioEN
-public UsuarioEN VerUsuario (string email
+public UsuarioEN VerUsuario (string alias
                              )
 {
         UsuarioEN usuarioEN = null;
@@ -365,7 +377,7 @@ public UsuarioEN VerUsuario (string email
         try
         {
                 SessionInitializeTransaction ();
-                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), email);
+                usuarioEN = (UsuarioEN)session.Get (typeof(UsuarioEN), alias);
                 SessionCommit ();
         }
 

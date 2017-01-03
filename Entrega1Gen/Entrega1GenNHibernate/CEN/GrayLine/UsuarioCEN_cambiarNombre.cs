@@ -27,7 +27,7 @@ public void CambiarNombre (string p_Usuario_OID, string p_nombre)
 
         //Initialized UsuarioEN
         usuarioEN = new UsuarioEN ();
-        usuarioEN.Email = p_Usuario_OID;
+        usuarioEN.Alias = p_Usuario_OID;
         usuarioEN.Nombre = p_nombre;
         //Call to UsuarioCAD
 

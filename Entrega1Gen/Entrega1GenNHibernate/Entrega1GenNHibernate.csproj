@@ -163,16 +163,14 @@
 			
 			<Compile Include="CEN\GrayLine\LibroCEN_NumValoraciones.cs" />
 			
-	<Compile Include="EN\GrayLine\AdministradorEN.cs" />
-	<Compile Include="CEN\GrayLine\AdministradorCEN.cs" />
-	<Compile Include="CAD\GrayLine\IAdministradorCAD.cs" />
-	<Compile Include="CAD\GrayLine\AdministradorCAD.cs" />
-	<Compile Include="CP\GrayLine\AdministradorCP.cs" />
+			<Compile Include="CEN\GrayLine\LibroCEN_BanearLibro.cs" />
 			
+	<Compile Include="EN\GrayLine\RolEN.cs" />
+	<Compile Include="CEN\GrayLine\RolCEN.cs" />
+	<Compile Include="CAD\GrayLine\IRolCAD.cs" />
+	<Compile Include="CAD\GrayLine\RolCAD.cs" />
+	<Compile Include="CP\GrayLine\RolCP.cs" />
 			
-			<Compile Include="CP\GrayLine\AdministradorCP_EliminarComentario.cs" />
-			
-			<Compile Include="CP\GrayLine\AdministradorCP_EliminarLibro.cs" />
 			
 			
 	<Compile Include="EN\GrayLine\CapituloEN.cs" />
@@ -202,7 +200,7 @@
 	<Compile Include="CAD\GrayLine\IPagoCAD.cs" />
 	<Compile Include="CAD\GrayLine\PagoCAD.cs" />
 	<Compile Include="CP\GrayLine\PagoCP.cs" />
-			<Compile Include="CEN\GrayLine\PagoCEN_Pagar.cs" />
+			<Compile Include="CP\GrayLine\PagoCP_Pagar.cs" />
 			
 			<Compile Include="CEN\GrayLine\PagoCEN_Descargar.cs" />
 			
@@ -241,6 +239,8 @@
 			<Compile Include="CEN\GrayLine\ComentarioCEN_DenunciarComentario.cs" />
 			
 			
+			<Compile Include="CEN\GrayLine\ComentarioCEN_BanearComentario.cs" />
+			
 	<Compile Include="EN\GrayLine\ValoracionEN.cs" />
 	<Compile Include="CEN\GrayLine\ValoracionCEN.cs" />
 	<Compile Include="CAD\GrayLine\IValoracionCAD.cs" />
@@ -269,7 +269,7 @@
 		  
 	<EmbeddedResource Include="Mappings\GrayLine\usuario.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GrayLine\libro.hbm.xml" />
-	<EmbeddedResource Include="Mappings\GrayLine\administrador.hbm.xml" />
+	<EmbeddedResource Include="Mappings\GrayLine\rol.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GrayLine\capitulo.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GrayLine\pago.hbm.xml" />
 	<EmbeddedResource Include="Mappings\GrayLine\gratuito.hbm.xml" />

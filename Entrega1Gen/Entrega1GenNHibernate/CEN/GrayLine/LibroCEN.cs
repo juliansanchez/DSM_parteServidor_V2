@@ -60,7 +60,7 @@ public int CrearLibro (string p_titulo, string p_portada, string p_descripcion, 
                 // El argumento p_usuario -> Property usuario es oid = false
                 // Lista de oids id_libro
                 libroEN.Usuario = new Entrega1GenNHibernate.EN.GrayLine.UsuarioEN ();
-                libroEN.Usuario.Email = p_usuario;
+                libroEN.Usuario.Alias = p_usuario;
         }
 
 

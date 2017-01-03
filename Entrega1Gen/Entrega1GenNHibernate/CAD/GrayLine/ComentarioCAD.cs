@@ -140,7 +140,7 @@ public int New_ (ComentarioEN comentario)
                 }
                 if (comentario.Usuario != null) {
                         // Argumento OID y no colección.
-                        comentario.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), comentario.Usuario.Email);
+                        comentario.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), comentario.Usuario.Alias);
 
                         comentario.Usuario.Comentario
                         .Add (comentario);
@@ -276,6 +276,29 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Coment
         }
 
         return result;
+}
+public void BanearComentario (ComentarioEN comentario)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id);
+                session.Update (comentarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
 }
 }
 }

@@ -116,7 +116,7 @@ public int New_ (GratuitoEN gratuito)
                 SessionInitializeTransaction ();
                 if (gratuito.Usuario != null) {
                         // Argumento OID y no colección.
-                        gratuito.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), gratuito.Usuario.Email);
+                        gratuito.Usuario = (Entrega1GenNHibernate.EN.GrayLine.UsuarioEN)session.Load (typeof(Entrega1GenNHibernate.EN.GrayLine.UsuarioEN), gratuito.Usuario.Alias);
 
                         gratuito.Usuario.Libro
                         .Add (gratuito);

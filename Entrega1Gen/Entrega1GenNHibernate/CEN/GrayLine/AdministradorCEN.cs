@@ -38,7 +38,7 @@ public IAdministradorCAD get_IAdministradorCAD ()
         return this._IAdministradorCAD;
 }
 
-public string New_ (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser, bool p_enRevisionU)
+public string New_ (string p_nombre, String p_contrasenya, string p_email, int p_edad, Nullable<DateTime> p_fecha_alta, string p_foto, string p_bibliografia, bool p_baneado, int p_numDenunciasUser, bool p_enRevisionU, string p_alias)
 {
         AdministradorEN administradorEN = null;
         string oid;
@@ -65,16 +65,18 @@ public string New_ (string p_nombre, String p_contrasenya, string p_email, int p
 
         administradorEN.EnRevisionU = p_enRevisionU;
 
+        administradorEN.Alias = p_alias;
+
         //Call to AdministradorCAD
 
         oid = _IAdministradorCAD.New_ (administradorEN);
         return oid;
 }
 
-public void Destroy (string email
+public void Destroy (string alias
                      )
 {
-        _IAdministradorCAD.Destroy (email);
+        _IAdministradorCAD.Destroy (alias);
 }
 
 public System.Collections.Generic.IList<AdministradorEN> ReadAll (int first, int size)
