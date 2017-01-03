@@ -175,6 +175,10 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_rM2mdNGgEeayhcaXAL6DHA" name="destroy" operationType="Destroy" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_FTOScNGhEeayhcaXAL6DHA" name="p_Rol_OID" type="OID" typeObject="_qBN0sKQ4EeamjJeFffQGjw"/>
       </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_0J58ANHXEeaCuttMq1xsBA" name="readOID" operationType="ReadOID" type="Object" typeObject="_qBN0sKQ4EeamjJeFffQGjw">
+        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_0KACoNHXEeaCuttMq1xsBA" name="p_Rol_OID" type="OID" typeObject="_qBN0sKQ4EeamjJeFffQGjw"/>
+      </operations>
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_0KGJQNHXEeaCuttMq1xsBA" name="readAll" operationType="ReadAll" type="Object" collectionType="List" typeObject="_qBN0sKQ4EeamjJeFffQGjw"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_rM2mcNGgEeayhcaXAL6DHA" alias="tipoRollRol" name="tipoRoll" isOID="true"/>
       <attributes xmi:type="es.ua.dlsi.ooh:Attribute" xmi:id="_BejG4dGhEeayhcaXAL6DHA" alias="idUsuario" lower="0" upper="*" associationTarget="_BedAQNGhEeayhcaXAL6DHA" name="usuario" type="Object"/>
     </elements>
@@ -228,10 +232,6 @@
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="_snXucKTDEeaIpKp7-bLAvQ" name="capitulo_libro" alias="capitulo_libro" rolOrigin="_sn8WMKTDEeaIpKp7-bLAvQ" rolTarget="_soCc0KTDEeaIpKp7-bLAvQ" classTarget="_MH93kKQ5EeamjJeFffQGjw" classOrigin="_QeKtsKQ3EeamjJeFffQGjw" rolOriginName="capitulo" rolTargetName="libro" rolOriginMultiplicity="0..*" rolTargetMultiplicity="1..1"/>
     <elements xmi:type="es.ua.dlsi.ooh:Association" xmi:id="__2hD4KTDEeaIpKp7-bLAvQ" name="usuario_libro" alias="usuario_libro" rolOrigin="__2hD4aTDEeaIpKp7-bLAvQ" rolTarget="__2hD4qTDEeaIpKp7-bLAvQ" classTarget="_p0z3wKQ1EeamjJeFffQGjw" classOrigin="_QeKtsKQ3EeamjJeFffQGjw" rolOriginName="usuario" rolTargetName="libro" rolOriginMultiplicity="1..1" rolTargetMultiplicity="0..*"/>
     <elements xmi:type="es.ua.dlsi.ooh:Class" xmi:id="_Ryj7cKUAEeaH7OKPPz799w" name="Pago" alias="Pago" inheritFathers="_Vn5_4KUBEeaH7OKPPz799w" associationOrigin="_LU9joNGnEeayhcaXAL6DHA">
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_di1rkKUAEeaH7OKPPz799w" name="pagar" operationType="Relationer" type="Void" relatedRol="_LVDqQNGnEeayhcaXAL6DHA" automaticSynchronize="false" customizedTransaction="true">
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CDZx8MUgEeaqkuWe-JK-aA" name="p_Pago_OID" type="OID" typeObject="_Ryj7cKUAEeaH7OKPPz799w"/>
-        <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_CDf4lsUgEeaqkuWe-JK-aA" name="p_pagado" type="Boolean"/>
-      </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_BxUP8KUBEeaH7OKPPz799w" name="descargar" type="Void">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_BxaWkKUBEeaH7OKPPz799w" name="p_oid" type="OID" typeObject="_Ryj7cKUAEeaH7OKPPz799w"/>
       </operations>
@@ -909,13 +909,6 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_R1GSGKUAEeaH7OKPPz799w"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_R1GSGaUAEeaH7OKPPz799w" type="7004">
-        <children xmi:type="notation:Node" xmi:id="_djB40KUAEeaH7OKPPz799w" type="3004" element="_di1rkKUAEeaH7OKPPz799w">
-          <children xmi:type="notation:DecorationNode" xmi:id="_djB41aUAEeaH7OKPPz799w" type="5004"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_djB40aUAEeaH7OKPPz799w"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_djB40qUAEeaH7OKPPz799w" fontName="Segoe UI"/>
-          <styles xmi:type="notation:FillStyle" xmi:id="_djB406UAEeaH7OKPPz799w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_djB41KUAEeaH7OKPPz799w"/>
-        </children>
         <children xmi:type="notation:Node" xmi:id="_BxaWkaUBEeaH7OKPPz799w" type="3004" element="_BxUP8KUBEeaH7OKPPz799w">
           <children xmi:type="notation:DecorationNode" xmi:id="_BxaWlqUBEeaH7OKPPz799w" type="5004"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_BxaWkqUBEeaH7OKPPz799w"/>
