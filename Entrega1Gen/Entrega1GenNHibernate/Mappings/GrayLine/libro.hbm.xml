@@ -19,7 +19,7 @@
 						<column name="portada"  not-null="true"/>
 					</property>
 					<property name="Descripcion" type="string"> 
-						<column name="descripcion"  not-null="true"/>
+						<column name="descripcion" sql-type="varchar(max)" not-null="true"/>
 					</property>
 					<property name="Fecha" type="date"> 
 						<column name="fecha"  not-null="true"/>

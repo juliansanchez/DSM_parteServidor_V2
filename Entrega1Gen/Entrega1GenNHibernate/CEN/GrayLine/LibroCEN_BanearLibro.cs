@@ -24,26 +24,24 @@ public void BanearLibro (int p_Libro_OID)
         /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Libro_banearLibro) ENABLED START*/
 
         // Write here your custom code...
-            try
-            {
+        try
+        {
                 // capturamos el usuario baneado
-                
-                LibroEN libroEN = _ILibroCAD.ReadOIDDefault(p_Libro_OID);
 
-                if (p_Libro_OID != null && libroEN.Baneado == false)
-                {
-                    libroEN.Baneado = true;
-                    _ILibroCAD.ModifyDefault(libroEN);
-                    
+                LibroEN libroEN = _ILibroCAD.ReadOIDDefault (p_Libro_OID);
+
+                if (p_Libro_OID != null && libroEN.Baneado == false) {
+                        libroEN.Baneado = true;
+                        _ILibroCAD.ModifyDefault (libroEN);
                 }
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(ex.InnerException);
+        }
+        catch (Exception ex)
+        {
+                System.Console.WriteLine (ex.InnerException);
                 throw ex;
-            }
+        }
 
-        
+
 
         /*PROTECTED REGION END*/
 }

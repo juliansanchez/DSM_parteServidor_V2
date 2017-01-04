@@ -13,7 +13,7 @@
 			
 					
 					<property name="Texto_comentario" type="string"> 
-						<column name="texto_comentario"  not-null="true"/>
+						<column name="texto_comentario" sql-type="varchar(max)" not-null="true"/>
 					</property>
 					<property name="Baneado" type="boolean"> 
 						<column name="baneado"  not-null="true"/>

@@ -25,24 +25,23 @@ public void BanearComentario (int p_Comentario_OID)
 
         // Write here your custom code...
 
-    try
-    {
-        // capturamos el usuario baneado
-        
-        ComentarioEN comentarioEN = _IComentarioCAD.ReadOIDDefault(p_Comentario_OID);
-
-        /* Como comprobamos que el que realiza la accion es el administrador??*/
-        if (p_Comentario_OID != null && comentarioEN.Baneado == false)
+        try
         {
-            comentarioEN.Baneado = true;
-            _IComentarioCAD.ModifyDefault(comentarioEN);
+                // capturamos el usuario baneado
+
+                ComentarioEN comentarioEN = _IComentarioCAD.ReadOIDDefault (p_Comentario_OID);
+
+                /* Como comprobamos que el que realiza la accion es el administrador??*/
+                if (p_Comentario_OID != null && comentarioEN.Baneado == false) {
+                        comentarioEN.Baneado = true;
+                        _IComentarioCAD.ModifyDefault (comentarioEN);
+                }
         }
-    }
-    catch (Exception ex)
-    {
-        System.Console.WriteLine(ex.InnerException);
-        throw ex;
-    }
+        catch (Exception ex)
+        {
+                System.Console.WriteLine (ex.InnerException);
+                throw ex;
+        }
 
 
         /*PROTECTED REGION END*/

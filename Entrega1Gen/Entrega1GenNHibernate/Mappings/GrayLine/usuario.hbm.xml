@@ -28,7 +28,7 @@
 						<column name="foto"  not-null="true"/>
 					</property>
 					<property name="Bibliografia" type="string"> 
-						<column name="bibliografia"  not-null="true"/>
+						<column name="bibliografia" sql-type="varchar(max)" not-null="true"/>
 					</property>
 					<property name="Baneado" type="boolean"> 
 						<column name="baneado"  not-null="true"/>
