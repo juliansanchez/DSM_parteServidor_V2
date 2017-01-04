@@ -277,28 +277,5 @@ public System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.Coment
 
         return result;
 }
-public void BanearComentario (ComentarioEN comentario)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                ComentarioEN comentarioEN = (ComentarioEN)session.Load (typeof(ComentarioEN), comentario.Id);
-                session.Update (comentarioEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in ComentarioCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 }
 }

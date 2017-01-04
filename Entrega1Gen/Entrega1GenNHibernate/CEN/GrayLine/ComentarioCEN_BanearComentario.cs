@@ -21,17 +21,29 @@ public partial class ComentarioCEN
 {
 public void BanearComentario (int p_Comentario_OID)
 {
-        /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Comentario_banearComentario_customized) ENABLED START*/
+        /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Comentario_banearComentario) ENABLED START*/
 
-        ComentarioEN comentarioEN = null;
+        // Write here your custom code...
 
-        //Initialized ComentarioEN
-        comentarioEN = new ComentarioEN ();
-        comentarioEN.Id = p_Comentario_OID;
-        comentarioEN.Baneado = true;
-        //Call to ComentarioCAD
+    try
+    {
+        // capturamos el usuario baneado
+        
+        ComentarioEN comentarioEN = _IComentarioCAD.ReadOIDDefault(p_Comentario_OID);
 
-        _IComentarioCAD.BanearComentario (comentarioEN);
+        /* Como comprobamos que el que realiza la accion es el administrador??*/
+        if (p_Comentario_OID != null && comentarioEN.Baneado == false)
+        {
+            comentarioEN.Baneado = true;
+            _IComentarioCAD.ModifyDefault(comentarioEN);
+        }
+    }
+    catch (Exception ex)
+    {
+        System.Console.WriteLine(ex.InnerException);
+        throw ex;
+    }
+
 
         /*PROTECTED REGION END*/
 }

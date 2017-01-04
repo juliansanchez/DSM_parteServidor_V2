@@ -611,28 +611,5 @@ public void NumValoraciones (LibroEN libro)
                 SessionClose ();
         }
 }
-public void BanearLibro (LibroEN libro)
-{
-        try
-        {
-                SessionInitializeTransaction ();
-                LibroEN libroEN = (LibroEN)session.Load (typeof(LibroEN), libro.Id_libro);
-                session.Update (libroEN);
-                SessionCommit ();
-        }
-
-        catch (Exception ex) {
-                SessionRollBack ();
-                if (ex is Entrega1GenNHibernate.Exceptions.ModelException)
-                        throw ex;
-                throw new Entrega1GenNHibernate.Exceptions.DataLayerException ("Error in LibroCAD.", ex);
-        }
-
-
-        finally
-        {
-                SessionClose ();
-        }
-}
 }
 }

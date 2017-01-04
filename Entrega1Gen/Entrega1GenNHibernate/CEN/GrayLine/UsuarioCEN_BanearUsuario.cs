@@ -29,7 +29,6 @@ public void BanearUsuario (string p_oid)
                 // capturamos el usuario baneado
                 UsuarioEN usuarioEN = _IUsuarioCAD.ReadOIDDefault (p_oid);
 
-                /* Como comprobamos que el que realiza la accion es el administrador??*/
                 if (p_oid != null && usuarioEN.Baneado == false) {
                         usuarioEN.Baneado = true;
                         _IUsuarioCAD.ModifyDefault (usuarioEN);

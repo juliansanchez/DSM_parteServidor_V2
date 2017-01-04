@@ -13,7 +13,7 @@
 						<column name="nombre"  not-null="true"/>
 					</property>
 					<property name="Contrasenya" type="string"> 
-						<column name="contrasenya"  unique="true" not-null="true"/>
+						<column name="contrasenya"  not-null="true"/>
 					</property>
 					<property name="Email" type="string"> 
 						<column name="email"  unique="true" not-null="true"/>

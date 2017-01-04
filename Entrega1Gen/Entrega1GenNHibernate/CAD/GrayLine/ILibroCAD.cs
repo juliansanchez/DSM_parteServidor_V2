@@ -62,8 +62,5 @@ System.Collections.Generic.IList<Entrega1GenNHibernate.EN.GrayLine.LibroEN> Mejo
 
 
 void NumValoraciones (LibroEN libro);
-
-
-void BanearLibro (LibroEN libro);
 }
 }

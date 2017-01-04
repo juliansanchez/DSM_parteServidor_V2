@@ -21,18 +21,29 @@ public partial class LibroCEN
 {
 public void BanearLibro (int p_Libro_OID)
 {
-        /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Libro_banearLibro_customized) ENABLED START*/
+        /*PROTECTED REGION ID(Entrega1GenNHibernate.CEN.GrayLine_Libro_banearLibro) ENABLED START*/
 
-        LibroEN libroEN = null;
+        // Write here your custom code...
+            try
+            {
+                // capturamos el usuario baneado
+                
+                LibroEN libroEN = _ILibroCAD.ReadOIDDefault(p_Libro_OID);
 
-        //Initialized LibroEN
-        libroEN = new LibroEN ();
-        libroEN.Id_libro = p_Libro_OID;
-        libroEN.Baneado = true;
+                if (p_Libro_OID != null && libroEN.Baneado == false)
+                {
+                    libroEN.Baneado = true;
+                    _ILibroCAD.ModifyDefault(libroEN);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.InnerException);
+                throw ex;
+            }
 
-        //Call to LibroCAD
-
-        _ILibroCAD.BanearLibro (libroEN);
+        
 
         /*PROTECTED REGION END*/
 }
